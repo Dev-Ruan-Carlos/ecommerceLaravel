@@ -1,0 +1,535 @@
+/* ---------- LOGIN ---------- */
+
+.fundoazul {
+  background: #0264d6;
+  background: radial-gradient(ellipse at center, #0264d6 1%,#1c2b5a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0264d6', endColorstr='#1c2b5a',GradientType=1 );
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+}
+
+#login form {
+  width: 250px;
+  margin-right: 2rem;
+}
+#login, .logo {
+  display:inline-block;
+}
+#login {
+  border-right:1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo{
+  color:#fff;
+  font-size:50px;
+  line-height: 125px;
+  border-left: 1px solid #FFF;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+.logo img{
+  height: 200px;
+  width: 200px;
+  border-radius: 114px;
+}
+
+#login form span.fa {
+  background-color: #fff;
+  border-radius: 3px 0px 0px 3px;
+  color: #000;
+  display: block;
+  float: left;
+  height: 50px;
+  font-size:24px;
+  line-height: 50px;
+  text-align: center;
+  width: 50px;
+}
+
+#login form input {
+  height: 50px;
+}
+fieldset{
+  padding:0;
+  border:0;
+  margin: 0;
+}
+#login form input {
+  background-color: #fff;
+  border-radius: 0px 3px 3px 0px;
+  color: #000;
+  margin-bottom: 1em;
+  padding: 0 16px;
+  width: 200px;
+}
+
+.button {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color: #000000;
+  color: #eee;
+  font-weight: bold;
+  /* margin-bottom: 2em; */
+  text-transform: uppercase;
+  padding: 5px 9px;
+}
+
+.button:hover {
+  background-color: white;
+  color: #000;
+  transition: 300ms;
+}
+
+#login > p {
+  text-align: center;
+}
+
+#login > p span {
+  padding-left: 5px;
+}
+.middle {
+  display: flex;
+  width: 600px;
+}
+
+.error{
+  color: white;
+  background-color: red;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+/* Tela de cadastro */
+
+#cadastro form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 7px;
+}
+
+.h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: black
+}
+
+/* .form-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+} */
+
+.form-input input {
+  width: 225px;
+  height: 40px;
+  border: 1.5px solid #000;
+  border-radius: 7px;
+  padding: 0.3rem 0.3rem 0.5rem 0.5rem;
+  margin-left: 1rem;
+}
+
+.form-input label {
+  font-size: 17px;
+  color: black;
+  margin-left: 0.5rem;
+}
+
+.direcionamento {
+  color: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  text-decoration:none;
+  outline: 0;
+  list-style:none;
+  /* color: #5d5d5d; */
+  color: inherit;
+}
+
+.flex, .flex-c, .flex-cr, .flex-r, .flex-w, .flex-jb, .flex-jc, .flex-js, .flex-je, .flex-as, .flex-ac, .flex-ae, .flex-ja, .flex-ab{
+  display: flex;
+}
+.flex-c{flex-direction: column;}
+.flex-cr{flex-direction: column-reverse;}
+.flex-r{flex-direction: row;}
+.flex-w{flex-wrap: wrap;}
+.flex-jb{justify-content: space-between;}
+.flex-ja{justify-content: space-around;}
+.flex-jc{justify-content: center;}
+.flex-js{justify-content: flex-start;}
+.flex-je{justify-content: flex-end;}
+.flex-as{align-items: flex-start;}
+.flex-ac{align-items: center;}
+.flex-ae{align-items: flex-end;}
+.flex-ab{align-items: baseline;}
+
+.text-c{text-align: center;}
+.text-r{text-align: right;}
+.text-l{text-align: left;}
+.text-j{text-align: justify;}
+
+.m-0{margin: 0rem;}
+.m-0-important{margin: 0rem !important;}
+.m-025{margin: .25rem;}
+.m-05{margin: .5rem;}
+.m-1{margin: 1rem;}
+.m-2{margin: 2rem;}
+.m-3{margin: 3rem;}
+.m-4{margin: 4rem;}
+.m-5{margin: 5rem;}
+
+.mt-0{margin-top: 0rem;}
+.mt-025{margin-top: .25rem;}
+.mt-05{margin-top: .5rem;}
+.mt-1{margin-top: 1rem;}
+.mt-2{margin-top: 2rem;}
+.mt-3{margin-top: 3rem;}
+.mt-4{margin-top: 4rem;}
+.mt-5{margin-top: 5rem;}
+.mt-6{margin-top: 6rem;}
+.mt-7{margin-top: 7rem;}
+
+.mr-0{margin-right: 0rem;}
+.mr-05{margin-right: .5rem;}
+.mr-1{margin-right: 1rem;}
+.mr-2{margin-right: 2rem;}
+.mr-3{margin-right: 3rem;}
+.mr-4{margin-right: 4rem;}
+.mr-5{margin-right: 5rem;}
+
+.mb-0{margin-bottom: 0rem;}
+.mb-025{margin-bottom: .25rem;}
+.mb-05{margin-bottom: .5rem;}
+.mb-1{margin-bottom: 1rem;}
+.mb-2{margin-bottom: 2rem;}
+.mb-3{margin-bottom: 3rem;}
+.mb-4{margin-bottom: 4rem;}
+.mb-5{margin-bottom: 5rem;}
+.mb-6{margin-bottom: 6rem;}
+
+.ml-0{margin-left: 0rem;}
+.ml-05{margin-left: .5rem;}
+.ml-1{margin-left: 1rem;}
+.ml-2{margin-left: 2rem;}
+.ml-3{margin-left: 3rem;}
+.ml-4{margin-left: 4rem;}
+.ml-5{margin-left: 5rem;}
+
+.mt-auto{margin-top: auto;}
+
+.p-0-important{padding: 0rem !important;}
+.p-025{padding: .25rem;}
+.p-0{padding: 0rem;}
+.p-05{padding: .5rem;}
+.p-1{padding: 1rem;}
+.p-2{padding: 2rem;}
+.p-3{padding: 3rem;}
+.p-4{padding: 4rem;}
+.p-5{padding: 5rem;}
+.p-6{padding: 6rem;}
+
+.pt-0-important{padding-top: 0rem !important;}
+.pt-0{padding-top: 0rem;}
+.pt-05{padding-top: .5rem;}
+.pt-1{padding-top: 1rem;}
+.pt-2{padding-top: 2rem;}
+.pt-3{padding-top: 3rem;}
+.pt-4{padding-top: 4rem;}
+.pt-5{padding-top: 5rem;}
+.pt-6{padding-top: 6rem;}
+
+.pr-0{padding-right: 0rem;}
+.pr-02{padding-right: .2rem;}
+.pr-05{padding-right: .5rem;}
+.pr-1{padding-right: 1rem;}
+.pr-2{padding-right: 2rem;}
+.pr-2-important{padding-right: 2rem !important;}
+.pr-3{padding-right: 3rem;}
+.pr-4{padding-right: 4rem;}
+.pr-5{padding-right: 5rem;}
+
+.pb-0-important{padding-bottom: 0rem !important;}
+.pb-0{padding-bottom: 0rem;}
+.pb-05{padding-bottom: .5rem;}
+.pb-1{padding-bottom: 1rem;}
+.pb-2{padding-bottom: 2rem;}
+.pb-3{padding-bottom: 3rem;}
+.pb-4{padding-bottom: 4rem;}
+.pb-5{padding-bottom: 5rem;}
+.pb-6{padding-bottom: 6rem;}
+
+.pl-0{padding-left: 0rem;}
+.pl-02{padding-left: .2rem;}
+.pl-05{padding-left: .5rem;}
+.pl-1{padding-left: 1rem;}
+.pl-15{padding-left: 1.5rem;}
+.pl-2{padding-left: 2rem;}
+.pl-3{padding-left: 3rem;}
+.pl-4{padding-left: 4rem;}
+.pl-5{padding-left: 5rem;}
+
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}
+
+.blue {
+  color: blue;
+}
+
+body {
+  background-color: rgb(247, 244, 240);
+}
+
+.main {
+  position: fixed;
+  width: 80%;
+  height: 750px;
+  margin-left: 195px;
+  margin-top: 20px;
+}
+
+.aside {  
+  position: fixed;
+  width: 20%;
+  height: 785px;
+  top: 162px;
+  margin-left: 1px;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 122px;
+}
+
+.head {
+  position: relative;
+  width: 100%;
+  height: 122px;
+}
+
+.bemvindo {
+  position: relative;
+  right: 517px;
+  bottom: 77px;
+  font-size: 15px;
+}
+
+.icone-registro {
+  position: relative;
+  right: 524px;
+  bottom: 76px;
+  font-size: 30px;
+}
+
+.entre-registre {
+  position: absolute;
+  right: 629px;
+  bottom: 39px;
+  text-decoration: underline;
+}
+
+.cadastre-registre {
+  position: relative;
+  right: 522px;
+  bottom: 79px;
+  text-decoration: underline;
+}
+
+.ou {
+  position: relative;
+  right: 544px;
+  bottom: 61px;
+}
+
+.logosite {
+  max-width: 90px;
+  border-radius: 62px;
+  left: 200px;
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.faixademonstracao {
+  background-color: #0084ff;
+  width: 100%;
+  height: 40px;
+  /* margin-top: 107px; */
+}
+
+.faixademonstracao {
+  border-bottom: solid 2px black;
+  border-top: solid 2px black
+}
+
+.demonstracao {
+  font-size: 15px;
+  margin-top: 8px;
+  color: white;
+}
+
+.tela-form {
+  background-color: white;
+  height: 450px;
+  width: 36%;
+  border-radius: 10px;
+  font-size: 23px;
+}
+
+.centralizar {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  position: fixed;
+}
+
+.position {
+  position: absolute;
+  display: flex;
+}
+
+.card-produto {
+  display: inline-block;
+  border-radius: 10px;
+  background: white;
+  padding: 1rem;
+  border: solid 2px black;;
+}
+
+.comprar {
+  background-color: #0084ff;
+  color: white;
+  width: 100%;
+  position: relative;
+  height: 23px;
+  margin-top: 13px;
+  border-radius: 3px;
+}
+
+.faixademonstracao:hover {
+  background-color: blue;
+}
+
+.comprar:hover {
+  background-color: blue;
+}
+
+.inputo {
+  border: solid 1px black;
+  border-radius: 4px;
+}
+
+.produto {
+  width: 400px;
+  padding: 2px 27px 2px 27px;
+}
+
+.quantidade {
+  position: relative;
+  left: 89px;
+  width: 186px;
+  padding: 2px 27px 2px 27px;
+}
+
+.precocusto {
+  position: relative;
+  left: 60px;
+  width: 136px;
+  padding: 2px 27px 2px 27px;
+}
+
+.precovenda {
+  position: relative;
+  left: 53px;
+  width: 136px;
+  padding: 2px 27px 2px 27px;
+}
+
+.precopromocao {
+  position: relative;
+  left: 16px;
+  width: 136px;
+  padding: 2px 27px 2px 27px;
+}
+
+.button-cad {
+  background: red;
+  min-width: 84px;
+  width: 108px;
+  position: relative;
+  height: 33px;
+  border-radius: 5px;
+}
+
+.button-cad:hover {
+  background-color: rgb(85, 20, 20);
+  color: white;
+}
+
+.voltainicio {
+  position: relative;
+  top: 46px;
+  left: 145px;
+}
+
+.cad-inicioo {
+  position: relative;
+  left: 269px;
+}
+
+.corpo-produtos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem;
+  margin-top: 3rem;
+}
+
+.campo-maior {
+  background: white;
+  display: flex;
+  width: 1030px;
+  height: 148px;
+  margin-left: 16rem;
+  /* position: absolute; */
+  margin-top: 3.5rem;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px #00000033;
+}
+
+.info-carrinho {
+  background: white;
+  position: relative;
+  width: 321px;
+  height: 380px;
+  display: flex;
+  left: 1302px;
+  top: -149px;
+  border-radius: 1.5rem;
+  box-shadow: 0px 0px 10px #00000033;
+}
