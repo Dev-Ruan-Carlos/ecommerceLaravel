@@ -6,6 +6,7 @@ use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\FinalizacaoController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LoginPagamentoController;
 use App\Models\Carrinho;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,11 @@ Route::prefix('carrinho')->group(function(){
     Route::get('quantidades', [CarrinhoController::class, 'quantidades'])->name('quantidades');
 });
 
+Route::prefix('loginFinalizacao')->group(function(){
+    Route::get('loginPagamento', [LoginPagamentoController::class, 'loginPagamento'])->name('loginPagamento');
+    Route::post('entrarPagamento', [LoginPagamentoController::class, 'entrarPagamento'])->name('entrarPagamento');
+});
+
 Route::prefix('finalizacao')->group(function(){
-    Route::get('indexFinalizacao', [FinalizacaoController::class, 'indexFinalizacao'])->name('indexFinalizacao');
+    Route::post('indexFinalizacao', [FinalizacaoController::class, 'indexFinalizacao'])->name('indexFinalizacao');
 });

@@ -28,10 +28,10 @@
             @foreach ($produto as $p)
                 <div class="card-produto">
                     <p class="">{{"Nome do produto: " . $p->produto}}</p>
-                    <p class="">{{"Quantidade disponível: " . $p->quantidade}}</p>
-                    <p class="">{{"Preço de custo R$: " . $p->precocusto}}</p>
-                    <p class="">{{"Preço de venda R$: " . $p->precovenda}}</p>
-                    <p class="">{{"Preço de promoção R$: " . $p->precopromocao}}
+                    <p class="">{{"Quantidade disponível: " . number_format($p->quantidade, 4, ',', '.' )}}</p>
+                    <p class="">{{"Preço de custo R$: " . number_format($p->precocusto, 2, ',', '.' )}}</p>
+                    <p class="">{{"Preço de venda R$: " . number_format($p->precovenda, 2, ',', '.' )}}</p>
+                    <p class="">{{"Preço de promoção R$: " . number_format($p->precopromocao, 2, ',', '.' )}}
                         <a href="{{route('carrinho.adicionaritem', $p->controle)}}">
                             <button type="button" class="comprar">Adicionar ao carrinho</button>
                         </a>

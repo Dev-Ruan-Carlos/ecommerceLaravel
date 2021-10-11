@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('body')
 @csrf
+@method('POST')
 <main class="fundoazul centralizar">
     @if(session()->has('produto.cadproduto'))
         <div class="alert alert-success flex-jc">
