@@ -18,8 +18,8 @@
                 <span class="quantidade-produto">{{"Quantidade á comprar = " . number_format($item->quantidade, 4, ',', '.' )}}</span>
                 <span style="display: flex; position: relative; top: 43px; left: 73px;">Preço venda</span>
                 <span class="venda-item">{{"R$ " . number_format($item->precovenda, 2, ',', '.' )}}</span>
-                <span style="display: flex; position: relative; left: 66px; top: 43px;">Promoção</span>
-                <span class="promocao-item">{{"R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span>
+                {{-- <span style="display: flex; position: relative; left: 66px; top: 43px;">Promoção</span>
+                <span class="promocao-item">{{"R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span> --}}
                 <span style="display: flex; position: relative; left: 57px; top: 45px;">Valor subtotal</span>
                 <span class="total-item">{{"R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
             </article>
