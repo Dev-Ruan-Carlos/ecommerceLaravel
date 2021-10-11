@@ -41,4 +41,9 @@ class CarrinhoController extends Controller
         $carrinho->itens()->save($carrinhoItem);
         return redirect()->route('acesso');
     }
+
+    public function quantidades($id){
+        $quantidades = Carrinho::where('controle', $id)->count();
+        dd($quantidades);
+    }
 }

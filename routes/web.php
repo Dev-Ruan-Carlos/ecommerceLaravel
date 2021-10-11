@@ -3,8 +3,10 @@
 use App\Http\Controllers\CadastroProdutoController;
 use App\Http\Controllers\CadastroUserController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\FinalizacaoController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\LoginController;
+use App\Models\Carrinho;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,5 +45,9 @@ Route::prefix('carrinho')->group(function(){
     Route::get('prodCarrinho', [CarrinhoController::class, 'prodCarrinho'])->name('prodcarrinho');
     Route::get('acesso', [CarrinhoController::class, 'accessInfo'])->name('acesso');
     Route::get('adicionaritem/{id}', [CarrinhoController::class, 'adicionaritem'])->name('carrinho.adicionaritem');
+    Route::get('quantidades', [CarrinhoController::class, 'quantidades'])->name('quantidades');
 });
 
+Route::prefix('finalizacao')->group(function(){
+    Route::get('indexFinalizacao', [FinalizacaoController::class, 'indexFinalizacao'])->name('indexFinalizacao');
+});

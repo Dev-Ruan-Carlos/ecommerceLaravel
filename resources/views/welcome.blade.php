@@ -21,11 +21,9 @@
     </header>
     <aside class="aside"></aside>
     <nav class="nav"></nav>
-    <nav class="faixademonstracao flex-jc">
-        <ul class="demonstracao flex-jc">Versão demonstrativa</ul>
-    </nav>
+    <div class="linha-horizontal black mt-2"></div>
     <main class="flex-c flex-ac main">
-        <h1>Produtos em ofertas</h1>
+        <h1 class="mt-1">Produtos em ofertas</h1>
         <div class="corpo-produtos">
             @foreach ($produto as $p)
                 <div class="card-produto">

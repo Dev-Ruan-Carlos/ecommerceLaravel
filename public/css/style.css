@@ -117,18 +117,18 @@ fieldset{
   border-radius: 7px;
 }
 
-.h1 {
+h1 {
   text-align: center;
   margin-bottom: 1.5rem;
   color: black
 }
 
-/* .form-input {
+.form-input {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
-} */
+}
 
 .form-input input {
   width: 225px;
@@ -350,7 +350,7 @@ body {
 .entre-registre {
   position: absolute;
   right: 629px;
-  bottom: 39px;
+  bottom: 23px;
   text-decoration: underline;
 }
 
@@ -372,20 +372,8 @@ body {
   border-radius: 62px;
   left: 200px;
   position: relative;
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
-}
-
-.faixademonstracao {
-  background-color: #0084ff;
-  width: 100%;
-  height: 40px;
-  /* margin-top: 107px; */
-}
-
-.faixademonstracao {
-  border-bottom: solid 2px black;
-  border-top: solid 2px black
 }
 
 .demonstracao {
@@ -419,7 +407,8 @@ body {
   border-radius: 10px;
   background: white;
   padding: 1rem;
-  border: solid 2px black;;
+  border: solid 1px #00000021;
+  box-shadow: 2px 2px 19px 3px #00000014;
 }
 
 .comprar {
@@ -430,10 +419,6 @@ body {
   height: 23px;
   margin-top: 13px;
   border-radius: 3px;
-}
-
-.faixademonstracao:hover {
-  background-color: blue;
 }
 
 .comprar:hover {
@@ -513,7 +498,7 @@ body {
 .campo-maior {
   background: white;
   display: flex;
-  width: 1030px;
+  width: 1171px;
   height: 148px;
   margin-left: 16rem;
   /* position: absolute; */
@@ -524,12 +509,128 @@ body {
 
 .info-carrinho {
   background: white;
-  position: relative;
+  position: fixed;
   width: 321px;
   height: 380px;
   display: flex;
-  left: 1302px;
-  top: -149px;
+  left: 1455px;
+  top: 147px;
   border-radius: 1.5rem;
   box-shadow: 0px 0px 10px #00000033;
+  padding: 1rem;
+}
+
+.nome-produto {
+  display: flex;
+  font-size: 26px;
+  align-items: center;
+  margin-left: 1rem;
+  width: 379px;
+}
+
+.custo-item {
+  display: flex;
+  position: relative;
+  top: 62px;
+  left: 18px;
+}
+
+.venda-item {
+  display: flex;
+  position: relative;
+  top: 65px;
+  left: -5px;
+}
+
+.total-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: -9px;
+}
+
+.promocao-item {
+  display: flex;
+  align-items: center;
+}
+
+.quantidade-produto {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  left: 31px;
+  bottom: 16px;
+}
+
+.linha-horizontal {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, rgb(4, 3, 5), transparent);
+}
+
+.volta-carrinho {
+  display: flex;
+  position: absolute;
+  left: 1144px;
+  top: 139px;
+  font-size: 20px;
+}
+
+.voltar-catalogo, .finalizar-compra {
+  display: flex;
+  background: red;
+  width: 100%;
+  height: 29px;
+  font-size: 21px;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hover:hover {
+  background-color: aqua;
+}
+
+.x-button {
+  display: flex;
+  position: relative;
+  left: 0px;
+  top: 1px;
+  font-size: 30px;
+  border-radius: 32px;
+  height: 33px;
+  width: 33px;
+}
+
+.div-xbutton {
+  justify-content: center;
+  display: flex;
+  position: fixed;
+  left: 1317px;
+  top: 163px;
+  height: 45px;
+  width: 45px;
+}
+
+.tela-pagamento {
+  display: flex;
+  position: fixed;
+  background: white;
+  width: 610px;
+  height: 700px;
+  border-radius: 5px;
+  box-shadow: 4px 7px 10px 2px #f2f0f052;
+}
+
+.tela-form2 {
+  background-color: white;
+  height: 450px;
+  width: 36%;
+  border-radius: 10px;
+  font-size: 23px;
+  padding: 2rem;
+}
+
+.w-100{
+  width: 100%;
 }
