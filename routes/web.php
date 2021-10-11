@@ -8,6 +8,7 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LoginPagamentoController;
 use App\Models\Carrinho;
+use App\Models\CarrinhoItem;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +47,9 @@ Route::prefix('carrinho')->group(function(){
     Route::get('prodCarrinho', [CarrinhoController::class, 'prodCarrinho'])->name('prodcarrinho');
     Route::get('acesso', [CarrinhoController::class, 'accessInfo'])->name('acesso');
     Route::get('adicionaritem/{id}', [CarrinhoController::class, 'adicionaritem'])->name('carrinho.adicionaritem');
+    Route::get('incrementarItem/{id}', [CarrinhoController::class, 'incrementarItem'])->name('incrementarItem');
+    Route::get('delimitarItem/{id}', [CarrinhoController::class, 'delimitarItem'])->name('delimitarItem');
+    Route::get('deletarItem/{id}', [CarrinhoController::class, 'deletarItem'])->name('deletarItem');
     Route::get('quantidades', [CarrinhoController::class, 'quantidades'])->name('quantidades');
 });
 
@@ -55,5 +59,5 @@ Route::prefix('loginFinalizacao')->group(function(){
 });
 
 Route::prefix('finalizacao')->group(function(){
-    Route::post('indexFinalizacao', [FinalizacaoController::class, 'indexFinalizacao'])->name('indexFinalizacao');
+    Route::get('indexFinalizacao', [FinalizacaoController::class, 'indexFinalizacao'])->name('indexFinalizacao');
 });

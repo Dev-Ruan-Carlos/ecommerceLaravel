@@ -17,7 +17,15 @@
             <div class="campo-maior flex-jc">
                 <article style="display: flex; width: 100%;">
                     <span class="nome-produto">{{"Produto: " . $item->produto}}</span>
-                    <span class="quantidade-produto">{{"Quantidade á comprar = " . number_format($item->quantidade, 4, ',', '.' )}}</span>
+                    <div class="flex-ac">
+                        <span class="quantidade-produto">{{"Quantidade á comprar = " . number_format($item->quantidade, 4, ',', '.' )}}</span>
+                        <a href="{{route('incrementarItem', $item->controle)}}">
+                            <button type="button" class="mais">+</button>
+                        </a>
+                        <a href="{{route('delimitarItem', $item->controle)}}">
+                            <button type="button" class="menos ml-2">-</button>
+                        </a>
+                    </div>
                     <span style="display: flex; position: relative; top: 43px; left: 73px;">Preço venda</span>
                     <span class="venda-item">{{"R$ " . number_format($item->precovenda, 2, ',', '.' )}}</span>
                     {{-- <span style="display: flex; position: relative; left: 66px; top: 43px;">Promoção</span>
@@ -25,6 +33,9 @@
                     <span style="display: flex; position: relative; left: 57px; top: 45px;">Valor subtotal</span>
                     <span class="total-item">{{"R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
                 </article>
+                <a href="{{route('deletarItem', $item->controle)}}">
+                    <button type="button" class="deletar ml-2">Deletar</button>
+                </a>
             </div>
         @endforeach
     </div>
@@ -40,7 +51,7 @@
                 <a href="{{route('inicio')}}">
                     <button class="voltar-catalogo hover fas fa-arrow-circle-left">Ir para o catálogo</button>
                 </a>
-                <a href="{{route('loginPagamento')}}" class="">
+                <a href="{{route('indexFinalizacao')}}" class="">
                     <button class="finalizar-compra hover fas fa-money-bill-alt mt-1">Finalizar compra</button>
                 </a>
             </div>

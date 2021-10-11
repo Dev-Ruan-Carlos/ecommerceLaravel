@@ -41,4 +41,40 @@ class CarrinhoController extends Controller
         $carrinho->itens()->save($carrinhoItem);
         return redirect()->route('acesso');
     }
+
+
+    public function incrementarItem($id){
+        $carrinho = Carrinho::where('session', session()->getId())->first();
+        if($carrinho == null){
+            $carrinho = new Carrinho();
+            $carrinho->session = session()->getId();
+            $carrinho->save();
+        }
+        $carrinhoItem = $carrinho->itens()->find($id);
+        $carrinhoItem->quantidade = $carrinhoItem->quantidade + 1;
+        $carrinho->itens()->save($carrinhoItem);
+        return redirect()->route('acesso');
+    }
+
+    public function delimitarItem($id){
+        $carrinho = Carrinho::where('session', session()->getId())->first();
+        if($carrinho == null){
+            $carrinho = new Carrinho();
+            $carrinho->session = session()->getId();
+            $carrinho->save();
+        }
+        $carrinhoItem = $carrinho->itens()->find($id);
+        $carrinhoItem->quantidade = $carrinhoItem->quantidade - 1;
+        if($carrinhoItem->quantidade <= 0){
+            $this->deletarItem($id);
+        }else{
+            $carrinho->itens()->save($carrinhoItem);
+        }
+        return redirect()->route('acesso'); 
+    }
+
+    public function deletarItem($id){
+        CarrinhoItem::find($id)->delete();
+        return redirect()->route('acesso'); 
+    }
 }
