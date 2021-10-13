@@ -88,18 +88,22 @@ class CarrinhoController extends Controller
             $user = Auth::user();
             $carrinho->codusuario = $user->id;
             $carrinho->save();
+        }else{
+            return redirect()->route('loginPagamento');
         }
         $pedido = new Pedido();
         $pedido->codusuario = $carrinho->codusuario;
         $pedido->save();
         foreach( $carrinho->itens as $carrinhoItem ){
             $pedidoItem =  new PedidoItem();
-            $pedidoItem->codcarrinho = $carrinhoItem->codcarrinho;
+            $pedidoItem->codpedido = $pedido->controle;
             $pedidoItem->codproduto = $carrinhoItem->codproduto;
             $pedidoItem->quantidade = $carrinhoItem->quantidade;
             $pedidoItem->valorun = $carrinhoItem->precovenda;
             $pedidoItem->save();
-            dd($pedidoItem);
+            $carrinhoItem->delete();
         }
+        $carrinho->delete();
+        return redirect()->route('indexFinalizacao', $pedido->controle);
     }
 }

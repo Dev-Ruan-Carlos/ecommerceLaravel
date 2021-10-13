@@ -61,5 +61,5 @@ Route::prefix('loginFinalizacao')->group(function(){
 });
 
 Route::prefix('finalizacao')->group(function(){
-    Route::post('indexFinalizacao', [FinalizacaoController::class, 'indexFinalizacao'])->name('indexFinalizacao');
+    Route::get('indexFinalizacao/{id}', [FinalizacaoController::class, 'indexFinalizacao'])->name('indexFinalizacao');
 });

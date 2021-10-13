@@ -11,4 +11,8 @@ class PedidoItem extends Model
     protected $primaryKey = 'controle';
     protected $connection = 'criador';
     public $timestamps = false;
+
+    public function produto() {
+        return $this->hasOne('App\Models\Produto', 'controle', 'codproduto');
+    }
 }

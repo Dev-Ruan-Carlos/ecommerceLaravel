@@ -672,3 +672,9 @@ body {
 .w-100 {
   width: 100%;
 }
+
+.valorun {
+  display: flex;
+  position: relative;
+  right: 20px;
+}

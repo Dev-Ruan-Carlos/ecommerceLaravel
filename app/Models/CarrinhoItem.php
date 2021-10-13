@@ -11,4 +11,5 @@ class CarrinhoItem extends Model
     protected $primaryKey = 'controle';
     protected $connection = 'criador';
     public $timestamps = false;
+
 }

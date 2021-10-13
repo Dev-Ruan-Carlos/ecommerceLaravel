@@ -12,7 +12,11 @@ class Pedido extends Model
     protected $connection = 'criador';
     public $timestamps = false;
 
-    public function usuarios() {
-        return $this->hasOne('App\Models\User', 'codusuario', 'controle');
+    public function usuario() {
+        return $this->hasOne('App\Models\User', 'id', 'codusuario');
+    }
+
+    public function pedidoItens() {
+        return $this->hasMany('App\Models\PedidoItem', 'codpedido', 'controle');
     }
 }
