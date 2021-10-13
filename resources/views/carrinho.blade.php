@@ -51,7 +51,7 @@
                 <a href="{{route('inicio')}}">
                     <button class="voltar-catalogo hover fas fa-arrow-circle-left">Ir para o catálogo</button>
                 </a>
-                <a href="{{route('indexFinalizacao')}}" class="">
+                <a href="{{route('salvar')}}" class="">
                     <button class="finalizar-compra hover fas fa-money-bill-alt mt-1">Finalizar compra</button>
                 </a>
             </div>

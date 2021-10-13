@@ -5,18 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Carrinho extends Model
+class Pedido extends Model
 {
-    protected $table = 'tcarrinho';
+    protected $table = 'tpedido';
     protected $primaryKey = 'controle';
     protected $connection = 'criador';
     public $timestamps = false;
 
-    public function itens() {
-        return $this->hasMany('App\Models\CarrinhoItem', 'codcarrinho', 'controle');
-    }
-
     public function usuarios() {
-        return $this->hasMany('App\Models\User', 'codusuario', 'controle');
+        return $this->hasOne('App\Models\User', 'codusuario', 'controle');
     }
 }

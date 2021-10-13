@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carrinho;
 use App\Models\CarrinhoItem;
+use App\Models\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class FinalizacaoController extends Controller
 {
     public function indexFinalizacao() {
-        // $user = Auth::user();
-        $carrinhoItem = CarrinhoItem::where('controle');
-        dd($carrinhoItem);
-        // return view ('finalizacao');
+        return view('finalizacao')
     }
 }

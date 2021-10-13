@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Carrinho;
 use App\Models\CarrinhoItem;
+use App\Models\Pedido;
+use App\Models\PedidoItem;
 use App\Models\Produto;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CarrinhoController extends Controller
 {
@@ -76,5 +80,26 @@ class CarrinhoController extends Controller
     public function deletarItem($id){
         CarrinhoItem::find($id)->delete();
         return redirect()->route('acesso'); 
+    }
+
+    public function salvar(){
+        $carrinho = Carrinho::where('session', session()->getId())->first();
+        if(Auth::check()){
+            $user = Auth::user();
+            $carrinho->codusuario = $user->id;
+            $carrinho->save();
+        }
+        $pedido = new Pedido();
+        $pedido->codusuario = $carrinho->codusuario;
+        $pedido->save();
+        foreach( $carrinho->itens as $carrinhoItem ){
+            $pedidoItem =  new PedidoItem();
+            $pedidoItem->codcarrinho = $carrinhoItem->codcarrinho;
+            $pedidoItem->codproduto = $carrinhoItem->codproduto;
+            $pedidoItem->quantidade = $carrinhoItem->quantidade;
+            $pedidoItem->valorun = $carrinhoItem->precovenda;
+            $pedidoItem->save();
+            dd($pedidoItem);
+        }
     }
 }
