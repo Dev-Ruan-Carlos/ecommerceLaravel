@@ -738,4 +738,39 @@ body {
   bottom: -4px;
 }
 
+.footer-finalizacao {
+  display: flex;
+  position: absolute;
+  bottom: 86px;
+  background: white;
+  width: 159px;
+  height: 21px;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 1rem;
+  cursor: pointer;
+}
 
+.button-finalizacao {
+  background: white;
+  font-size: 16px;
+  border-radius: 1rem;
+}
+
+.button-finalizacao:hover, .footer-finalizacao:hover  {
+  background-color: red;
+  color:black;
+}
+
+.alert {
+  display: flex;
+  position: absolute;
+  color: white;
+  width: 241px;
+  right: 832px;
+  background: red;
+  top: 12px;
+  border-radius: 6px;
+  padding: 1rem;
+  align-items: center;
+}

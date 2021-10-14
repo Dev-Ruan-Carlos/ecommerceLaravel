@@ -4,7 +4,12 @@
 @csrf
 @method('POST')
     <div class="fundoazul flex-jc flex-ac">
-        <div class="tela-pagamento flex-c p-2">
+        @if(session()->has('finalizacao'))
+            <div class="alert alert-success">
+                {{ session()->get('finalizacao') }}
+            </div>
+        @endif
+        <div class="tela-pagamento flex-c p-2 mb-1">
             <h2 class="flex-jc">{{"Compra nº " . $pedido->numpedido}}</h2>
             <h3 class="black mt-2">Dados para retidada</h3>
             <div class="flex-c">
@@ -24,7 +29,7 @@
                 $totalPromo = 0;
                 $desconto = 0;
             @endphp
-            <h3 class="mt-3">Produtos</h3>
+            <h3 class="mt-2">Produtos</h3>
             <div class="flex-c mt-1 h-100 flex-jb">
                 <table class="w-100">
                     <tr class="w-100">
@@ -62,28 +67,43 @@
                 </table>
                 <h3 class="mt-1">Totalizadores</h3>
                 <div class="flex-c">
-                    <div class="flex-jb">
-                        <span class="">Quantidade: </span>
-                        <span class=""><strong>{{number_format($quantidadeTotal, 3, ',', '.' )}}</strong></span>
-                    </div>
                     <div class="flex-jb mt-1">
                         <span class="">Valor Total: </span>
-                        <span class=""><strong>{{number_format($valorTotal, 2, ',', '.' )}}</strong></span>
+                        <span class="">{{number_format($valorTotal, 2, ',', '.' )}}</span>
                     </div>
                     <div class="flex-jb mt-1">
                         <span class="">Desconto: </span>
-                        <span class=""><strong>{{number_format($desconto, 2, ',', '.' )}}</strong></span>
+                        <span class="">{{number_format($desconto, 2, ',', '.' )}}</span>
+                    </div>
+                    <div class="flex-jb mt-1">
+                        <span class="">Quantidade: </span>
+                        <span class="">{{number_format($quantidadeTotal, 3, ',', '.' )}}</span>
                     </div>
                 </div>
-                <div class="flex-jb mt-5 flex-c">
+                <div class="flex-jb mt-3 flex-c">
                     <h3 class="">Detalhes</h3>
-                    <div class=" flex-jb mt-1">
-                        <span>Data e hora emissão do pedido:</span>
-                        <span>{{(new DateTime($p->dataehoracadastro))->format('d/m/Y H:i:s')}}</span>
+                    <div class="mt-1">
+                        <div class="flex-jb">
+                            <span>Status</span>
+                            <span>{{$pedido->status}}</span>
+                        </div>
+                        <div class="flex-jb mt-1">
+                            <span>Data e hora emissão do pedido:</span>
+                            <span>{{(new DateTime($p->dataehoracadastro))->format('d/m/Y H:i:s')}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        @if($pedido->status <> "Cancelado")
+            <div class="footer-finalizacao" style="box-shadow: 1px 1px 4px #00000059; font-size: 19px; align-items: center;">
+                <a href="{{route('cancelarPedido', $pedido->controle)}}" class="cancelar black">Cancelar pedido</a>
+            </div>
+        @else   
+            <div class="footer-finalizacao" style="box-shadow: 1px 1px 4px #00000059; font-size: 19px; align-items: center;">
+                <a href="{{route('buscainicio.buscar')}}" class="cancelar black">Voltar</a>
+            </div>    
+        @endif
     </div>
 </form>
 @endsection 

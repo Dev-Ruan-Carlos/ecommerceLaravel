@@ -94,6 +94,7 @@ class CarrinhoController extends Controller
         $pedido = new Pedido();
         $pedido->codusuario = $carrinho->codusuario;
         $pedido->numpedido = ++Pedido::orderBy('numpedido', 'desc')->first()->numpedido;
+        $pedido->status = "Emitido";
         $pedido->save();
         foreach( $carrinho->itens as $carrinhoItem ){
             $pedidoItem =  new PedidoItem();

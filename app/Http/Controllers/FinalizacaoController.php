@@ -16,4 +16,11 @@ class FinalizacaoController extends Controller
         $pedido = Pedido::find($id);
         return view('finalizacao', compact('pedido'));
     }
+    
+    public function cancelarPedido($id) {
+        $pedidoEmitido = Pedido::where('controle', $id)->get()->first();
+        $pedidoEmitido->status = 'Cancelado';
+        $pedidoEmitido->save();
+        return redirect()->back()->with(['finalizacao' => 'Pedido cancelado com sucesso !']);
+    }
 }
