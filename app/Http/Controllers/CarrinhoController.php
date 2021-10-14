@@ -93,6 +93,7 @@ class CarrinhoController extends Controller
         }
         $pedido = new Pedido();
         $pedido->codusuario = $carrinho->codusuario;
+        $pedido->numpedido = ++Pedido::orderBy('numpedido', 'desc')->first()->numpedido;
         $pedido->save();
         foreach( $carrinho->itens as $carrinhoItem ){
             $pedidoItem =  new PedidoItem();

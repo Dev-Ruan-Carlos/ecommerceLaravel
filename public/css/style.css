@@ -673,6 +673,10 @@ body {
   width: 100%;
 }
 
+.h-100 {
+  height: 100%;
+}
+
 .valorun {
   display: flex;
   position: relative;
