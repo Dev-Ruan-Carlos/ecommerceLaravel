@@ -7,10 +7,6 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function index(){
-        return view('login');
-    }
-
     public function entrar (Request $request){
         $credentials = [
             'nome' => $request->post('login'),
@@ -19,11 +15,15 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             if(Auth::user()->ativo == 0){
                 Auth::logout();
-                return redirect()->back()->withInput()->withErrors(['login.indexlog' => 'Você não tem permissão de acesso !']);
+                return redirect()->back()->withInput()->withErrors(['inicio' => 'Você não tem permissão de acesso !']);
             }
-            return redirect()->route('produto.indexproduto');
+            return redirect()->route('buscainicio.buscar');
         }else{
-            return redirect()->back()->withInput()->withErrors(['login.indexlog' => 'Login/Senha incorreto, peço que tente novamente !']);
+            return redirect()->back()->withInput()->withErrors(['inicio' => 'Login/Senha incorreto, peço que tente novamente !']);
         }
+    }
+
+    public function index(){
+        return view('login');
     }
 }

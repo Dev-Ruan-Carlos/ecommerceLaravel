@@ -12,7 +12,11 @@
         @foreach ($carrinho->itens as $item)
             @php
                 $quantidadeTotal += $item->quantidade;
-                $valorTotal += $item->precovenda*$item->quantidade;
+                if ($item->precovenda < $item->precopromocao) {
+                    $valorTotal += $item->precovenda*$item->quantidade;
+                }else {
+                    $valorTotal += $item->precopromocao*$item->quantidade;
+                }
             @endphp
             <div class="campo-maior flex-jc">
                 <article style="display: flex; width: 100%;">
@@ -28,10 +32,14 @@
                     </div>
                     <span style="display: flex; position: relative; top: 43px; left: 73px;">Preço venda</span>
                     <span class="venda-item">{{"R$ " . number_format($item->precovenda, 2, ',', '.' )}}</span>
-                    {{-- <span style="display: flex; position: relative; left: 66px; top: 43px;">Promoção</span>
-                    <span class="promocao-item">{{"R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span> --}}
+                    <span style="display: flex; position: relative; left: 66px; top: 43px;">Promoção</span>
+                    <span class="promocao-item">{{"R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span>
                     <span style="display: flex; position: relative; left: 57px; top: 45px;">Valor subtotal</span>
-                    <span class="total-item">{{"R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
+                    @if($item->precovenda < $item->precopromocao)
+                        <span class="total-item">{{"R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
+                    @else
+                        <span class="total-item">{{"R$ " . number_format($item->precopromocao*$item->quantidade, 2, ',', '.' )}}</span>
+                    @endif
                 </article>
                 <a href="{{route('deletarItem', $item->controle)}}">
                     <button type="button" class="deletar ml-2">Deletar</button>
@@ -48,7 +56,7 @@
                 <span class="flex">{{"Valor total R$ " . number_format($valorTotal, 2, ',', '.' )}}</span>
             </div>
             <div class="flex-c">
-                <a href="{{route('inicio')}}">
+                <a href="{{route('buscainicio.buscar')}}">
                     <button class="voltar-catalogo hover fas fa-arrow-circle-left">Ir para o catálogo</button>
                 </a>
                 <a href="{{route('salvar')}}" class="">

@@ -328,9 +328,13 @@ body {
 }
 
 .head {
-  position: relative;
   width: 100%;
-  height: 122px;
+  height: 152px;
+  display: flex;
+  max-width: 1366px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .bemvindo {
@@ -370,10 +374,10 @@ body {
 .logosite {
   max-width: 90px;
   border-radius: 62px;
-  left: 200px;
   position: relative;
-  margin-top: 2rem;
   margin-bottom: 1rem;
+  left: 52px;
+  margin-top: 1rem;
 }
 
 .demonstracao {
@@ -464,16 +468,18 @@ body {
 }
 
 .button-cad {
-  background: red;
+  background: #0084ff;
   min-width: 84px;
   width: 108px;
   position: relative;
   height: 33px;
   border-radius: 5px;
+  color: white;
+  cursor: pointer;
 }
 
 .button-cad:hover {
-  background-color: rgb(85, 20, 20);
+  background-color: blue;
   color: white;
 }
 
@@ -559,7 +565,7 @@ body {
   align-items: flex-end;
   position: relative;
   left: 31px;
-  bottom: 16px;
+  bottom: 15px;
 }
 
 .linha-horizontal {
@@ -578,17 +584,18 @@ body {
 
 .voltar-catalogo, .finalizar-compra {
   display: flex;
-  background: red;
+  background: #0084ff;
   width: 100%;
   height: 29px;
   font-size: 21px;
   justify-content: center;
   border-radius: 5px;
   cursor: pointer;
+  color: white;
 }
 
 .hover:hover {
-  background-color: aqua;
+  background-color: blue;
 }
 
 .x-button {
@@ -619,16 +626,17 @@ body {
   width: 610px;
   height: 700px;
   border-radius: 5px;
-  box-shadow: 4px 7px 10px 2px #f2f0f052;
+  box-shadow: 4px 7px 10px 2px #1c181852;
 }
 
 .tela-form2 {
   background-color: white;
-  height: 450px;
+  height: 425px;
   width: 36%;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 23px;
-  padding: 2rem;
+  padding: 1rem;
+  box-shadow: 2px 2px 14px #00000047;
 }
 
 .mais{
@@ -637,7 +645,7 @@ body {
   display: flex;
   position: relative;
   left: 45px;
-  bottom: 17px;
+  bottom: 16px;
   cursor: pointer;
 }
 
@@ -647,7 +655,7 @@ body {
   right: 246px;
   font-size: 30px;
   background: white;
-  bottom: 19px;
+  bottom: 17px;
   cursor: pointer;
 }
 
@@ -666,7 +674,8 @@ body {
 }
 
 .deletar:hover {
-  background-color: red;
+  background-color: #0084ff;
+  color: white;
 }
 
 .w-100 {
@@ -682,3 +691,50 @@ body {
   position: relative;
   right: 20px;
 }
+
+.gerencial {
+  display: flex;
+  background: #0084ff;
+  color: white;
+  width: 76px;
+  height: 25px;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.gerencial:hover {
+  background-color: blue;
+  color: white;
+}
+
+.gerente {
+  display: flex;
+  position: relative;
+  right: 117px;
+  width: 80px;
+  height: 25px;
+}
+
+.error{
+  color: white;
+  background-color: red;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.cadastro-de-produtos {
+  background: #0084ff;
+  color: white;
+  width: 107%;
+  border-radius: 9px 9px 9px 9px;
+  position: relative;
+  left: -23px;
+  bottom: -4px;
+}
+

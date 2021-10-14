@@ -101,6 +101,7 @@ class CarrinhoController extends Controller
             $pedidoItem->codproduto = $carrinhoItem->codproduto;
             $pedidoItem->quantidade = $carrinhoItem->quantidade;
             $pedidoItem->valorun = $carrinhoItem->precovenda;
+            $pedidoItem->valorpromocao = $carrinhoItem->precopromocao;
             $pedidoItem->save();
             $carrinhoItem->delete();
         }

@@ -9,7 +9,8 @@
         </div>
     @endif  
     <fieldset class="tela-form2">
-        <div class="">
+        <h3 class="flex-jc cadastro-de-produtos">Cadastro de produtos</h3>
+        <div class="" style="height: 91%;">
             <section class="m-1 mt-2 flex-js">
                 <label for="produto" class="">Nome do produto</label>
                 <input id="produto" class="ml-2 inputo produto" name="produto" type="text" placeholder="" maxlength="15" autofocus/>
@@ -30,15 +31,15 @@
                 <label for="precopromocao">Preço de promoção</label>
                 <input id="precopromocao" class="precopromocao inputo" name="precopromocao" type="" placeholder="R$ " maxlength="20"/> 
             </section>
-            <div class="flex-js">
-                <div class="cad-inicioo">
+            <div class="flex-ja mt-2" style="51%">
+                <div class="">
                     <a href="{{route('produto.cadproduto')}}">
                         <button type="button" class="button-cad">Cadastrar</button>
                     </a>
                 </div>
-                <div class="voltainicio">
-                    <a href="{{route('inicio')}}">
-                        <button class="button-cad ml-1">Voltar ao inicio</button>
+                <div class="">
+                    <a href="{{route('buscainicio.buscar')}}">
+                        <button class="button-cad">Voltar ao inicio</button>
                     </a>
                 </div>
             </div>

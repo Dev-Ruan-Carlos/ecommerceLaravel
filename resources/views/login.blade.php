@@ -22,10 +22,6 @@
                         </div>
                         <div class="white mt-1">
                             <a href="{{route('cadastro.indexcad')}}" class="flex-jc">Registre-se</a>
-                            <section class="flex-jc mt-05">
-                                <p>
-                                <a href="{{route('inicio')}}">Voltar a tela inicial</a>
-                            </section>
                         </div>
                 </fieldset>
             </form>

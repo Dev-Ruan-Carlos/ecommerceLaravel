@@ -37,11 +37,11 @@ Route::prefix('login')->group(function(){
 
 Route::prefix('produto')->group(function(){
     Route::get('/', [CadastroProdutoController::class, 'index'])->name('produto.indexproduto');
-    Route::post('cadproduto', [CadastroProdutoController::class, 'cadProduto'])->name('produto.cadproduto');
+    Route::get('cadproduto', [CadastroProdutoController::class, 'cadProduto'])->name('produto.cadproduto');
 });
 
 Route::prefix('buscainicio')->group(function(){
-    Route::post('buscarProdutos', [InicioController::class, 'buscarProdutos'])->name('buscainicio.buscar');
+    Route::get('buscarProdutos', [InicioController::class, 'buscarProdutos'])->name('buscainicio.buscar');
 }); 
 
 Route::prefix('carrinho')->group(function(){
