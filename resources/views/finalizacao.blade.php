@@ -55,12 +55,14 @@
                             @php
                                 $quantidadeTotal = $quantidadeTotal + $p->quantidade;
                                 if($p->valorun < $p->valorpromocao)
-                                $valorTotal += $p->valorun*$p->quantidade;
+                                    $valorTotal += $p->valorun*$p->quantidade;
                                 else
-                                $valorTotal += $p->valorpromocao*$p->quantidade;
+                                    $valorTotal += $p->valorpromocao*$p->quantidade;
                                 $totalUn += $p->valorun;
                                 $totalPromo += $p->valorpromocao;
                                 $desconto =  $totalUn - $totalPromo;     
+                                if($desconto <= 0)
+                                    $desconto = 0;
                             @endphp
                         @endforeach
                     </tr>
