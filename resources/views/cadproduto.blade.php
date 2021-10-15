@@ -9,24 +9,27 @@
                 {{ session()->get('produto.indexproduto') }}
             </div>
         @endif  
+        @error('produto.indexproduto')
+            <span class="alert">{{$message}}</span>
+        @enderror
         <fieldset class="tela-form2">
             <h3 class="flex-jc cadastro-de-produtos">Cadastro de produtos</h3>
             <div class="" style="height: 91%;">
                 <section class="m-1 mt-2 flex-js">
                     <label for="produto" class="">Nome do produto</label>
-                    <input id="produto" class="ml-2 inputo produto" name="produto" type="text" placeholder="" maxlength="15" autofocus/>
+                    <input id="produto" class="ml-2 inputo produto" name="produto" type="text" placeholder="" required maxlength="15" autofocus/>
                 </section>
                 <section class="m-1 mt-2 flex-js">
                     <label for="quantidade">Quantidade</label>
-                    <input id="quantidade" class="quantidade inputo" name="quantidade" type="text" placeholder="" maxlength="30"/> 
+                    <input id="quantidade" class="quantidade inputo" name="quantidade" type="text" placeholder="" required maxlength="30"/> 
                 </section>
                 <section class="m-1 mt-2 flex-js">
                     <label for="precocusto">Preço de custo</label>
-                    <input id="precocusto" class="precocusto inputo" name="precocusto" type="text" placeholder="R$ " maxlength="20"/> 
+                    <input id="precocusto" class="precocusto inputo" name="precocusto" type="text" placeholder="R$ " required maxlength="20"/> 
                 </section>
                 <section class="m-1 mt-2 flex-js">
                     <label for="precovenda">Preço de venda</label>
-                    <input id="precovenda" class="precovenda inputo" name="precovenda" type="text" placeholder="R$ " maxlength="20"/> 
+                    <input id="precovenda" class="precovenda inputo" name="precovenda" type="text" placeholder="R$ " required maxlength="20"/> 
                 </section>
                 <section class="m-1 mt-2 flex-js">
                     <label for="precopromocao">Preço de promoção</label>

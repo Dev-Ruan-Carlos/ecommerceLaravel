@@ -425,8 +425,9 @@ body {
   border-radius: 3px;
 }
 
-.comprar:hover {
+.comprar:hover, .button-cad:hover, .hover:hover, .gerencial:hover, .historico:hover {
   background-color: blue;
+  color: white
 }
 
 .inputo {
@@ -476,11 +477,6 @@ body {
   border-radius: 5px;
   color: white;
   cursor: pointer;
-}
-
-.button-cad:hover {
-  background-color: blue;
-  color: white;
 }
 
 .voltainicio {
@@ -594,10 +590,6 @@ body {
   color: white;
 }
 
-.hover:hover {
-  background-color: blue;
-}
-
 .x-button {
   display: flex;
   position: relative;
@@ -704,11 +696,6 @@ body {
   font-size: 14px;
 }
 
-.gerencial:hover {
-  background-color: blue;
-  color: white;
-}
-
 .gerente {
   display: flex;
   position: relative;
@@ -773,4 +760,53 @@ body {
   border-radius: 6px;
   padding: 1rem;
   align-items: center;
+}
+
+.historico {
+  display: flex;
+  position: relative;
+  right: 100px;
+  bottom: 25px;
+  width: 171px;
+  justify-content: center;
+  background: #0084ff;
+  color: white;
+  border-radius: 5px;
+  padding: 0.20rem;
+}
+
+.campo-hist {
+  background: white;
+  display: flex;
+  width: 1171px;
+  height: 148px;
+  margin-left: 16rem;
+  position: absolute;
+  margin-top: 5.7rem;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px #00000033;
+}
+
+.campo-historico {
+  background: white;
+  display: flex;
+  width: 1171px;
+  height: 148px;
+  margin-left: 16rem;
+  /* position: absolute; */
+  margin-top: 1.7rem;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px #00000033;
+}
+
+.historico-fim {
+  display: flex;
+  position: relative;
+  top: 60px;
+  right: 22%;
+  width: 125%;
+}
+
+.nowrap {
+  white-space: nowrap;
 }

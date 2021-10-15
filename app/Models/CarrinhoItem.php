@@ -12,4 +12,7 @@ class CarrinhoItem extends Model
     protected $connection = 'criador';
     public $timestamps = false;
 
+    public function produtos() {
+        return $this->belongsTo('App\Models\Produto', 'codproduto', 'controle');
+    }
 }

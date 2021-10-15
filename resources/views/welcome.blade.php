@@ -16,6 +16,7 @@
                         </a>
                     @endif
                 @endif
+                <a href="{{route('historico.index')}}" class="historico">Histórico de compra</a> 
             </div>
         </div>
     </header>

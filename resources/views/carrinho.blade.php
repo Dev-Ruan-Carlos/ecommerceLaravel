@@ -23,9 +23,11 @@
                     <span class="nome-produto">{{"Produto: " . $item->produto}}</span>
                     <div class="flex-ac">
                         <span class="quantidade-produto">{{"Quantidade á comprar = " . number_format($item->quantidade, 4, ',', '.' )}}</span>
-                        <a href="{{route('incrementarItem', $item->controle)}}">
-                            <button type="button" class="mais">+</button>
-                        </a>
+                        @if($item->produtos->quantidade >= $item->quantidade + 1)
+                            <a href="{{route('incrementarItem', $item->controle)}}">
+                                <button type="button" class="mais">+</button>
+                            </a>
+                        @endif
                         <a href="{{route('delimitarItem', $item->controle)}}">
                             <button type="button" class="menos ml-2">-</button>
                         </a>

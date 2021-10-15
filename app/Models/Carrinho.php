@@ -18,5 +18,5 @@ class Carrinho extends Model
 
     public function usuarios() {
         return $this->hasMany('App\Models\User', 'codusuario', 'controle');
-    }
+    }  
 }

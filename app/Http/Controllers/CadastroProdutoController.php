@@ -18,6 +18,9 @@ class CadastroProdutoController extends Controller
         $produto->precocusto = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precocusto'));
         $produto->precovenda = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precovenda'));
         $produto->precopromocao = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precopromocao'));
+            if($produto->precopromocao > $produto->precovenda) {
+                return redirect()->back()->withInput()->withErrors(['produto.indexproduto' => 'Preço de promoção superior ao preço de venda! TENTE NOVAMENTE']);        
+            }   
         $produto->ativo = 1;
         $produto->save();
         return redirect()->back()->withInput()->with(['produto.indexproduto' => 'Produto cadastrado com sucesso!']);

@@ -23,11 +23,13 @@ class CarrinhoController extends Controller
     }
 
     public function adicionaritem($id){
+        $user = Auth::user();
         $item = Produto::where('controle', $id)->first();
         $carrinho = Carrinho::where('session', session()->getId())->first();
         if($carrinho == null){
             $carrinho = new Carrinho();
             $carrinho->session = session()->getId();
+            $carrinho->codusuario = $user->id;
             $carrinho->save();
         }
         $carrinhoItem = $carrinho->itens()->where('codproduto', $item->controle)->first();
@@ -55,8 +57,10 @@ class CarrinhoController extends Controller
             $carrinho->save();
         }
         $carrinhoItem = $carrinho->itens()->find($id);
-        $carrinhoItem->quantidade = $carrinhoItem->quantidade + 1;
-        $carrinho->itens()->save($carrinhoItem);
+        if($carrinhoItem->produtos->quantidade >= $carrinhoItem->quantidade + 1){
+            $carrinhoItem->quantidade = $carrinhoItem->quantidade + 1;
+            $carrinho->itens()->save($carrinhoItem);
+        }
         return redirect()->route('acesso');
     }
 
@@ -73,6 +77,9 @@ class CarrinhoController extends Controller
             $this->deletarItem($id);
         }else{
             $carrinho->itens()->save($carrinhoItem);
+        }
+        if($carrinho->itens->count() == 0){
+            return redirect()->route('buscainicio.buscar');
         }
         return redirect()->route('acesso'); 
     }
@@ -91,9 +98,15 @@ class CarrinhoController extends Controller
         }else{
             return redirect()->route('loginPagamento');
         }
+        $numPedido = Pedido::orderBy('numpedido', 'desc')->first();
+        if($numPedido){
+            $numPedido = $numPedido->numpedido;
+        }else{
+            $numPedido = 0;
+        }
         $pedido = new Pedido();
         $pedido->codusuario = $carrinho->codusuario;
-        $pedido->numpedido = ++Pedido::orderBy('numpedido', 'desc')->first()->numpedido;
+        $pedido->numpedido = ++$numPedido;
         $pedido->status = "Emitido";
         $pedido->save();
         foreach( $carrinho->itens as $carrinhoItem ){
