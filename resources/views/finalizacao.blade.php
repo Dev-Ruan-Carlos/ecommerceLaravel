@@ -27,7 +27,7 @@
                 $valorTotal = 0; 
                 $totalUn = 0;
                 $totalPromo = 0;
-                $desconto = 0;
+                $totalDesconto = 0;
             @endphp
             <h3 class="mt-2">Produtos</h3>
             <div class="flex-c mt-1 h-100 flex-jb">
@@ -46,23 +46,26 @@
                                 <td>{{number_format($p->quantidade, 4, ',', '.' )}}</td>
                                 <td>{{number_format($p->valorun, 2, ',', '.' )}}</td>
                                 <td>{{number_format($p->valorpromocao, 2, ',', '.' )}}</td>
-                                @if($p->valorun < $p->valorpromocao)
-                                    <td>{{number_format($p->valorun*$p->quantidade, 2, ',', '.' )}}</td>
-                                @else 
+                                @if($p->valorpromocao > 0)
                                     <td>{{number_format($p->valorpromocao*$p->quantidade, 2, ',', '.' )}}</td>
+                                @else 
+                                    <td>{{number_format($p->valorun*$p->quantidade, 2, ',', '.' )}}</td>
                                 @endif
+                                {{-- @if($p->valorpromocao < $p->valorun)
+                                    <td>{{number_format($p->valorpromocao, 2, ',', '.' )}}</td>
+                                @else
+                                    <td>{{number_format($p->valorpromocao == 0, 2, ',', '.' )}}</td>
+                                @endif --}}
                             </tr>
                             @php
                                 $quantidadeTotal = $quantidadeTotal + $p->quantidade;
-                                if($p->valorun < $p->valorpromocao)
-                                    $valorTotal += $p->valorun*$p->quantidade;
-                                else
+                                if($p->valorpromocao > 0)
                                     $valorTotal += $p->valorpromocao*$p->quantidade;
+                                else
+                                    $valorTotal += $p->valorun*$p->quantidade;
                                 $totalUn += $p->valorun;
                                 $totalPromo += $p->valorpromocao;
-                                $desconto =  $totalUn - $totalPromo;     
-                                if($desconto <= 0)
-                                    $desconto = 0;
+                                $totalDesconto +=  ($p->valorun*$p->quantidade) - ($p->valorpromocao*$p->quantidade);   
                             @endphp
                         @endforeach
                     </tr>
@@ -75,7 +78,7 @@
                     </div>
                     <div class="flex-jb mt-1">
                         <span class="">Desconto: </span>
-                        <span class="">{{number_format($desconto, 2, ',', '.' )}}</span>
+                        <span class="">{{number_format($totalDesconto, 2, ',', '.' )}}</span>
                     </div>
                     <div class="flex-jb mt-1">
                         <span class="">Quantidade: </span>

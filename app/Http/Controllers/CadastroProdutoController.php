@@ -10,7 +10,7 @@ class CadastroProdutoController extends Controller
     public function index(){
         return view('cadproduto');
     }
-
+    
     public function cadProduto(Request $request) {
         $produto = new Produto();
         $produto->produto = $request->get('produto');
@@ -21,5 +21,5 @@ class CadastroProdutoController extends Controller
         $produto->ativo = 1;
         $produto->save();
         return redirect()->back()->withInput()->with(['produto.indexproduto' => 'Produto cadastrado com sucesso!']);
-    }
+    } 
 }
