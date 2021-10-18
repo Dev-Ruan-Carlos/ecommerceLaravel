@@ -16,6 +16,10 @@ class Pedido extends Model
         return $this->hasOne('App\Models\User', 'id', 'codusuario');
     }
 
+    public function pagamentos() {
+        return $this->hasOne('App\Models\Pagamento', 'controle', 'codpedido');
+    }
+
     public function pedidoItens() {
         return $this->hasMany('App\Models\PedidoItem', 'codpedido', 'controle');
     }

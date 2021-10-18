@@ -58,7 +58,8 @@ Route::prefix('carrinho')->group(function(){
 });
 
 Route::prefix('pagamento')->group(function(){
-    Route::get('formaPagamento', [EspeciePagamentoController::class, 'formaPagamento'])->name('formaPagamento');
+    Route::get('formaPagamento/{id}', [EspeciePagamentoController::class, 'formaPagamento'])->name('formaPagamento');
+    Route::post('finalizarcompra/{id}', [EspeciePagamentoController::class, 'salvarFormaPagamento'])->name('pagamento.finalizarCompra');
 });
 
 Route::prefix('historico')->group(function(){

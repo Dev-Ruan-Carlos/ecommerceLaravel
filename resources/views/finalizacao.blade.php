@@ -109,6 +109,7 @@
                 <a href="{{route('buscainicio.buscar')}}" class="cancelar black">Voltar</a>
             </div>    
         @endif
+        <a href="{{route('formaPagamento', $pedido->controle)}}" class="footer-finalizacao">aaaaaa</a>
     </div>
 </form>
 @endsection 

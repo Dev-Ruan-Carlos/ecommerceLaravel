@@ -857,9 +857,10 @@ body {
   position: fixed;
   background: white;
   width: 610px;
-  height: 584px;
+  height: 383px;
   border-radius: 5px;
   box-shadow: 4px 7px 10px 2px #1c181852;
+  margin-top: -15rem;
 }
 
 .radio {
@@ -892,4 +893,39 @@ body {
   opacity: 0;
   transition: all 400ms ease-in-out;
   position: absolute;
+}
+
+.telaCartaoFinalizacao{
+  background: #f6f6f6;
+  width: 610px;
+  height: 294px;
+  display: flex;
+  margin-top: 3rem;
+  border-radius: 5px;
+  padding: 2rem;
+  box-shadow: 4px 7px 10px 2px #1c181852;
+}
+
+.tela-cartao {
+  display: flex;
+  width: 100%;
+  height: 108px;
+  justify-content: center;
+  background: #f6f6f6;
+}
+
+.cartao-tela {
+  height: 105px;
+  width: 171px;
+}
+
+.tamanhoinput {
+  height: 25px;
+  border-radius: 5px;
+  padding: 0.3rem;
+}
+
+.sublinhado {
+  font-size: 20px;
+  text-decoration: underline;
 }

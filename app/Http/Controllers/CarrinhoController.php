@@ -107,7 +107,7 @@ class CarrinhoController extends Controller
         $pedido = new Pedido();
         $pedido->codusuario = $carrinho->codusuario;
         $pedido->numpedido = ++$numPedido;
-        $pedido->status = "Emitido";
+        $pedido->status = "Pendente";
         $pedido->save();
         foreach( $carrinho->itens as $carrinhoItem ){
             $pedidoItem =  new PedidoItem();
