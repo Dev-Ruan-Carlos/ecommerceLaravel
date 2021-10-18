@@ -3,52 +3,73 @@
     <div class="fundoazul">
         <h2 class="flex-jc white pt-2">Histórico de compra do usuário</h2>
         <div class="flex-c mt-4">
-            @foreach ($pedidos as $pedido)
             @php
-                $quantidadeTotal = 0;
-                $valorTotal = 0;
-                $valorun = 0;
-                $valorpromocao = 0;
+                $emitidos = 0;
+                $cancelados = 0;
+                $valorTotalPedidos = 0;
             @endphp
+            @foreach ($pedidos as $pedido)
+                @php
+                    $quantidadeTotal = 0;
+                    $valorTotal = 0;
+                    $valorun = 0;
+                    $valorpromocao = 0;
+                    if ($pedido->status == "Emitido")
+                        ++$emitidos; 
+                    else
+                        ++$cancelados;
+                @endphp
                 <div class="campo-historico flex-jb p-1">
-                    <div class="flex-jb flex-c" style="height: 21px; width: 11%;">
-                        <span class="nowrap">Itens comprados: </span>
-                        @foreach ($pedido->pedidoItens as $key => $pedidoItem)
-                            @if ($key > 0)
-                                <span>,&ensp;</span>
-                            @endif
+                    <div class="flex-c" style="width: 100%; border-right: 1px solid #00000026;">
+                        <div class="flex-jb" style="height: 21px; width: 11%;">
+                            <span class="nowrap">Itens comprados: </span>
+                            @foreach ($pedido->pedidoItens as $key => $pedidoItem)
+                                @if ($key > 0)
+                                    <span>,&ensp;</span>
+                                @endif
+                                @php
+                                    $quantidadeTotal = $quantidadeTotal + $pedidoItem->quantidade;
+                                        if($pedidoItem->valorpromocao > 0)
+                                            $valorTotal += $pedidoItem->valorpromocao*$pedidoItem->quantidade;
+                                        else
+                                            $valorTotal += $pedidoItem->valorun*$pedidoItem->quantidade;
+                                @endphp
+                                    <span class="ml-05"><strong>{{ $pedidoItem->produto->produto}}</strong></span>
+                            @endforeach
                             @php
-                                $quantidadeTotal = $quantidadeTotal + $pedidoItem->quantidade;
-                                    if($pedidoItem->valorpromocao > 0)
-                                        $valorTotal += $pedidoItem->valorpromocao*$pedidoItem->quantidade;
-                                    else
-                                        $valorTotal += $pedidoItem->valorun*$pedidoItem->quantidade;   
+                                $valorTotalPedidos += $valorTotal;   
                             @endphp
-                                <span style="ml-05">{{ $pedidoItem->produto->produto}}</span>
-                        @endforeach
-                    </div>
-                    <div class="mt-1 flex-jb flex-c h-100">
-                        <div class="flex-c">
-                            <div class="flex-ac">
-                                <span class="">Data e hora cadastro: </span>
-                                <span class="ml-05">{{$pedido->datahoracadastro}}</span>
+                        </div>
+                        <div class="mt-1 flex-jb flex-c h-100">
+                            <div class="flex-c">
+                                <div class="flex-ac">
+                                    <span class="">Valor total: </span>
+                                    <span class="ml-05">{{number_format($valorTotal, 2, ',', '.' )}}</span>
+                                </div>
+                                <div class="flex-ac mt-1">
+                                    <span class="">Data e hora cadastro: </span>
+                                    <span class="ml-05">{{$pedido->datahoracadastro}}</span>
+                                </div>
                             </div>
-                            <div class="flex-ac">
-                                <span class="">Valor total: </span>
-                                <span class="ml-05">{{number_format($valorTotal, 2, ',', '.' )}}</span>
+                            <div class="">
+                                <span class="">Status pedido: </span>
+                                <span class="ml-05">{{$pedido->status}}</span>
                             </div>
                         </div>
-                        <div class="">
-                            <span class="">Status pedido: </span>
-                            <span class="ml-05">{{$pedido->status}}</span>
-                        </div>
                     </div>
-                    <div>
-                        <button type="button">></button>
+                    <div class="flex-ac black ml-1">
+                        <a href="{{route('historico.detalhe', $pedido->controle)}}" class="buttonhistorico">></a>
                     </div>
                 </div>
             @endforeach
         </div>
-        <div class="info-carrinho"></div>
+        <div class="info-historico flex-c">
+            <span class="mt-2">Pedidos emitidos: {{$emitidos}}</span>
+            <span class="mt-2">Pedidos Cancelados: {{$cancelados}}</span>
+            <span class="mt-2">Valor total: {{number_format($valorTotalPedidos, 2, ',', '.' )}}</span>
+            <div class="mt-1 flex-ac voltarHistorico">
+                <a href="{{route('buscainicio.buscar')}}" class="">Voltar</a>
+            </div>
+        </div>
     </div>
 @endsection

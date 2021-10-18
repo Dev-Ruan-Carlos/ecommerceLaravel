@@ -12,10 +12,11 @@
         @foreach ($carrinho->itens as $item)
             @php
                 $quantidadeTotal += $item->quantidade;
-                if ($item->precovenda < $item->precopromocao) {
-                    $valorTotal += $item->precovenda*$item->quantidade;
-                }else {
+
+                if ($item->precopromocao < 0) {
                     $valorTotal += $item->precopromocao*$item->quantidade;
+                }else {
+                    $valorTotal += $item->precovenda*$item->quantidade;
                 }
             @endphp
             <div class="campo-maior flex-jc">
@@ -37,10 +38,10 @@
                     <span style="display: flex; position: relative; left: 66px; top: 43px;">Promoção</span>
                     <span class="promocao-item">{{"R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span>
                     <span style="display: flex; position: relative; left: 57px; top: 45px;">Valor subtotal</span>
-                    @if($item->precovenda < $item->precopromocao)
-                        <span class="total-item">{{"R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
-                    @else
+                    @if($item->precopromocao < 0 )
                         <span class="total-item">{{"R$ " . number_format($item->precopromocao*$item->quantidade, 2, ',', '.' )}}</span>
+                    @else
+                        <span class="total-item">{{"R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
                     @endif
                 </article>
                 <a href="{{route('deletarItem', $item->controle)}}">
@@ -61,8 +62,8 @@
                 <a href="{{route('buscainicio.buscar')}}">
                     <button class="voltar-catalogo hover fas fa-arrow-circle-left">Ir para o catálogo</button>
                 </a>
-                <a href="{{route('salvar')}}" class="">
-                    <button class="finalizar-compra hover fas fa-money-bill-alt mt-1">Finalizar compra</button>
+                <a href="{{route('formaPagamento')}}" class="">
+                    <button class="finalizar-compra hover fas fa-money-bill-alt mt-1">Forma de pagamento</button>
                 </a>
             </div>
         </div>

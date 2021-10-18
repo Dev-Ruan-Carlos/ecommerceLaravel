@@ -16,4 +16,9 @@ class HistoricoCompraController extends Controller
         $pedidos = Pedido::where('codusuario', $user->id)->get();
         return view('historico', compact('pedidos'));
     }
+
+    public function detalhe($id){
+        $pedido = Pedido::find($id);
+        return view('historicodetalhe', compact('pedido'));
+    }
 }

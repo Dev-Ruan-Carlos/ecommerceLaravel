@@ -3,6 +3,7 @@
 use App\Http\Controllers\CadastroProdutoController;
 use App\Http\Controllers\CadastroUserController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\EspeciePagamentoController;
 use App\Http\Controllers\FinalizacaoController;
 use App\Http\Controllers\HistoricoCompraController;
 use App\Http\Controllers\InicioController;
@@ -56,13 +57,13 @@ Route::prefix('carrinho')->group(function(){
     Route::get('salvar', [CarrinhoController::class, 'salvar'])->name('salvar');
 });
 
-// Route::prefix('loginFinalizacao')->group(function(){
-//     Route::get('loginPagamento', [LoginPagamentoController::class, 'loginPagamento'])->name('loginPagamento');
-//     Route::post('entrarPagamento', [LoginPagamentoController::class, 'entrarPagamento'])->name('entrarPagamento');
-// });
+Route::prefix('pagamento')->group(function(){
+    Route::get('formaPagamento', [EspeciePagamentoController::class, 'formaPagamento'])->name('formaPagamento');
+});
 
 Route::prefix('historico')->group(function(){
     Route::get('/', [HistoricoCompraController::class, 'index'])->name('historico.index');
+    Route::get('detalhe/{id}', [HistoricoCompraController::class, 'detalhe'])->name('historico.detalhe');
 });
 
 Route::prefix('finalizacao')->group(function(){
