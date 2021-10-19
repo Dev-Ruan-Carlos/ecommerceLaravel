@@ -306,11 +306,10 @@ body {
 }
 
 .main {
-  position: fixed;
-  width: 80%;
-  height: 750px;
-  margin-left: 195px;
-  margin-top: 20px;
+    width: 80%;
+    height: 1200px;
+    margin-left: 195px;
+    margin-top: 20px;
 }
 
 .aside {  
@@ -773,7 +772,7 @@ body {
 .historico {
   display: flex;
   position: relative;
-  right: 100px;
+  right: 103px;
   bottom: 25px;
   width: 171px;
   justify-content: center;
@@ -863,6 +862,7 @@ body {
   height: 100%;
   border-radius: 5px;
   box-shadow: 4px 7px 10px 2px #1c181852;
+  margin-top: -15rem;
 }
 
 .radio {
@@ -902,7 +902,7 @@ body {
   width: 610px;
   height: 294px;
   display: flex;
-  margin-top: -2rem;
+  margin-top: 3rem;
   border-radius: 5px;
   padding: 2rem;
   box-shadow: 4px 7px 10px 2px #1c181852;

@@ -98,17 +98,23 @@
                         </div>
                         <div class="flex-jb mt-1">
                             <span>Forma de pagamento:</span>
-                            <span>{{$pedido->pagamentos->especies->especie}}</span>
+                            @if ($pedido->pagamentos)
+                                <span>{{$pedido->pagamentos->especies->especie}}</span>
+                            @else
+                                <span>Pagamento Local</span>
+                            @endif
                         </div>
                     </div>
                 </div>
                 <div class="flex-jb mt-3 mb-1">
                     <div class="">
-                        <a href="{{route('buscainicio.buscar')}}" class="footer-finalizacao">Voltar</a>
-                    </div>    
-                    <div class="">
-                        <a href="{{route('cancelarPedido', $pedido->controle)}}" class="footer-finalizacao">Cancelar pedido</a>
-                    </div>  
+                        <a href="{{route('historico.index')}}" class="footer-finalizacao">Voltar</a>
+                    </div>
+                    @if ($pedido->status <> 'Cancelado')
+                        <div class="">
+                            <a href="{{route('cancelarPedido', $pedido->controle)}}" class="footer-finalizacao">Cancelar pedido</a>
+                        </div>  
+                    @endif
                 </div>
             </div>
         </div> 

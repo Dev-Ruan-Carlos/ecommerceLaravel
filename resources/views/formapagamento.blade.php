@@ -23,7 +23,7 @@
                         <label for="pagamento" class="ml-3 flex-ac">Cartão</label>
                     </div>
                     <div class="mt-2 flex-jb">
-                        <a href="{{route('buscainicio.buscar')}}"" class="footer-finalizacao">Voltar</a>
+                        <a href="{{route('buscainicio.buscar')}}" class="footer-finalizacao">Voltar</a>
                         <button type="submit" class="ml-5 footer-finalizacao">Finalizar compra</button>
                     </div>
                 </div> 
@@ -34,11 +34,11 @@
                     <img src="{{asset('img/cartão2.jpg')}}" alt="" style="max-width: 195px; max-height: 103px;">
                 </div>
                 <div class="flex-c mt-1">
-                    <input type="text" name="nomecartao" class="tamanhoinput black" placeholder="Nome ( Igual no cartão )" required>
+                    <input type="text" name="nomecartao" class="tamanhoinput black" placeholder="Nome ( Igual no cartão )">
                     <div class="mt-05">
-                        <input type="text" class="tamanhoinput black" name="ncartao" id="ncartao" placeholder="Número do cartão" maxlength="19" required>
-                        <input type="text" class="tamanhoinput black ml-05" value="00/00" name="validadecartao" id="validadecartao" placeholder="Validade mês/ano" style="width: 116px;" maxlength="5" required>
-                        <input type="text" class="tamanhoinput black ml-05" name="numseguranca" placeholder="CVV" style="width: 70px;" maxlength="3" required>
+                        <input type="text" class="tamanhoinput black" name="ncartao" id="ncartao" placeholder="Número do cartão" maxlength="19">
+                        <input type="text" class="tamanhoinput black ml-05" value="00/00" name="validadecartao" id="validadecartao" placeholder="Validade mês/ano" style="width: 116px;" maxlength="5">
+                        <input type="text" class="tamanhoinput black ml-05" name="numseguranca" placeholder="CVV" style="width: 70px;" maxlength="3">
                         <label for="" class="ml-05">Tipo pag</label>
                         <select id="tipoPagamento" class="tamanhoinput black mt-05 ml-05" placeholder="Tipo Cartão" name="tipoPagamento" style="width: 75px;" oninput="mostrarDivParcelas(this)">
                             <option class="p-1 black" value="1">Débito</option>

@@ -306,11 +306,10 @@ body {
 }
 
 .main {
-  position: fixed;
-  width: 80%;
-  height: 750px;
-  margin-left: 195px;
-  margin-top: 20px;
+    width: 80%;
+    height: 1200px;
+    margin-left: 195px;
+    margin-top: 20px;
 }
 
 .aside {  
@@ -773,7 +772,7 @@ body {
 .historico {
   display: flex;
   position: relative;
-  right: 100px;
+  right: 103px;
   bottom: 25px;
   width: 171px;
   justify-content: center;

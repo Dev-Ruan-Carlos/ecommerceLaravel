@@ -16,7 +16,10 @@
                         </a>
                     @endif
                 @endif
-                <a href="{{route('historico.index')}}" class="historico">Histórico de compra</a> 
+                <div class="flex-jc">
+                    <a href="{{route('inicio')}}" class="historico mr-2">Sair/Logout</a>
+                    <a href="{{route('historico.index')}}" class="historico">Histórico de compra</a> 
+                </div>
             </div>
         </div>
     </header>

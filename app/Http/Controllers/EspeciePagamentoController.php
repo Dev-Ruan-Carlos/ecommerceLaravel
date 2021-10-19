@@ -42,6 +42,8 @@ class EspeciePagamentoController extends Controller
                 $pagamento->codespecie = 1;
                 break;
         }
+        $pedido->status = 'Emitido';
+        $pedido->save();
         if($pagamentoLocal){
             return redirect()->route('historico.detalhe', $pedido->controle);
         }

@@ -57,9 +57,15 @@
                             </div>
                         </div>
                     </div>
+                    @if ($pedido->status <> 'Pendente')
+                        <div class="flex-ac black ml-1">
+                            <a href="{{route('historico.detalhe', $pedido->controle)}}" class="buttonhistorico">></a>
+                        </div>
+                    @else
                     <div class="flex-ac black ml-1">
-                        <a href="{{route('historico.detalhe', $pedido->controle)}}" class="buttonhistorico">></a>
-                    </div>
+                        <a href="{{route('formaPagamento', $pedido->controle)}}" class="buttonhistorico">></a>
+                    </div>                      
+                    @endif
                 </div>
             @endforeach
         </div>
@@ -67,8 +73,8 @@
             <span class="mt-2">Pedidos emitidos: {{$emitidos}}</span>
             <span class="mt-2">Pedidos Cancelados: {{$cancelados}}</span>
             <span class="mt-2">Valor total: {{number_format($valorTotalPedidos, 2, ',', '.' )}}</span>
-            <div class="mt-1 flex-ac voltarHistorico">
-                <a href="{{route('buscainicio.buscar')}}" class="">Voltar</a>
+            <div class="mt-1 flex w-100">
+                <a href="{{route('buscainicio.buscar')}}" class="voltarHistorico flex-ac">Voltar</a>
             </div>
         </div>
     </div>
