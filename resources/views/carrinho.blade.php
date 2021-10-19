@@ -13,7 +13,7 @@
             @php
                 $quantidadeTotal += $item->quantidade;
 
-                if ($item->precopromocao < 0) {
+                if ($item->precopromocao > 0) {
                     $valorTotal += $item->precopromocao*$item->quantidade;
                 }else {
                     $valorTotal += $item->precovenda*$item->quantidade;
@@ -38,7 +38,7 @@
                     <span style="display: flex; position: relative; left: 66px; top: 43px;">Promoção</span>
                     <span class="promocao-item">{{"R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span>
                     <span style="display: flex; position: relative; left: 57px; top: 45px;">Valor subtotal</span>
-                    @if($item->precopromocao < 0 )
+                    @if($item->precopromocao > 0 )
                         <span class="total-item">{{"R$ " . number_format($item->precopromocao*$item->quantidade, 2, ',', '.' )}}</span>
                     @else
                         <span class="total-item">{{"R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>

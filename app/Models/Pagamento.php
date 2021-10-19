@@ -18,6 +18,6 @@ class Pagamento extends Model
     }  
 
     public function especies() {
-        return $this->hasOne('App\Models\Especie', 'codespecie', 'controle');
+        return $this->belongsTo('App\Models\Especie', 'codespecie', 'controle');
     }  
 }

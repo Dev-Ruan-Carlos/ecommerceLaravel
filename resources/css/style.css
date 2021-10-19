@@ -729,9 +729,8 @@ body {
   bottom: -4px;
 }
 
-.footer-finalizacao {
+.footer-finalizacao, .footer-pagamento {
   display: flex;
-  position: absolute;
   bottom: 86px;
   background: white;
   width: 159px;
@@ -739,7 +738,12 @@ body {
   justify-content: center;
   border-radius: 5px;
   padding: 1rem;
+  min-width: 172px;
   cursor: pointer;
+  align-items: center;
+  box-shadow: 1px 1px 4px #00000059; 
+  font-size: 16px; 
+  align-items: center;
 }
 
 .button-finalizacao {
@@ -748,7 +752,7 @@ body {
   border-radius: 1rem;
 }
 
-.button-finalizacao:hover, .footer-finalizacao:hover  {
+.button-finalizacao:hover, .footer-finalizacao:hover, .footer-pagamento:hover  {
   background-color: red;
   color:black;
 }
@@ -854,10 +858,9 @@ body {
 
 .telaPagamentoFinalizacao {
   display: flex;
-  position: fixed;
   background: white;
   width: 610px;
-  height: 383px;
+  height: 100%;
   border-radius: 5px;
   box-shadow: 4px 7px 10px 2px #1c181852;
   margin-top: -15rem;

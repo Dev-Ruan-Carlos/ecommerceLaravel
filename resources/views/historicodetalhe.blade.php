@@ -96,19 +96,22 @@
                             <span>Data e hora emissão do pedido:</span>
                             <span>{{(new DateTime($p->dataehoracadastro))->format('d/m/Y H:i:s')}}</span>
                         </div>
+                        <div class="flex-jb mt-1">
+                            <span>Forma de pagamento:</span>
+                            <span>{{$pedido->pagamentos->especies->especie}}</span>
+                        </div>
                     </div>
+                </div>
+                <div class="flex-jb mt-3 mb-1">
+                    <div class="">
+                        <a href="{{route('buscainicio.buscar')}}" class="footer-finalizacao">Voltar</a>
+                    </div>    
+                    <div class="">
+                        <a href="{{route('cancelarPedido', $pedido->controle)}}" class="footer-finalizacao">Cancelar pedido</a>
+                    </div>  
                 </div>
             </div>
         </div> 
-            @if($pedido->status <> "Cancelado")
-                <div class="footer-finalizacao" style="box-shadow: 1px 1px 4px #00000059; font-size: 19px; align-items: center;">
-                    <a href="{{route('cancelarPedido', $pedido->controle)}}" class="cancelar black">Cancelar pedido</a>
-                </div>
-            @else   
-                <div class="footer-finalizacao" style="box-shadow: 1px 1px 4px #00000059; font-size: 19px; align-items: center;">
-                    <a href="{{route('historico.index')}}" class="cancelar black">Voltar</a>
-                </div>    
-            @endif
     </div>
 </form>
 @endsection 

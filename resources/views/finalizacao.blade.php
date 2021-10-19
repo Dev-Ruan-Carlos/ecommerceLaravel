@@ -3,7 +3,7 @@
 <form action="" method="post">
 @csrf
 @method('POST')
-    <div class="fundoazul flex-jc flex-ac">
+    <div class="fundoazul flex-jc flex-ac flex-c">
         @if(session()->has('finalizacao'))
             <div class="alert alert-success">
                 {{ session()->get('finalizacao') }}
@@ -98,18 +98,22 @@
                         </div>
                     </div>
                 </div>
+                <div class="flex-jb mt-3">
+                    @if($pedido->status == "Pendente")
+                        <div class="">
+                            <a href="{{route('cancelarPedido', $pedido->controle)}}" class="footer-finalizacao">Cancelar pedido</a>
+                        </div>
+                    @else   
+                        <div class="">
+                            <a href="{{route('buscainicio.buscar')}}" class="footer-finalizacao">Voltar</a>
+                        </div>    
+                    @endif
+                        <div class="">
+                            <a href="{{route('formaPagamento', $pedido->controle)}}" class="footer-pagamento">Forma de pagamento</a>
+                        </div>
+                </div>
             </div>
         </div>
-        @if($pedido->status <> "Cancelado")
-            <div class="footer-finalizacao" style="box-shadow: 1px 1px 4px #00000059; font-size: 19px; align-items: center;">
-                <a href="{{route('cancelarPedido', $pedido->controle)}}" class="cancelar black">Cancelar pedido</a>
-            </div>
-        @else   
-            <div class="footer-finalizacao" style="box-shadow: 1px 1px 4px #00000059; font-size: 19px; align-items: center;">
-                <a href="{{route('buscainicio.buscar')}}" class="cancelar black">Voltar</a>
-            </div>    
-        @endif
-        <a href="{{route('formaPagamento', $pedido->controle)}}" class="footer-finalizacao">aaaaaa</a>
     </div>
 </form>
 @endsection 
