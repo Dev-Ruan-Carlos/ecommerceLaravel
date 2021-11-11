@@ -81,7 +81,7 @@ fieldset{
 }
 
 .button:hover {
-  background-color: white;
+  background-color: red;
   color: #000;
   transition: 300ms;
 }
@@ -306,10 +306,14 @@ body {
 }
 
 .main {
-    width: 80%;
-    height: 1200px;
-    margin-left: 195px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.main-container {
+  max-width: 1322px;
 }
 
 .aside {  
@@ -323,7 +327,9 @@ body {
 .header {
   position: relative;
   width: 100%;
-  height: 122px;
+  height: 100px;
+  background-color: #0084ff;
+  box-shadow: 1px 5px 10px 0px #0000002e
 }
 
 .head {
@@ -334,6 +340,7 @@ body {
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .bemvindo {
@@ -371,12 +378,33 @@ body {
 }
 
 .logosite {
-  max-width: 90px;
-  border-radius: 62px;
+  max-width: 87px;
+  border-radius: 5px;
+  border: 2px solid white;
+  display: flex;
+  left: 19px;
   position: relative;
-  margin-bottom: 1rem;
-  left: 52px;
-  margin-top: 1rem;
+}
+
+.buscarProduto {
+  width: 375px;
+  border-radius: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.main-banner {
+  max-height: 400px;
+  max-width: 1366px;
+  width: 100%;
+  height: auto;
+}
+
+.banners {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
 }
 
 .demonstracao {
@@ -410,7 +438,6 @@ body {
   border-radius: 10px;
   background: white;
   padding: 1rem;
-  border: solid 1px #00000021;
   box-shadow: 2px 2px 19px 3px #00000014;
 }
 
@@ -418,15 +445,16 @@ body {
   background-color: #0084ff;
   color: white;
   width: 100%;
-  position: relative;
   height: 23px;
   margin-top: 13px;
   border-radius: 3px;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 .comprar:hover, .button-cad:hover, .hover:hover, .gerencial:hover, .historico:hover {
-  background-color: blue;
-  color: white
+  background-color: #ffb954;
+  color: black;
 }
 
 .inputo {
@@ -697,6 +725,8 @@ body {
   padding: 0.5rem;
   border-radius: 6px;
   font-size: 14px;
+  cursor: pointer;
+  border: 1px solid white;
 }
 
 .gerente {
@@ -731,7 +761,7 @@ body {
 .footer-finalizacao, .footer-pagamento {
   display: flex;
   bottom: 86px;
-  background: white;
+  background: blue;
   width: 159px;
   height: 21px;
   justify-content: center;
@@ -743,6 +773,7 @@ body {
   box-shadow: 1px 1px 4px #00000059; 
   font-size: 16px; 
   align-items: center;
+  color: white;
 }
 
 .button-finalizacao {
@@ -771,15 +802,16 @@ body {
 
 .historico {
   display: flex;
-  position: relative;
   right: 103px;
   bottom: 25px;
-  width: 171px;
+  width: 190px;
   justify-content: center;
-  background: #0084ff;
-  color: white;
+  background: #ffb954;
+  color: #0084ff;
   border-radius: 5px;
-  padding: 0.20rem;
+  padding: 10px 20px;
+  font-family: sans-serif;
+  font-size: 15px;
 }
 
 .campo-hist {
@@ -930,4 +962,17 @@ body {
 .sublinhado {
   font-size: 20px;
   text-decoration: underline;
+}
+
+.swiper-banner {
+  max-height: 300px;
+}
+
+.lupa {
+  display: flex;
+  align-items: center;
+  position: relative;
+  right: 54px;
+  top: 9px;
+  cursor: pointer;
 }

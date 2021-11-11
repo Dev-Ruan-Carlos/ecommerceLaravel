@@ -3,46 +3,80 @@
 <form method="post" action="">
     @csrf
     @method('POST')
-    <header class="header">
+    <header class="header flex-jc flex-ac">
         <div class="head">
-            <a href="" class="logosite">
+            <a href="" class="">
                 <img src="{{asset('img/logo.jpg')}}" alt="LOGO" class="logosite">
             </a>
-            <div class="flex-c flex-ae gerente">
+            <div class="flex-jc" style="width: 81%;">
+                <input type="text" class="buscarProduto mr-2">
+                <i class="fas fa-search lupa"></i>
                 @if(isset($user) && ($user->nivel_acesso == 1 || $user->nivel_acesso == 2))
                     @if($user->nivel_acesso == 1)
-                        <a href="{{route('produto.indexproduto')}}">
-                            <button class="gerencial" type="button">Gerencial</button>
-                        </a>
+                        <a href="{{route('produto.indexproduto')}}" class="historico mr-2">Cadastro de produtos</a>
                     @endif
                 @endif
-                <div class="flex-jc">
-                    <a href="{{route('inicio')}}" class="historico mr-2">Sair/Logout</a>
-                    <a href="{{route('historico.index')}}" class="historico">Histórico de compra</a> 
-                </div>
+                <a href="{{route('historico.index')}}" class="historico mr-2">Histórico de compra</a> 
+                <a href="{{route('inicio')}}" class="historico">Sair/Logout</a>
             </div>
         </div>
     </header>
+    {{-- <div class="linha-horizontal black"></div> --}}
     <aside class="aside"></aside>
     <nav class="nav"></nav>
-    <div class="linha-horizontal black mt-2"></div>
     <main class="flex-c flex-ac main">
-        <h1 class="mt-1">Produtos em ofertas</h1>
-        <div class="corpo-produtos">
-            @foreach ($produto as $p)
-                <div class="card-produto">
-                    <p class="">{{"Nome do produto: " . $p->produto}}</p>
-                    <p class="">{{"Quantidade disponível: " . number_format($p->quantidade, 4, ',', '.' )}}</p>
-                    <p class="">{{"Preço de custo: R$ " . number_format($p->precocusto, 2, ',', '.' )}}</p>
-                    <p class="">{{"Preço de venda: R$ " . number_format($p->precovenda, 2, ',', '.' )}}</p>
-                    <p class="">{{"Preço de promoção: R$ " . number_format($p->precopromocao, 2, ',', '.' )}}
+        <div class="main-container">
+            <div class="swiper-container swiper-container-fade swiper-banner">
+                <div class="swiper-wrapper swiper-banner mt-2">
+                    <div class="swiper-slide swiper-slide-banner">
+                        <img src="{{asset('storage/banners/melancia.png')}}" alt="" class="banners">
+                    </div>
+                    <div class="swiper-slide swiper-slide-banner">
+                        <img src="{{asset('storage/banners/frutas.jpg')}}" alt="" class="banners">
+                    </div>
+                    <div class="swiper-slide swiper-slide-banner">
+                        <img src="{{asset('storage/banners/frutas2.jpg')}}" alt="" class="banners">
+                    </div>
+                    <div class="swiper-slide swiper-slide-banner">
+                        <img src="{{asset('storage/banners/macaco.jpg')}}" alt="" class="banners">
+                    </div>
+                </div>
+            </div>
+            <h1 class="mt-1">Produtos em ofertas</h1>
+            <div class="corpo-produtos">
+                @foreach ($produto as $p)
+                    <div class="card-produto">
+                        <p class="">{{"Nome do produto: " . $p->produto}}</p>
+                        <p class="mt-05">{{"Quantidade disponível: " . number_format($p->quantidade, 4, ',', '.' )}}</p>
+                        @if ($p->precopromocao <= $p->precovenda && $p->precopromocao <> 0)
+                            <p class="mt-05">{{"Preço de promoção: R$ " . number_format($p->precopromocao, 2, ',', '.' )}}</p>
+                        @else
+                            <p class="mt-05">{{"Preço de venda: R$ " . number_format($p->precovenda, 2, ',', '.' )}}</p>
+                        @endif
                         <a href="{{route('carrinho.adicionaritem', $p->controle)}}">
                             <button type="button" class="comprar">Adicionar ao carrinho</button>
                         </a>
-                    </p>
-                </div>
-            @endforeach
+                    </div>
+                @endforeach
+            </div>
         </div>
     </main>
 </form>
+<script>
+    var
+        swiper = null;
+
+    window.addEventListener('load', () => {
+        swiper = new Swiper('.swiper-container', {
+            spaceBetween: 0,
+            centeredSlides: true,
+            effect: 'fade',
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            }
+        });    
+    })
+</script>
 @endsection 

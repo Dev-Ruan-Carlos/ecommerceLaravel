@@ -34,8 +34,8 @@
                 <table class="w-100">
                     <tr class="w-100">
                         <td><strong>Descrição</strong></td>
-                        <td><strong>Qtde</strong></td>
-                        <td><strong>Valor un</strong></td>
+                        <td><strong>Quantidade</strong></td>
+                        <td><strong>Valor unitário</strong></td>
                         <td><strong>Promoção</strong></td>
                         <td><strong>Valor subtotal</strong></td>
                     </tr>
