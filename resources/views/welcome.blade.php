@@ -8,7 +8,7 @@
             <a href="" class="">
                 <img src="{{asset('img/logo.jpg')}}" alt="LOGO" class="logosite">
             </a>
-            <div class="flex-jc" style="width: 81%;">
+            <div class="flex-jc" style="width: 64%;">
                 <input type="text" class="buscarProduto mr-2">
                 <i class="fas fa-search lupa"></i>
                 @if(isset($user) && ($user->nivel_acesso == 1 || $user->nivel_acesso == 2))
@@ -16,6 +16,7 @@
                         <a href="{{route('produto.indexproduto')}}" class="historico mr-2">Cadastro de produtos</a>
                     @endif
                 @endif
+                <a href="{{route('admin.gerencial')}}" class="historico mr-2">Gerencial</a>
                 <a href="{{route('historico.index')}}" class="historico mr-2">Histórico de compra</a> 
                 <a href="{{route('inicio')}}" class="historico">Sair/Logout</a>
             </div>

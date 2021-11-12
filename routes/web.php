@@ -5,6 +5,7 @@ use App\Http\Controllers\CadastroUserController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\EspeciePagamentoController;
 use App\Http\Controllers\FinalizacaoController;
+use App\Http\Controllers\GerencialController;
 use App\Http\Controllers\HistoricoCompraController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\LoginController;
@@ -30,6 +31,12 @@ Route::get('/', [InicioController::class, 'index'])->name('inicio');
 Route::prefix('cadastro')->group(function(){
     Route::get('/', [CadastroUserController::class, 'index'])->name('cadastro.indexcad');
     Route::post('registre', [CadastroUserController::class, 'gravar'])->name('cadastro.registre');
+});
+
+Route::prefix('admin')->group(function(){
+    Route::get('gerencial',[GerencialController::class, 'index'])->name('admin.gerencial');
+    Route::get('chart-produtos-mais-vendidos',[GerencialController::class, 'chartProdutosMaisVendidos'])->name('admin.gerencial.chartprodutomaisvendidos');
+    Route::get('chart-produtos-mais-lucrativos',[GerencialController::class, 'chartProdutosMaisLucrativos'])->name('admin.gerencial.chartprodutomaislucrativos');
 });
 
 Route::prefix('login')->group(function(){

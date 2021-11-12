@@ -454,7 +454,7 @@ body {
 
 .comprar:hover, .button-cad:hover, .hover:hover, .gerencial:hover, .historico:hover {
   background-color: #ffb954;
-  color: black;
+  color: #0084ff;
 }
 
 .inputo {
@@ -807,7 +807,7 @@ body {
   width: 190px;
   justify-content: center;
   background: #ffb954;
-  color: #0084ff;
+  color: black;
   border-radius: 5px;
   padding: 10px 20px;
   font-family: sans-serif;
