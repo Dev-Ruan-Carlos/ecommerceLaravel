@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CadastroProdutoController extends Controller
 {
     public function index(){
-        return view('cadproduto');
+        return view('admin.cadastroproduto');
     }
     
     public function cadProduto(Request $request) {

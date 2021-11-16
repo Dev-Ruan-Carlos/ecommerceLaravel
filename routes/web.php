@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\CatalogoController;
 use App\Http\Controllers\CadastroProdutoController;
 use App\Http\Controllers\CadastroUserController;
 use App\Http\Controllers\CarrinhoController;
@@ -37,6 +38,10 @@ Route::prefix('admin')->group(function(){
     Route::get('gerencial',[GerencialController::class, 'index'])->name('admin.gerencial');
     Route::get('chart-produtos-mais-vendidos',[GerencialController::class, 'chartProdutosMaisVendidos'])->name('admin.gerencial.chartprodutomaisvendidos');
     Route::get('chart-produtos-mais-lucrativos',[GerencialController::class, 'chartProdutosMaisLucrativos'])->name('admin.gerencial.chartprodutomaislucrativos');
+    Route::prefix('catalogo')->group(function(){
+        Route::get('/', [CatalogoController::class, 'index'])->name('admin.catalogo');
+        Route::get('cadastro', [CatalogoController::class, 'cadastro'])->name('admin.catalogo.cadastro');
+    });
 });
 
 Route::prefix('login')->group(function(){
@@ -44,10 +49,10 @@ Route::prefix('login')->group(function(){
     Route::post('entrar', [LoginController::class, 'entrar'])->name('login.entrar');
 });
 
-Route::prefix('produto')->group(function(){
-    Route::get('/', [CadastroProdutoController::class, 'index'])->name('produto.indexproduto');
-    Route::get('cadproduto', [CadastroProdutoController::class, 'cadProduto'])->name('produto.cadproduto');
-});
+// Route::prefix('produto')->group(function(){
+//     Route::get('/', [CadastroProdutoController::class, 'index'])->name('produto.indexproduto');
+//     Route::get('cadproduto', [CadastroProdutoController::class, 'cadProduto'])->name('produto.cadproduto');
+// });
 
 Route::prefix('buscainicio')->group(function(){
     Route::get('buscarProdutos', [InicioController::class, 'buscarProdutos'])->name('buscainicio.buscar');

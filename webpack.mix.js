@@ -11,9 +11,14 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/style.css', 'public/css')
+mix.js('resources/js/app.js', 'public/js');
+
+mix.postCss('resources/css/style.css', 'public/css')
     .postCss('resources/css/header-admin.css', 'public/css')
     .postCss('resources/css/body-admin.css', 'public/css')
     .postCss('resources/css/style-admin.css', 'public/css')
-    .postJs('resources/js/funcoes.js', 'public/js');
+    .postCss('resources/css/cadproduto-admin.css', 'public/css')
+    .postCss('resources/css/global.css', 'public/css')
+
+mix.scripts('resources/js/sitemix/funcoes.js', 'public/js/funcoes.js');
+

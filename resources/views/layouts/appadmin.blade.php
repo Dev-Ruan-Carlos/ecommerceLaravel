@@ -13,6 +13,8 @@
     <link href="{{ mix('css/header-admin.css') }}" rel="stylesheet">
     <link href="{{ mix('css/body-admin.css') }}" rel="stylesheet">
     <link href="{{ mix('css/style-admin.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/cadproduto-admin.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/global.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/swiper.css') }}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{{ asset('css/chart.min.css')}}">

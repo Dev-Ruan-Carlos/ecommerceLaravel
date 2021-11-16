@@ -1,5 +1,5 @@
 <div class="chart-card">
-    <h4>Produtos mais lucrativos</h4>
+    <h4 style="font-size: 23px;">Produtos mais lucrativos</h4>
     <span id="totalProdutosMaisLucrativos" class="d-none">0</span>
     <div class="parent-charts">
         <canvas id="chartProdutosMaisLucrativos" class="d-none"></canvas>

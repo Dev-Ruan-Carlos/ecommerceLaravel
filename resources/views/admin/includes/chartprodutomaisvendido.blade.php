@@ -1,5 +1,5 @@
 <div class="chart-card">
-    <h4>Produtos mais vendidos</h4>
+    <h4 style="font-size: 23px;">Produtos mais vendidos</h4>
     <span id="totalProdutosMaisVendidos" class="d-none">0</span>
     <div class="parent-charts">
         <canvas id="chartProdutosMaisVendidos" class="d-none"></canvas>

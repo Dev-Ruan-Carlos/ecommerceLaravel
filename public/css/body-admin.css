@@ -5,6 +5,13 @@ main{
     height: 100%;
     min-height: calc(100vh- 55px);
     margin-left: 270px;
+    transition: all 300ms ease;
+}
+
+main.active-mobile {
+    width: calc(100% - 55px);
+    margin-left: 55px;
+    transition: all 300ms ease;
 }
 
 .container {
