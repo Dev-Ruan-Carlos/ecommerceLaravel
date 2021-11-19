@@ -21,4 +21,35 @@ main.active-mobile {
     padding: 1rem;
     flex-direction: column;
     gap: 1rem;
+    justify-content: space-between;
+}
+
+.botao {
+    width: 170px;
+    height: 40px;
+    text-align: center;
+    padding: 0.5rem;
+    background: #007bff;
+    justify-content: center;
+    color: white;
+    border-radius: 5px;
+}
+
+.botao:hover {
+    background-color: #2e8ef6fa;
+}
+
+/* RESPONSIVO */
+
+@media only screen and (max-width: 1400px) {
+
+    main {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    main.active-mobile{
+        width: calc(100% - 270px);
+        margin-left: 270px;
+    }
 }

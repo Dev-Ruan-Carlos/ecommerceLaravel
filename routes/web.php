@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\CatalogoController;
 use App\Http\Controllers\CadastroProdutoController;
 use App\Http\Controllers\CadastroUserController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EspeciePagamentoController;
 use App\Http\Controllers\FinalizacaoController;
 use App\Http\Controllers\GerencialController;
@@ -40,7 +41,17 @@ Route::prefix('admin')->group(function(){
     Route::get('chart-produtos-mais-lucrativos',[GerencialController::class, 'chartProdutosMaisLucrativos'])->name('admin.gerencial.chartprodutomaislucrativos');
     Route::prefix('catalogo')->group(function(){
         Route::get('/', [CatalogoController::class, 'index'])->name('admin.catalogo');
-        Route::get('cadastro', [CatalogoController::class, 'cadastro'])->name('admin.catalogo.cadastro');
+        Route::get('cadastro/{id?}', [CatalogoController::class, 'cadastro'])->name('admin.catalogo.cadastro');
+        Route::get('get', [CatalogoController::class, 'get'])->name('admin.catalogo.get');
+    });
+    Route::prefix('cliente')->group(function(){
+        Route::get('/', [ClienteController::class, 'index'])->name('admin.cliente');
+        Route::get('cadastro/{id}', [ClienteController::class, 'cadastro'])->name('admin.cliente.cadastro');
+        Route::get('get', [ClienteController::class, 'get'])->name('admin.cliente.get');
+    });
+    Route::prefix('pedido')->group(function(){
+        Route::get('/', [PedidoController::class, 'index'])->name('admin.pedido');
+        Route::get('get', [PedidoController::class, 'get'])->name('admin.pedido.get');
     });
 });
 

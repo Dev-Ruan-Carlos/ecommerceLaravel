@@ -3,20 +3,20 @@
     <section class="container">
         <div class="flex-jb flex-ae flex-w">
             <div class="flex-c mr-1">
-                <h1>Catálogo</h1>
-                <h2>Listagem dos produtos</h2>
+                <h1>Pedidos</h1>
+                <h2>Listagem dos pedidos</h2>
             </div>
-            <a href="" class="botao mt-1">Cadastrar produto</a>
         </div>
         <div class="body-card">
             <section class="box-table">
-                <table id="catalogoTable" class="table-hover nowrap">
+                <table id="pedidosTable" class="table-hover nowrap">
                     <thead>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                        <th>Preço de custo</th>
-                        <th>Preço de venda</th>
-                        <th>Preço de promoção</th>
+                        <th>Número pedido</th>
+                        <th>Status</th>
+                        <th>Valor un total</th>
+                        <th>Valor promoção total</th>
+                        <th>Espécie</th>
+                        <th>Data hora cadastro</th>
                         <th>Ações</th>
                     </thead>
                     <tbody>
@@ -27,14 +27,15 @@
     </section>
     <script>
         var 
-                catalogoTable = null,
-                catalogoTableParams = {
+                pedidosTable = null,
+                pedidosTableParams = {
                     dom: 'rti<"flex-jc mt-1"p>',
                     scrollX:        true,
                     scrollCollapse: true,
                     fixedColumns:   {
                         leftColumns: 0,
-                        rightColumns: 1
+                        rightColumns: 0,
+                        bottomColums: 20
                     },
                     searching: true,
                     serverSide: false,
@@ -46,7 +47,7 @@
                     language: {
                         url: "{{ asset('assets/lang/Portuguese-Brasil.json') }}"
                     },
-                    ajax: {"url" : "{{ route('admin.catalogo.get') }}"},
+                    ajax: {"url" : "{{ route('admin.pedido.get') }}"},
                     columnDefs: [
                         // {
                         //     targets: 0,
@@ -70,10 +71,10 @@
                         //     targets: [3,4],
                         //     width: "15%",
                         // },
-                        {
-                            targets: 5,
-                            width: "10px",
-                        },
+                        // {
+                        //     targets: 6,
+                        //     width: "10px",
+                        // },
                         // {
                         //     targets: [1,3,4,5],
                         //     className: 'text-c pr-2',
@@ -99,13 +100,13 @@
                         //     }
                         // },
                         {
-                            targets: [2,3,4],
+                            targets: [2,3],
                             render: function ( data, type, row, meta ) {
                                 return formatar(data);
                             }
                         },
                         // {
-                        //     targets: 4,
+                        //     targets: [2,3],
                         //     render: function ( data, type, row, meta ) {
                         //         celular = data;
                         //         if(celular){
@@ -121,18 +122,19 @@
                     ],
                     order: [1, 'asc'],
                     columns: [
-                        {data: 'produto',   name: 'produto'},
-                        {data: 'quantidade',   name: 'quantidade', className: 'text-c'},
-                        {data: 'precocusto',     name: 'precocusto', className: 'text-c'},
-                        {data: 'precovenda',  name: 'precovenda', className: 'text-c'},
-                        {data: 'precopromocao',   name: 'precopromocao', className: 'text-c'},
-                        {data: 'acoes',     name: 'acoes', orderable: false, searchable: false, className: 'text-c'},
+                        {data: 'controle',              name: 'controle', className: 'text-c'},
+                        {data: 'status',                name: 'status', className: 'text-c'},
+                        {data: 'valorUnTotal',          name: 'valorUnTotal', className: 'text-c'},
+                        {data: 'valorPromocaoTotal',    name: 'valorPromocaoTotal', className: 'text-c'},
+                        {data: 'especie',               name: 'especie', className: 'text-c'},
+                        {data: 'datahoracadastro',      name: 'datahoracadastro', className: 'text-c'},
+                        {data: 'acoes',                 name: 'acoes', orderable: false, searchable: false, className: 'text-c'},
                     ]
                 },
                 tableClientesBusca = null;
 
             window.addEventListener('load', function() {
-                catalogoTable = $('#catalogoTable').DataTable(catalogoTableParams);
+                pedidosTable = $('#pedidosTable').DataTable(pedidosTableParams);
                 // tableClientesBusca = document.getElementById('tableClientesBusca');
 
                 // $('input[type="search"]').focus();

@@ -19320,6 +19320,45 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/table.css":
+/*!*********************************!*\
+  !*** ./resources/css/table.css ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/datatables.css":
+/*!**************************************!*\
+  !*** ./resources/css/datatables.css ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/responsive.css":
+/*!**************************************!*\
+  !*** ./resources/css/responsive.css ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/style.css":
 /*!*********************************!*\
   !*** ./resources/css/style.css ***!
@@ -19706,6 +19745,9 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			"css/body-admin": 0,
 /******/ 			"css/header-admin": 0,
 /******/ 			"css/style": 0,
+/******/ 			"css/responsive": 0,
+/******/ 			"css/datatables": 0,
+/******/ 			"css/table": 0,
 /******/ 			"css/global": 0
 /******/ 		};
 /******/ 		
@@ -19756,13 +19798,16 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/global"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/global"], () => (__webpack_require__("./resources/css/style.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/global"], () => (__webpack_require__("./resources/css/header-admin.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/global"], () => (__webpack_require__("./resources/css/body-admin.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/global"], () => (__webpack_require__("./resources/css/style-admin.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/global"], () => (__webpack_require__("./resources/css/cadproduto-admin.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/global"], () => (__webpack_require__("./resources/css/global.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/style.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/header-admin.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/body-admin.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/style-admin.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/cadproduto-admin.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/global.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/table.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/datatables.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/responsive.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

@@ -3,20 +3,17 @@
     <section class="container">
         <div class="flex-jb flex-ae flex-w">
             <div class="flex-c mr-1">
-                <h1>Catálogo</h1>
-                <h2>Listagem dos produtos</h2>
+                <h1>Clientes</h1>
+                <h2>Listagem dos clientes</h2>
             </div>
-            <a href="" class="botao mt-1">Cadastrar produto</a>
         </div>
         <div class="body-card">
             <section class="box-table">
-                <table id="catalogoTable" class="table-hover nowrap">
+                <table id="pedidosTable" class="table-hover nowrap">
                     <thead>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                        <th>Preço de custo</th>
-                        <th>Preço de venda</th>
-                        <th>Preço de promoção</th>
+                        <th>Cliente</th>
+                        <th>E-mail</th>
+                        <th>Nível de acesso</th>
                         <th>Ações</th>
                     </thead>
                     <tbody>
@@ -27,14 +24,15 @@
     </section>
     <script>
         var 
-                catalogoTable = null,
-                catalogoTableParams = {
+                pedidosTable = null,
+                pedidosTableParams = {
                     dom: 'rti<"flex-jc mt-1"p>',
                     scrollX:        true,
                     scrollCollapse: true,
                     fixedColumns:   {
                         leftColumns: 0,
-                        rightColumns: 1
+                        rightColumns: 0,
+                        bottomColums: 20
                     },
                     searching: true,
                     serverSide: false,
@@ -46,7 +44,7 @@
                     language: {
                         url: "{{ asset('assets/lang/Portuguese-Brasil.json') }}"
                     },
-                    ajax: {"url" : "{{ route('admin.catalogo.get') }}"},
+                    ajax: {"url" : "{{ route('admin.cliente.get') }}"},
                     columnDefs: [
                         // {
                         //     targets: 0,
@@ -71,7 +69,7 @@
                         //     width: "15%",
                         // },
                         {
-                            targets: 5,
+                            targets: 3,
                             width: "10px",
                         },
                         // {
@@ -98,12 +96,12 @@
                         //         return formatado;                
                         //     }
                         // },
-                        {
-                            targets: [2,3,4],
-                            render: function ( data, type, row, meta ) {
-                                return formatar(data);
-                            }
-                        },
+                        // {
+                        //     targets: [2,3,4],
+                        //     render: function ( data, type, row, meta ) {
+                        //         return formatar(data);
+                        //     }
+                        // },
                         // {
                         //     targets: 4,
                         //     render: function ( data, type, row, meta ) {
@@ -121,18 +119,16 @@
                     ],
                     order: [1, 'asc'],
                     columns: [
-                        {data: 'produto',   name: 'produto'},
-                        {data: 'quantidade',   name: 'quantidade', className: 'text-c'},
-                        {data: 'precocusto',     name: 'precocusto', className: 'text-c'},
-                        {data: 'precovenda',  name: 'precovenda', className: 'text-c'},
-                        {data: 'precopromocao',   name: 'precopromocao', className: 'text-c'},
+                        {data: 'nome',   name: 'nome'},
+                        {data: 'email',   name: 'email', className: 'text-c'},
+                        {data: 'nome_acesso',     name: 'nome_acesso', className: 'text-c'},
                         {data: 'acoes',     name: 'acoes', orderable: false, searchable: false, className: 'text-c'},
                     ]
                 },
                 tableClientesBusca = null;
 
             window.addEventListener('load', function() {
-                catalogoTable = $('#catalogoTable').DataTable(catalogoTableParams);
+                pedidosTableParams = $('#pedidosTable').DataTable(pedidosTableParams);
                 // tableClientesBusca = document.getElementById('tableClientesBusca');
 
                 // $('input[type="search"]').focus();

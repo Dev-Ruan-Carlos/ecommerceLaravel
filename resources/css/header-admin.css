@@ -196,3 +196,32 @@ header.active-mobile{
     object-fit: contain;
     background-color: #eadede;
 }
+
+/* RESPONSIVO */
+
+@media only screen and (max-width: 1400px) {
+    .header-aside {
+        left: -270px;
+    }
+    .header-aside.active-mobile {
+        width: 270px;
+        left: 0px;
+    }
+
+    header {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    header.active-mobile{
+        max-width: calc(100% - 270px);
+        margin-left: 270px;
+    }
+
+    .header-aside.active-mobile nav ul li a span{
+        width: 100%;
+        overflow: auto;
+        padding-left: 0.5rem;
+    }
+}
+

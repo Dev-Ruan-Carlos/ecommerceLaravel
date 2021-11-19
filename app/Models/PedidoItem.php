@@ -34,7 +34,8 @@ class PedidoItem extends Model
                                     'tpedidoitem.codproduto',
                                     'tproduto.produto',
                                     DB::raw('SUM((tpedidoitem.valorun - tproduto.precocusto) * tpedidoitem.quantidade)   as lucratividade')
-                                )->leftJoin('tproduto', 'tproduto.controle', '=', 'tpedidoitem.codproduto')
+                                )
+                                ->leftJoin('tproduto', 'tproduto.controle', '=', 'tpedidoitem.codproduto')
                                 ->groupBy('tpedidoitem.codproduto', 'tproduto.produto')
                                 ->orderBy('lucratividade', 'desc')
                                 ->get();

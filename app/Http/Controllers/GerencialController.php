@@ -39,7 +39,7 @@ class GerencialController extends Controller
     public function chartProdutosMaisVendidos(){
         $produtos = PedidoItem::produtosMaisVendidos();
         if($produtos->count() == 0){
-            return Response::json([
+            return Response()->json([
                 'status'    => 'success',
                 'message'   => 'Não há informações a serem mostradas.'
             ]);
@@ -59,7 +59,7 @@ class GerencialController extends Controller
     public function chartProdutosMaisLucrativos(){
         $produtosLucrativos = PedidoItem::produtosMaisLucrativos();
         if($produtosLucrativos->count() == 0){
-            return Response::json([
+            return Response()->json([
                 'status'    => 'success',
                 'message'   => 'Não há informações a serem mostradas.'
             ]);

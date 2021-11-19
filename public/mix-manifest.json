@@ -5,6 +5,11 @@
     "/css/body-admin.css": "/css/body-admin.css",
     "/css/header-admin.css": "/css/header-admin.css",
     "/css/style.css": "/css/style.css",
+    "/css/responsive.css": "/css/responsive.css",
+    "/css/datatables.css": "/css/datatables.css",
+    "/css/table.css": "/css/table.css",
     "/css/global.css": "/css/global.css",
-    "/js/funcoes.js": "/js/funcoes.js"
+    "/js/funcoes.js": "/js/funcoes.js",
+    "/js/datatables.js": "/js/datatables.js",
+    "/js/datatables.sum.js": "/js/datatables.sum.js"
 }

@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pedido;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class PedidoController extends Controller
+class ClienteController extends Controller
 {
     public function index(){
-        return view('admin.pedido');
+        return view('admin.cliente');
     }
 
     public function get(){
-        $pedidos = Pedido::listagemPedidos();
-        return Datatables()->of($pedidos)
-        ->addColumn('acoes', function ($pedidos){
-            $botao = '<a href='. route('historico.detalhe', $pedidos->controle) .' data-tooltip="Editar pedidos" data-tooltip-location="left">';
+        $clientes = User::get();
+        return Datatables()->of($clientes)
+        ->addColumn('acoes', function ($clientes){
+            $botao = '<a href='. route('admin.cliente.get', $clientes->id) .' data-tooltip="Editar clientes" data-tooltip-location="left">';
                 $botao .= '<svg width="18px" height="18px" viewBox="0 0 4233 4233">';
                     $botao .= '<g id="Camada_x0020_1">';
                         $botao .= '<g id="_1913567360560">';

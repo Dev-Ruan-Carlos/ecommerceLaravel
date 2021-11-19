@@ -21,13 +21,16 @@ class EspeciePagamentoController extends Controller
         switch ($request->get('pagamento')) {
             case 'dinheiro':
                 $pagamento->codespecie = 1;
+                $pagamento->especie = 'Dinheiro';
                 break;
             case 'local':
                 $pagamentoLocal = true;
                 break;
             case 'cartao':
-                if($request->get('tipoPagamento') == 1)
+                if($request->get('tipoPagamento') == 1){
                     $pagamento->codespecie = 3;
+                    $pagamento->especie = 'Cartão de débito';
+                }
                 else{
                     $pagamento->nomedonocartao = $request->get('nomecartao');
                     $pagamento->numcartao = $request->get('ncartao');
@@ -35,6 +38,7 @@ class EspeciePagamentoController extends Controller
                     $pagamento->tipocartao = $request->get('tipoPagamento');
                     $pagamento->parcelas = $request->get('parcelas');
                     $pagamento->codespecie = 2;
+                    $pagamento->especie = 'Cartão de crédito';
                 }
                 break;
             

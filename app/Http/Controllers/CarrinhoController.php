@@ -103,7 +103,7 @@ class CarrinhoController extends Controller
             $numPedido = $numPedido->numpedido;
         }else{
             $numPedido = 0;
-        }
+        } 
         $pedido = new Pedido();
         $pedido->codusuario = $carrinho->codusuario;
         $pedido->numpedido = ++$numPedido;

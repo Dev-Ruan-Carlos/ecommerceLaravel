@@ -1,0 +1,1 @@
+jQuery.fn.dataTable.Api.register("sum()",(function(){return this.flatten().reduce((function(a,b){return"string"==typeof a&&(a=1*a.replace(/[^\d.-]/g,"")),"string"==typeof b&&(b=1*b.replace(/[^\d.-]/g,"")),a+b}),0)}));

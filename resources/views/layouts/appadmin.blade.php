@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="{{ asset('css/swiper.css') }}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{{ asset('css/chart.min.css')}}">
+    <link rel="stylesheet" href="{{ mix('css/table.css') }}"> 
+    <link rel="stylesheet" href="{{ mix('css/datatables.css') }}">  
+    <link rel="stylesheet" href="{{ mix('css/responsive.css') }}">  
     {{-- JS --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -26,6 +29,8 @@
     <script src="{{ asset('js/swiper.js') }}"></script> 
     <script src="{{ asset('js/chart.min.js') }}"></script>
     <script src="{{ asset('js/funcoes.js') }}"></script>
+    <script src="{{ asset('js/datatables.js') }}"></script>
+    <script src="{{ asset('js/datatables.sum.js') }}"></script>   
     <title>Ecommerce</title>
 </head>
 <body>
