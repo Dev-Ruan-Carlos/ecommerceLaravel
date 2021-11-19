@@ -15,7 +15,7 @@ class PedidoController extends Controller
         $pedidos = Pedido::listagemPedidos();
         return Datatables()->of($pedidos)
         ->addColumn('acoes', function ($pedidos){
-            $botao = '<a href='. route('historico.detalhe', $pedidos->controle) .' data-tooltip="Editar pedidos" data-tooltip-location="left">';
+            $botao = '<a href='. route('indexFinalizacao', $pedidos->controle) .' data-tooltip="Editar pedidos" data-tooltip-location="left">';
                 $botao .= '<svg width="18px" height="18px" viewBox="0 0 4233 4233">';
                     $botao .= '<g id="Camada_x0020_1">';
                         $botao .= '<g id="_1913567360560">';

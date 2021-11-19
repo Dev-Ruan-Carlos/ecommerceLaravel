@@ -6,6 +6,7 @@
                 <h1>Clientes</h1>
                 <h2>Listagem dos clientes</h2>
             </div>
+            <a href="{{route('cadastro.indexcad')}}" class="botao mt-1">Cadastrar cliente</a>
         </div>
         <div class="body-card">
             <section class="box-table">

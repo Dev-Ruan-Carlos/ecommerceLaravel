@@ -44,6 +44,7 @@ class EspeciePagamentoController extends Controller
             
             default:
                 $pagamento->codespecie = 1;
+                $pagamento->especie = 'Dinheiro';
                 break;
         }
         $pedido->status = 'Emitido';

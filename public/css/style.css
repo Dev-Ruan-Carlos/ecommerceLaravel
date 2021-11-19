@@ -1,8 +1,6 @@
 /* ---------- LOGIN ---------- */
 
 .fundoazul {
-  background: #0264d6; /* Old browsers */ /* FF3.6+ */ /* Chrome,Safari4+ */ /* Chrome10+,Safari5.1+ */ /* Opera 12+ */ /* IE10+ */
-  background: radial-gradient(ellipse at center,  #0264d6 1%,#1c2b5a 100%); /* W3C */
   height: 100%;
   min-height: 100vh;
   width: 100%;

@@ -41,7 +41,8 @@ Route::prefix('admin')->group(function(){
     Route::get('chart-produtos-mais-lucrativos',[GerencialController::class, 'chartProdutosMaisLucrativos'])->name('admin.gerencial.chartprodutomaislucrativos');
     Route::prefix('catalogo')->group(function(){
         Route::get('/', [CatalogoController::class, 'index'])->name('admin.catalogo');
-        Route::get('cadastro/{id?}', [CatalogoController::class, 'cadastro'])->name('admin.catalogo.cadastro');
+        Route::get('indexcadastro', [CatalogoController::class, 'indexcadastro'])->name('admin.catalogo.indexcadastro');
+        Route::get('cadastro', [CatalogoController::class, 'cadastro'])->name('admin.catalogo.cadastro');
         Route::get('get', [CatalogoController::class, 'get'])->name('admin.catalogo.get');
     });
     Route::prefix('cliente')->group(function(){

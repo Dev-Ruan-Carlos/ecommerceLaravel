@@ -23,12 +23,12 @@
                         <label for="pagamento" class="ml-3 flex-ac">Cartão</label>
                     </div>
                     <div class="mt-2 flex-jb">
-                        <a href="{{route('buscainicio.buscar')}}" class="footer-finalizacao">Voltar</a>
+                        <a href="{{route('admin.pedido')}}" class="footer-finalizacao">Voltar</a>
                         <button type="submit" class="ml-5 footer-finalizacao">Finalizar compra</button>
                     </div>
                 </div> 
         </div>
-        <div class="mt-3">
+        <div class="mt-2">
             <div class="telaCartaoFinalizacao flex-c" id="telacartao" style="display: none;">
                 <div class="tela-cartao" id="">
                     <img src="{{asset('img/cartão2.jpg')}}" alt="" style="max-width: 195px; max-height: 103px;">

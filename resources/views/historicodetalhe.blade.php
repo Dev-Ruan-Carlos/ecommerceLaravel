@@ -108,7 +108,7 @@
                 </div>
                 <div class="flex-jb mt-3 mb-1">
                     <div class="">
-                        <a href="{{route('admin.pedido')}}" class="footer-finalizacao">Voltar</a>
+                        <a href="{{route('historico.index')}}" class="footer-finalizacao">Voltar</a>
                     </div>
                     @if ($pedido->status <> 'Cancelado')
                         <div class="">
