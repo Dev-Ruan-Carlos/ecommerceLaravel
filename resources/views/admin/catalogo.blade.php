@@ -6,7 +6,7 @@
                 <h1>Catálogo</h1>
                 <h2>Listagem dos produtos</h2>
             </div>
-            <a href="{{route('admin.catalogo.indexcadastro')}}}" class="botao mt-1">Cadastrar produto</a>
+            <a href="{{route('admin.catalogo.indexcadastro')}}" class="botao mt-1">Cadastrar produto</a>
         </div>
         <div class="body-card">
             <section class="box-table">

@@ -47,6 +47,7 @@ Route::prefix('admin')->group(function(){
     });
     Route::prefix('cliente')->group(function(){
         Route::get('/', [ClienteController::class, 'index'])->name('admin.cliente');
+        Route::get('index', [ClienteController::class, 'indexCliente'])->name('admin.cliente.indexCliente');
         Route::get('cadastro/{id}', [ClienteController::class, 'cadastro'])->name('admin.cliente.cadastro');
         Route::get('get', [ClienteController::class, 'get'])->name('admin.cliente.get');
     });
@@ -60,11 +61,6 @@ Route::prefix('login')->group(function(){
     Route::get('/', [LoginController::class, 'index'])->name('login.indexlog');
     Route::post('entrar', [LoginController::class, 'entrar'])->name('login.entrar');
 });
-
-// Route::prefix('produto')->group(function(){
-//     Route::get('/', [CadastroProdutoController::class, 'index'])->name('produto.indexproduto');
-//     Route::get('cadproduto', [CadastroProdutoController::class, 'cadProduto'])->name('produto.cadproduto');
-// });
 
 Route::prefix('buscainicio')->group(function(){
     Route::get('buscarProdutos', [InicioController::class, 'buscarProdutos'])->name('buscainicio.buscar');

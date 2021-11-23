@@ -106,7 +106,14 @@
                             }
                         },
                         // {
-                        //     targets: [2,3],
+                        //     targets: 5,
+                        //     render: function ( data, type, row, meta){
+                        //         datahora = data;
+                        //         return formatar(data);
+                        //     }
+                        // },
+                        // {
+                        //     targets: 5,
                         //     render: function ( data, type, row, meta ) {
                         //         celular = data;
                         //         if(celular){
@@ -120,7 +127,7 @@
                         //     }
                         // }
                     ],
-                    order: [1, 'asc'],
+                    order: [0, 'asc'],
                     columns: [
                         {data: 'controle',              name: 'controle', className: 'text-c'},
                         {data: 'status',                name: 'status', className: 'text-c'},

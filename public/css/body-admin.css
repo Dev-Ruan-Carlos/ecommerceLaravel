@@ -24,7 +24,7 @@ main.active-mobile {
     justify-content: space-between;
 }
 
-.botao {
+.cadProduto {
     width: 170px;
     height: 40px;
     text-align: center;
@@ -35,7 +35,7 @@ main.active-mobile {
     border-radius: 5px;
 }
 
-.botao:hover {
+.cadProduto:hover {
     background-color: #2e8ef6fa;
 }
 

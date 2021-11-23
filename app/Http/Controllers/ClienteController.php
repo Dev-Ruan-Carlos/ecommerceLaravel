@@ -11,6 +11,10 @@ class ClienteController extends Controller
         return view('admin.cliente');
     }
 
+    public function indexCliente(){
+        return view('admin.cliente');
+    }
+
     public function get(){
         $clientes = User::get();
         return Datatables()->of($clientes)
