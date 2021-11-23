@@ -8,7 +8,7 @@
             </div>
             <a href="{{route('admin.cliente.indexCliente')}}" class="botao mt-1">Cadastrar cliente</a>
         </div>
-        <div class="body-card">
+        <div class="body-card mt-1">
             <section class="box-table">
                 <table id="pedidosTable" class="table-hover nowrap">
                     <thead>
@@ -120,7 +120,7 @@
                     ],
                     order: [1, 'asc'],
                     columns: [
-                        {data: 'nome',   name: 'nome'},
+                        {data: 'nome',   name: 'nome', className: 'text-c'},
                         {data: 'email',   name: 'email', className: 'text-c'},
                         {data: 'nome_acesso',     name: 'nome_acesso', className: 'text-c'},
                         {data: 'acoes',     name: 'acoes', orderable: false, searchable: false, className: 'text-c'},

@@ -8,7 +8,7 @@
             </div>
             <a href="{{route('admin.catalogo.indexcadastro')}}" class="botao mt-1">Cadastrar produto</a>
         </div>
-        <div class="body-card">
+        <div class="body-card mt-1">
             <section class="box-table">
                 <table id="catalogoTable" class="table-hover nowrap">
                     <thead>

@@ -7,7 +7,7 @@
                 <h2>Listagem dos pedidos</h2>
             </div>
         </div>
-        <div class="body-card">
+        <div class="body-card mt-1">
             <section class="box-table">
                 <table id="pedidosTable" class="table-hover nowrap">
                     <thead>
