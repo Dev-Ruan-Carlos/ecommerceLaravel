@@ -121,7 +121,7 @@
                     ],
                     order: [1, 'asc'],
                     columns: [
-                        {data: 'produto',   name: 'produto'},
+                        {data: 'produto',   name: 'produto', className: 'text-c'},
                         {data: 'quantidade',   name: 'quantidade', className: 'text-c'},
                         {data: 'precocusto',     name: 'precocusto', className: 'text-c'},
                         {data: 'precovenda',  name: 'precovenda', className: 'text-c'},

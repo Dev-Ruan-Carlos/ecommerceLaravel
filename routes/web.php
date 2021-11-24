@@ -43,12 +43,14 @@ Route::prefix('admin')->group(function(){
         Route::get('/', [CatalogoController::class, 'index'])->name('admin.catalogo');
         Route::get('indexcadastro', [CatalogoController::class, 'indexcadastro'])->name('admin.catalogo.indexcadastro');
         Route::get('cadastro', [CatalogoController::class, 'cadastro'])->name('admin.catalogo.cadastro');
+        Route::get('allProdutos/{id}', [CatalogoController::class, 'allProdutos'])->name('admin.catalogo.allProdutos');
         Route::get('get', [CatalogoController::class, 'get'])->name('admin.catalogo.get');
     });
     Route::prefix('cliente')->group(function(){
         Route::get('/', [ClienteController::class, 'index'])->name('admin.cliente');
         Route::get('index', [ClienteController::class, 'indexCliente'])->name('admin.cliente.indexCliente');
         Route::get('cadastro', [ClienteController::class, 'cadastro'])->name('admin.cliente.cadastro');
+        Route::get('allClientes/{id}', [ClienteController::class, 'allClientes'])->name('admin.cliente.allClientes');
         Route::get('get', [ClienteController::class, 'get'])->name('admin.cliente.get');
     });
     Route::prefix('pedido')->group(function(){

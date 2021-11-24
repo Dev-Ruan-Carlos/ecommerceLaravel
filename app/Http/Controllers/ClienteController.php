@@ -18,7 +18,10 @@ class ClienteController extends Controller
     public function cadastro(Request $request){
         if($request->get('id')){
             $usuarios = User::where('id',$request->get('id'))->first();
-            $usuarios->nivel_acesso = $request->post('acesso');
+            $usuarios->nome = $request->get('nome');
+            $usuarios->email = $request->get('email');
+            $usuarios->nivel_acesso = 3;
+            $usuarios->nome_acessos = 'limitado';
             switch ($request->post('acesso')) {
                 case '1':
                     $usuarios->nome_acesso = 'administrador';
@@ -33,31 +36,36 @@ class ClienteController extends Controller
                     $usuarios->nome_acesso = 'limitado';
                     break;
             }
-            $usuarios->ativo = $request->post('status');
+            $usuarios->ativo = 1;
             $usuarios->save();
-            return redirect()->route('controleuser.listagem');
+            return redirect()->route('admin.cliente.allClientes');
         }else{
-            if(User::where('email', $request->get('emailCadastro'))->orWhere('nome', $request->get('loginCadastro'))->count() > 0 ){
+            if(User::where('email', $request->get('email'))->orWhere('nome', $request->get('login'))->count() > 0 ){
                 return redirect()->back()->withInput()->withErrors(['cadastro' => 'Usuário/E-mail já cadastrado, tente novamente!']);
             }else{
-            $user = new User();
-            $user->nome = $request->get('loginCadastro');
-            $user->email = $request->get('emailCadastro');
-            $user->password = bcrypt($request->get('password')); 
-            $user->nivel_acesso = 3;
-            $user->nome_acesso = 'limitado';
-            $user->ativo = 0;
-            $user->save();
-            return redirect()->back()->withInput()->withErrors(['cadastro' => 'Usuário cadastrado com sucesso!']);
+                $user = new User();
+                $user->nome = $request->get('nome');
+                $user->email = $request->get('email');
+                $user->password = bcrypt($request->get('senha')); 
+                $user->nivel_acesso = 3;
+                $user->nome_acesso = 'limitado';
+                $user->ativo = 1;
+                $user->save();
+                return redirect()->back()->withInput()->withErrors(['cadastro' => 'Usuário cadastrado com sucesso!']);
             }
         }
+    }
+
+    public function allClientes($id){
+        $allclientes = User::where('id', $id)->first();
+        return view('admin.cadastrocliente', compact('allclientes'));
     }
 
     public function get(){
         $clientes = User::get();
         return Datatables()->of($clientes)
         ->addColumn('acoes', function ($clientes){
-            $botao = '<a href='. route('admin.cliente.get', $clientes->id) .' data-tooltip="Editar clientes" data-tooltip-location="left">';
+            $botao = '<a href='. route('admin.cliente.allClientes', $clientes->id) .' data-tooltip="Editar clientes" data-tooltip-location="left">';
                 $botao .= '<svg width="18px" height="18px" viewBox="0 0 4233 4233">';
                     $botao .= '<g id="Camada_x0020_1">';
                         $botao .= '<g id="_1913567360560">';

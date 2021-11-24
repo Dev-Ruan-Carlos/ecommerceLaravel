@@ -19,29 +19,53 @@ class CatalogoController extends Controller
     }
 
     public function cadastro(Request $request){
-        $produto = new Produto();
-        $produto->produto = $request->get('produto');
-        $produto->codbarras = $request->get('codbarras'); 
-        $produto->quantidade = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('quantidade')); 
-        $produto->precocusto = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precocusto'));
-        $produto->precovenda = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precovenda'));
+        if ($request->get('id')) {
+            $produto = Produto::where('controle', $request->get('id'))->first();
+            $produto->produto = $request->get('produto');
+            $produto->codbarras = $request->get('codbarras'); 
+            $produto->quantidade = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('quantidade')); 
+            $produto->precocusto = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precocusto'));
+            $produto->precovenda = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precovenda'));
+            $produto->precopromocao = $request->get('precopromocao');
             if($produto->precocusto > $produto->precovenda){
-                return redirect()->back()->withInput()->withErrors(['admin.catalogo.indexcadastro' => 'Preço de venda superior ao preço de custo! TENTE NOVAMENTE']);        
+                return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Preço de venda superior ao preço de custo! TENTE NOVAMENTE']);        
             }
-        $produto->precopromocao = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precopromocao'));
             if($produto->precopromocao > $produto->precovenda) {
-                return redirect()->back()->withInput()->withErrors(['admin.catalogo.indexcadastro' => 'Preço de promoção superior ao preço de venda! TENTE NOVAMENTE']);        
+                return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Preço de promoção superior ao preço de venda! TENTE NOVAMENTE']);        
             }   
-        $produto->ativo = 1;
-        $produto->save();
-        return redirect()->back()->withInput()->with(['admin.catalogo.indexcadastro' => 'Produto cadastrado com sucesso!']);
+            $produto->ativo = 1;
+            $produto->save();
+            return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Produto alterado com sucesso !']);
+        }else {
+            $produto = new Produto();
+            $produto->produto = $request->get('produto');
+            $produto->codbarras = $request->get('codbarras'); 
+            $produto->quantidade = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('quantidade')); 
+            $produto->precocusto = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precocusto'));
+            $produto->precovenda = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precovenda'));
+                if($produto->precocusto > $produto->precovenda){
+                    return redirect()->back()->withInput()->withErrors(['admin.catalogo.indexcadastro' => 'Preço de venda superior ao preço de custo! TENTE NOVAMENTE']);        
+                }
+            $produto->precopromocao = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precopromocao'));
+                if($produto->precopromocao > $produto->precovenda) {
+                    return redirect()->back()->withInput()->withErrors(['admin.catalogo.indexcadastro' => 'Preço de promoção superior ao preço de venda! TENTE NOVAMENTE']);        
+                }   
+            $produto->ativo = 1;
+            $produto->save();
+            return redirect()->back()->withInput()->withErrors(['admin.catalogo.indexcadastro' => 'Produto cadastrado com sucesso!']);
+        }
+    }
+
+    public function allProdutos($id){
+        $allProdutos = Produto::where('controle', $id)->first();
+        return view('admin.cadastroproduto', compact('allProdutos'));
     }
 
     public function get(){
         $catalogo = Produto::get();
         return Datatables()->of($catalogo)
         ->addColumn('acoes', function ($catalogo){
-            $botao = '<a href='. route('admin.catalogo.cadastro', $catalogo->controle) .' data-tooltip="Editar catalogo" data-tooltip-location="left">';
+            $botao = '<a href='. route('admin.catalogo.allProdutos', $catalogo->controle) .' data-tooltip="Editar catalogo" data-tooltip-location="left">';
                 $botao .= '<svg width="18px" height="18px" viewBox="0 0 4233 4233">';
                     $botao .= '<g id="Camada_x0020_1">';
                         $botao .= '<g id="_1913567360560">';
