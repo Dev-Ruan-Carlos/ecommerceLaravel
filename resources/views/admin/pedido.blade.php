@@ -126,6 +126,12 @@
                         //         }
                         //     }
                         // }
+                        // {
+                        // targets: 5,
+                        // render: function (data) { 
+                        //     return (data).format('DD/MM/YYYY HH:mm:ss');
+                        //     },
+                        // },
                     ],
                     order: [0, 'asc'],
                     columns: [

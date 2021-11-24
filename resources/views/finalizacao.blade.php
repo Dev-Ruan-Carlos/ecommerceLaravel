@@ -108,6 +108,9 @@
                         </div>
                     @else   
                         <div>
+                            <a href="{{route('admin.pedido')}}" class="footer-finalizacao">Voltar</a>
+                        </div>
+                        <div>
                             <a href="{{route('cancelarPedido', $pedido->controle)}}" class="footer-finalizacao">Cancelar pedido</a>
                         </div>
                     @endif

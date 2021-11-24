@@ -154,10 +154,6 @@
     min-width: 540px;
     min-height: 532px;
     height: auto;
-    -webkit-transition: all 300ms ease;
-    -moz-transition: all 300ms ease;
-    -ms-transition: all 300ms ease;
-    -o-transition: all 300ms ease;
     transition: all 300ms ease;
 }
 
@@ -208,4 +204,81 @@ h4{
     width: 100%;
     height: 45px;
     padding: 1rem;
+}
+
+.botao {
+    background: #007bffc2;
+    color: white;
+    width: 160px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0.2rem;
+}
+
+.botao:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+
+.body-card-complemento {
+    background: #007bffc2;
+    width: 350px;
+    height: 651px;
+    border-right: 1px solid #000000;
+    box-shadow: 3px 2px 4px 0px #0000001f;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.body-card-complemento-cliente {
+    background: #007bffc2;
+    width: 350px;
+    height: 551px;
+    border-right: 1px solid #000000;
+    box-shadow: 3px 2px 4px 0px #0000001f;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.body-card-principal {
+    background: white;
+    width: 800px;
+    height: 650px;
+    box-shadow: 3px 2px 4px 0px #0000001f;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body-card-principal-cliente {
+    background: white;
+    width: 800px;
+    height: 550px;
+    box-shadow: 3px 2px 4px 0px #0000001f;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    box-shadow: 3px 4px 8px 0px #0000000f;
+    background-color: #2500f126;
+    width: 500px;
+    height: 40px;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    border-radius: 3px;
+}
+
+.error{
+    color: white;
+    background-color: red;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
 }
