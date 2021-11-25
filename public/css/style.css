@@ -7,6 +7,13 @@
   width: 100%;
 }
 
+.fundoclaro {
+  background: #f4f6f9; /* Old browsers */
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+}
+
 #login form {
   width: 250px;
   margin-right: 2rem;
@@ -37,9 +44,9 @@
 }
 
 #login form span.fa {
-  background-color: #fff;
+  background-color: #dfd9fd;
   border-radius: 3px 0px 0px 3px;
-  color: #000;
+  color: #00000061;
   display: block;
   float: left;
   height: 50px;
@@ -47,23 +54,26 @@
   line-height: 50px;
   text-align: center;
   width: 50px;
+  position: absolute;
 }
 
-#login form input {
-  height: 50px;
-}
 fieldset{
   padding:0;
   border:0;
   margin: 0;
 }
 #login form input {
-  background-color: #fff;
+  height: 50px;
+  background-color: #dfd9fd;
   border-radius: 0px 3px 3px 0px;
   color: #000;
   margin-bottom: 1em;
   padding: 0 16px;
-  width: 200px;
+  width: 385px;
+  padding: 0.5rem;
+  padding-left: 3.5rem;
+  border-radius: 5px;
+  margin-right: 8rem;
 }
 
 .button {
@@ -100,6 +110,17 @@ fieldset{
   color: white;
   background-color: red;
   width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.error-login{
+  color: white;
+  background-color: red;
+  width: 75%;
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
@@ -326,8 +347,8 @@ body {
   position: relative;
   width: 100%;
   height: 100px;
-  background-color: #0084ff;
-  box-shadow: 1px 5px 10px 0px #0000002e
+  background-color: #343a40;
+  box-shadow: 1px 5px 10px 0px #0000002e;
 }
 
 .head {
@@ -405,6 +426,15 @@ body {
   max-height: 100%;
 }
 
+.banners-login{
+  max-width: 334px;
+  border-radius: 0.5rem;
+  position: relative;
+  right: 143px;
+  top: 2px;
+  box-shadow: 0px 0px 10px 0px #0000002e;
+}
+
 .demonstracao {
   font-size: 15px;
   margin-top: 8px;
@@ -435,24 +465,25 @@ body {
   display: inline-block;
   border-radius: 10px;
   background: white;
-  padding: 1rem;
+  /* padding: 1rem; */
   box-shadow: 2px 2px 19px 3px #00000014;
+  width: 250px;
+  height: 300px;
 }
 
 .comprar {
-  background-color: #0084ff;
+  background-color: #343a40;
   color: white;
   width: 100%;
-  height: 23px;
+  height: 30px;
   margin-top: 13px;
   border-radius: 3px;
-  border: 1px solid black;
   cursor: pointer;
 }
 
 .comprar:hover, .button-cad:hover, .hover:hover, .gerencial:hover, .historico:hover {
-  background-color: #ffb954;
-  color: #0084ff;
+  background-color: #0084ff;
+  color: white;
 }
 
 .inputo {
@@ -517,9 +548,10 @@ body {
 
 .corpo-produtos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5rem;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 2rem;
   margin-top: 3rem;
+  overflow: hidden;
 }
 
 .campo-maior {
@@ -643,7 +675,7 @@ body {
   width: 610px;
   height: 700px;
   border-radius: 5px;
-  box-shadow: 4px 7px 10px 2px #1c181852;
+  box-shadow: 2px 4px 20px 0px #1c181826;
 }
 
 .tela-form2 {
@@ -963,7 +995,7 @@ body {
 }
 
 .swiper-banner {
-  max-height: 300px;
+  max-height: 380px;
 }
 
 .lupa {
@@ -973,4 +1005,45 @@ body {
   right: 54px;
   top: 9px;
   cursor: pointer;
+}
+
+.mainAppBlade {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100vh !important;
+  margin-left: 0px !important;
+  transition: all 300ms ease !important;
+}
+
+.box-login {
+  background-color: white;
+  width: 900px;
+  height: 501px;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px #0000002e;
+}
+
+.clearfix {
+  position: fixed;
+  right: 470px;
+  bottom: 22rem;
+}
+
+.imgproduto {
+  max-width: 250px;
+  width: 100%;
+  height: 120px;
+  box-shadow: 0px 5px 10px 0px #0000002e;
+  margin-top: 1rem;
+}
+
+.footer-ecommerce{
+  position: relative;
+  width: 100%;
+  height: 70px;
+  background-color: #343a40;
+  box-shadow: 1px 5px 10px 0px #0000002e;
 }

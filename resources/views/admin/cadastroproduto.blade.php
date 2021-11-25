@@ -24,7 +24,7 @@
                 <img src="{{asset('storage/banners/frutas2.jpg')}}" alt="" class="banners mt-1" style="width: 100%; max-height: 135px; border-radius: 5px;">
                 <img src="{{asset('storage/banners/melancia.png')}}" alt="" class="banners mt-1" style="width: 100%; max-height: 135px; border-radius: 5px;">
                 <img src="{{asset('storage/banners/caminhao.jpg')}}" alt="" class="banners mt-1" style="width: 100%; max-height: 135px; border-radius: 5px;"> --}}
-                <img src="{{asset('storage/banners/relogioproduto.jpg')}}" alt="" class="banners" style="width: 100%; height: 650px; border-radius: 5px;">
+                <img src="{{asset('storage/banners/bannerproduto.jpg')}}" alt="" class="banners" style="width: 100%; height: 651px; border-radius: 5px;">
             </div>
             <div class="body-card-principal">
                 <span class="mb-3" style="font-size: 18px; font-weight: 400;">@isset($allProdutos)
@@ -44,22 +44,22 @@
                 <div>
                     <i class="iconeInput fas fa-poll"></i>
                     <input type="text" class="mt-1" name="quantidade" placeholder="Quantidade" required="required" maxlength="10"
-                    @isset($allProdutos) value="{{$allProdutos->quantidade}}" @endisset>
+                    @isset($allProdutos) value="{{number_format($allProdutos->quantidade, 4, ',', '.' )}}" @endisset>
                 </div>
                 <div>
                     <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i>
-                    <input type="text" class="mt-1"  name="precocusto" placeholder="Preço custo R$" required="required"
-                    @isset($allProdutos) value="{{$allProdutos->precocusto}}" @endisset>
+                    <input type="text" class="mt-1" name="precocusto" placeholder="Preço custo R$" required="required"
+                    @isset($allProdutos) value="{{number_format($allProdutos->precocusto, 2, ',', '.' )}}" @endisset>
                 </div>
                 <div>
                     <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i>
                     <input type="text" class="mt-1" name="precovenda" placeholder="Preço venda R$" required="required"
-                    @isset($allProdutos) value="{{$allProdutos->precovenda}}" @endisset>
+                    @isset($allProdutos) value="{{number_format($allProdutos->precovenda, 2, ',', '.' )}}" @endisset>
                 </div>
                 <div>
                     <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i>
                     <input type="text" class="mt-1" name="precopromocao" placeholder="Preço promoção R$" required="required"
-                    @isset($allProdutos) value="{{$allProdutos->precopromocao}}" @endisset>
+                    @isset($allProdutos) value="{{number_format($allProdutos->precopromocao, 2, ',', '.' )}}" @endisset>
                 </div>
                 <div class="mt-4 w-100">
                     <a href="{{route('admin.catalogo')}}">
@@ -74,4 +74,14 @@
         </div>
     </section>
 </form>
+<script>
+    let
+        precocusto = document.getElementsByName("precocusto")[0].value,
+        precovenda = document.getElementsByName("precovenda")[0].value,
+        precopromocao = document.getElementsByName("precopromocao")[0].value
+
+        String(precocusto).replace(/(.)(?=(\d{3})+$)/g,'$1,')
+        String(precovenda).replace(/(.)(?=(\d{3})+$)/g,'$1,')
+        String(precopromocao).replace(/(.)(?=(\d{3})+$)/g,'$1,')
+</script>
 @endsection 

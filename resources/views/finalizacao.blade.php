@@ -3,7 +3,7 @@
 <form action="" method="post">
 @csrf
 @method('POST')
-    <div class="fundoazul flex-jc flex-ac flex-c">
+    <div class="fundoclaro flex-jc flex-ac flex-c">
         @if(session()->has('finalizacao'))
             <div class="alert alert-success">
                 {{ session()->get('finalizacao') }}
@@ -106,13 +106,18 @@
                         <div>
                             <a href="{{route('formaPagamento', $pedido->controle)}}" class="footer-pagamento">Forma de pagamento</a>
                         </div>
+                        <div>
+                            <a href="{{route('cancelarPedido', $pedido->controle)}}" class="footer-finalizacao">Cancelar pedido</a>
+                        </div>
                     @else   
                         <div>
                             <a href="{{route('admin.pedido')}}" class="footer-finalizacao">Voltar</a>
                         </div>
-                        <div>
-                            <a href="{{route('cancelarPedido', $pedido->controle)}}" class="footer-finalizacao">Cancelar pedido</a>
-                        </div>
+                        @if($pedido->status <> "Cancelado")
+                            <div>
+                                <a href="{{route('cancelarPedido', $pedido->controle)}}" class="footer-finalizacao">Cancelar pedido</a>
+                            </div>
+                        @endif
                     @endif
                 </div>
             </div>

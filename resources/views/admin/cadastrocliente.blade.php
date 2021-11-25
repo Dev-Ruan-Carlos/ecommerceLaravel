@@ -5,6 +5,9 @@
     @method('GET')
     <input type="text" name="id" @isset($allclientes) value="{{$allclientes->id}}" @endisset hidden>
     <section class="container">
+        @error('admin.catalogo.allClientes')
+            <span class="error">{{$message}}</span>
+        @enderror 
         <hgroup>
             <h1>@isset($allclientes)
                 Alterar cliente
@@ -17,7 +20,7 @@
         @enderror  
         <div class="flex-r flex-jc mt-5">
             <div class="body-card-complemento-cliente">
-                <img src="{{asset('storage/banners/clienterelogio.jpg')}}" alt="" class="banners" style="width: 100%; height: 551px; border-radius: 5px;">
+                <img src="{{asset('storage/banners/bannercliente.jpg')}}" alt="" class="banners" style="width: 100%; height: 551px; border-radius: 5px;">
             </div>
             <div class="body-card-principal-cliente">
                 <span class="mb-3" style="font-size: 18px; font-weight: 400;">@isset($allclientes)
@@ -40,15 +43,27 @@
                     @isset($allclientes) value="{{$allclientes->password}}" disabled @endisset>
                 </div>
                 <div>
-                    <i class="iconeInput fas fa-chalkboard-teacher"></i>
-                    <input type="text" class="mt-1" name="nivelAcesso" placeholder="Nível de acesso"
-                    @isset($allclientes) value="{{$allclientes->nome_acesso}}" @endisset>
+                    @isset($allclientes)
+                        <i class="iconeInput fas fa-chalkboard-teacher"></i>
+                        <input type="text" class="mt-1" name="nivelAcesso" placeholder="Nível de acesso 1 = administrador 2 = supervisor 3 = limitado"
+                        @isset($allclientes) value="{{$allclientes->nivel_acesso}}" @endisset>
+                    @endisset
+                </div>
+                <div>
+                    @isset($allclientes)
+                        <i class="iconeInput fas fa-chalkboard-teacher"></i>
+                        <input type="text" class="mt-1" name="nomeNivelAcesso" placeholder="Nome nível de acesso"
+                        @isset($allclientes) value="{{$allclientes->nome_acesso}}" @endisset>
+                    @endisset
                 </div>
                 <div class="mt-4 w-100">
                     <a href="{{route('admin.cliente')}}">
                         <button type="button" class="botao">Voltar</button>
                     </a>
-                    <button type="submit" class="botao">Cadastrar</button>
+                    <button type="submit" class="botao">@isset($allclientes)
+                        Alterar
+                        @else
+                        Cadastrar @endisset</button>
                 </div>
             </div>
         </div>

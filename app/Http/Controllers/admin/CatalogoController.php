@@ -5,17 +5,21 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use stdClass;
 
 class CatalogoController extends Controller
 {
     public function index(){
         $dados = new stdClass;
+        $dados->user = Auth::user();
         return view('admin.catalogo', compact('dados'));
     }
 
     public function indexcadastro(){
-        return view('admin.cadastroproduto');
+        $dados = new stdClass;
+        $dados->user = Auth::user();
+        return view('admin.cadastroproduto', compact('dados'));
     }
 
     public function cadastro(Request $request){

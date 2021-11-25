@@ -17,10 +17,12 @@
         <a href="{{route('buscainicio.buscar')}}" class="ml-1" style="color: #007bff;">Início</a>
     </div>
     <div class="header-conta">
-        <span>Ruan Carlos</span>
-        <div class="header-conta-img">
-            <img src="{{asset('img/user.jpg')}}" alt="">
-        </div>
+        @if(request()->routeIs('admin.pedido', 'admin.gerencial', 'admin.cliente', 'admin.catalogo' ))
+            <span>{{$dados->user->nome}}</span>
+            <div class="header-conta-img">
+                <img src="{{asset('img/user.jpg')}}" alt="">
+            </div>
+        @endif
     </div>
 </header>
 <script>

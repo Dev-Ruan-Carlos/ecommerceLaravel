@@ -1,13 +1,17 @@
 @extends('layouts.app')
 @section('body')
-    <div id="login" class="fundoazul">
-        <div class="box-login flex-ac">
+    <div id="login" class="fundoclaro">
+        <div class="box-login flex-ac flex-jc">
+            <div class="" id="logo">
+                <img src="{{asset('storage/banners/bannerloginrelogio.jpg')}}" alt="LOGO" class="banners-login">
+            </div>
             <form action="{{route('login.entrar')}}" method="post">
+                <h1 style="margin-bottom: 18rem;">Login</h1>
                 @csrf
                 @method('POST')
-                <fieldset class="clearfix">
+                <fieldset class="clearfix mt-1">
                     @error('inicio')
-                        <span class="error">{{$message}}</span>
+                        <span class="error-login">{{$message}}</span>
                     @enderror    
                         <p>
                             <span class="fa fa-user"></span>
@@ -17,17 +21,12 @@
                             <span class="fa fa-lock"></span>
                             <input type="password"  Placeholder="Senha" name="senha" required>
                         </p> 
-                        <div id="entrar" class="entrar flex-jc mt-05">                 
-                            <button type="submit" class="button">Entrar</button>
-                        </div>
-                        <div class="white mt-1">
-                            <a href="{{route('cadastro.indexcad')}}" class="flex-jc">Registre-se</a>
+                        <div id="entrar" class="entrar flex-jc flex-ac mt-1" style="width: 76%; gap: 1rem; margin-top: 1rem;">                 
+                            <a href="{{route('cadastro.indexcad')}}" class="flex-jc botao2 flex-ac">Registre-se</a>
+                            <button type="submit" class="flex-jc flex-ac botao2">Entrar</button>
                         </div>
                 </fieldset>
             </form>
-            <div class="logo" id="logo">
-                <img src="{{asset('img/logo.jpg')}}" alt="LOGO">
-            </div>
         </div>
     </div> 
 @endsection       

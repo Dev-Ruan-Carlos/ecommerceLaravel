@@ -4,15 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use stdClass;
 
 class ClienteController extends Controller
 {
     public function index(){
-        return view('admin.cliente');
+        $dados = new stdClass;
+        $dados->user = Auth::user();
+        return view('admin.cliente', compact('dados'));
     }
 
     public function indexCliente(){
-        return view('admin.cadastrocliente');
+        $dados = new stdClass;
+        $dados->user = Auth::user();
+        return view('admin.cadastrocliente', compact('dados'));
     }
 
     public function cadastro(Request $request){
@@ -20,9 +26,8 @@ class ClienteController extends Controller
             $usuarios = User::where('id',$request->get('id'))->first();
             $usuarios->nome = $request->get('nome');
             $usuarios->email = $request->get('email');
-            $usuarios->nivel_acesso = 3;
-            $usuarios->nome_acessos = 'limitado';
-            switch ($request->post('acesso')) {
+            $usuarios->nivel_acesso = $request->get('nivelAcesso');
+            switch ($request->post('nivelAcesso')) {
                 case '1':
                     $usuarios->nome_acesso = 'administrador';
                     break;
@@ -38,7 +43,7 @@ class ClienteController extends Controller
             }
             $usuarios->ativo = 1;
             $usuarios->save();
-            return redirect()->route('admin.cliente.allClientes');
+            return redirect()->back()->withInput()->withErrors(['admin.cliente.allClientes' => 'Cadastro do cliente alterado com sucesso !']);  
         }else{
             if(User::where('email', $request->get('email'))->orWhere('nome', $request->get('login'))->count() > 0 ){
                 return redirect()->back()->withInput()->withErrors(['cadastro' => 'Usuário/E-mail já cadastrado, tente novamente!']);

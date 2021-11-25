@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use stdClass;
 
 class PedidoController extends Controller
 {
     public function index(){
-        return view('admin.pedido');
+        $dados = new stdClass;
+        $dados->user = Auth::user();
+        return view('admin.pedido', compact('dados'));
     }
 
     public function get(){

@@ -7,6 +7,7 @@ use App\Models\PedidoItem;
 use App\Models\Produto;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Response;
 use stdClass;
 
@@ -14,6 +15,8 @@ class GerencialController extends Controller
 {
     public function index(){
         $dados = new stdClass;
+        // Usuário
+        $dados->user = Auth::user();
         // produtos
         $dados->produtos = Produto::get();
         $dados->totalProdutos = $dados->produtos->count();
