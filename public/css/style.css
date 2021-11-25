@@ -1015,6 +1015,7 @@ body {
   min-height: 100vh !important;
   margin-left: 0px !important;
   transition: all 300ms ease !important;
+  /* background-image: url('./storage/banners/fundo.jpg')!important; */
 }
 
 .box-login {
