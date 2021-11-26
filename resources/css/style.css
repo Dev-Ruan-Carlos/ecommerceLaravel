@@ -8,7 +8,7 @@
 }
 
 .fundoclaro {
-  background: #f4f6f9; /* Old browsers */
+  background: #a29eb473; /* Old browsers */
   height: 100%;
   min-height: 100vh;
   width: 100%;
@@ -50,7 +50,7 @@
   display: block;
   float: left;
   height: 50px;
-  font-size:24px;
+  font-size:20px;
   line-height: 50px;
   text-align: center;
   width: 50px;
@@ -184,6 +184,7 @@ h1 {
   list-style:none;
   /* color: #5d5d5d; */
   color: inherit;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .flex, .flex-c, .flex-cr, .flex-r, .flex-w, .flex-jb, .flex-jc, .flex-js, .flex-je, .flex-as, .flex-ac, .flex-ae, .flex-ja, .flex-ab{
@@ -427,10 +428,10 @@ body {
 }
 
 .banners-login{
-  max-width: 334px;
+  max-width: 347px;
   border-radius: 0.5rem;
   position: relative;
-  right: 143px;
+  right: 100px;
   top: 2px;
   box-shadow: 0px 0px 10px 0px #0000002e;
 }
@@ -469,6 +470,7 @@ body {
   box-shadow: 2px 2px 19px 3px #00000014;
   width: 250px;
   height: 300px;
+  border-bottom: 3px solid black;
 }
 
 .comprar {
@@ -579,46 +581,34 @@ body {
   padding: 1rem;
 }
 
-.nome-produto {
+.imgproduto-carrinho{
+  width: 175px;
+  border-radius: 7px;
+  height: 115px;
   display: flex;
-  font-size: 26px;
-  align-items: center;
-  margin-left: 1rem;
-  width: 379px;
+  justify-content: center;
+}
+
+.nome-produto {
+
 }
 
 .custo-item {
-  display: flex;
-  position: relative;
-  top: 62px;
-  left: 18px;
 }
 
 .venda-item {
-  display: flex;
-  position: relative;
-  top: 65px;
-  left: -5px;
 }
 
 .total-item {
-  display: flex;
-  align-items: center;
-  position: relative;
-  left: -9px;
+
 }
 
 .promocao-item {
-  display: flex;
-  align-items: center;
+  
 }
 
 .quantidade-produto {
-  display: flex;
-  align-items: flex-end;
-  position: relative;
-  left: 31px;
-  bottom: 15px;
+  
 }
 
 .linha-horizontal {
@@ -689,23 +679,9 @@ body {
 }
 
 .mais{
-  font-size: 25px;
-  background: white;
-  display: flex;
-  position: relative;
-  left: 45px;
-  bottom: 16px;
-  cursor: pointer;
 }
 
 .menos{
-  display: flex;
-  position: relative;
-  right: 246px;
-  font-size: 30px;
-  background: white;
-  bottom: 17px;
-  cursor: pointer;
 }
 
 .font {
@@ -1030,7 +1006,7 @@ body {
 .clearfix {
   position: fixed;
   right: 470px;
-  bottom: 22rem;
+  bottom: 24rem;
 }
 
 .imgproduto {

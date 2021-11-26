@@ -35,7 +35,7 @@
     <title>Ecommerce</title>
 </head>
 <body>
-    <main class="mainAppBlade">
+    <main class="mainAppBlade fundoclaro">
         @yield('body')
     </main>
 </body>

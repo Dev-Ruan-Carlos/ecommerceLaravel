@@ -1,3 +1,6 @@
+* {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
 .flex, .flex-c, .flex-cr, .flex-r, .flex-w, .flex-jb, .flex-jc, .flex-js, .flex-je, .flex-as, .flex-ac, .flex-ae, .flex-ja, .flex-ab{
     display: flex;
@@ -243,8 +246,13 @@ h4{
     box-shadow: 3px 4px 8px 0px #0000003d;
 }
 
+.botao3 {
+    background: white;
+    color: black;
+}
+
 .botao3:hover{
-    background-color: white;
+    background-color: #f0f0f0;
     color: black;
     cursor: pointer;
     box-shadow: 3px 4px 8px 0px #0000003d;

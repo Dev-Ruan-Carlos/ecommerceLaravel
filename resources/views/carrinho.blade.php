@@ -19,30 +19,39 @@
                     $valorTotal += $item->precovenda*$item->quantidade;
                 }
             @endphp
-            <div class="campo-maior flex-jc">
+            <div class="campo-maior flex-jc p-1">
                 <article style="display: flex; width: 100%;">
-                    <span class="nome-produto">{{"Produto: " . $item->produto}}</span>
-                    <div class="flex-ac">
-                        <span class="quantidade-produto">{{"Quantidade á comprar = " . number_format($item->quantidade, 4, ',', '.' )}}</span>
-                        @if($item->produtos->quantidade >= $item->quantidade + 1)
-                            <a href="{{route('incrementarItem', $item->controle)}}">
-                                <button type="button" class="mais">+</button>
-                            </a>
-                        @endif
-                        <a href="{{route('delimitarItem', $item->controle)}}">
-                            <button type="button" class="menos ml-2">-</button>
-                        </a>
+                    <img src="{{asset('storage/banners/bannerrelogio2.jpg')}}" alt="LOGO" class="imgproduto-carrinho">
+                    <div class="flex-se w-100">
+                        <div class="flex-c flex-jc ml-5">
+                            <span class="nome-produto">{{"Produto: " . $item->produto}}</span>
+                            <div class="flex-jb box-quantidade">
+                                @if($item->produtos->quantidade >= $item->quantidade + 1)
+                                <a href="{{route('incrementarItem', $item->controle)}}">
+                                    <button type="button" class="mais">+</button>
+                                </a>
+                                @else 
+                                <a href="{{route('incrementarItem', $item->controle)}}">
+                                    <button type="button" class="mais" disabled>+</button>
+                                </a>
+                                @endif
+                                <span class="quantidade-produto flex-ac">{{$item->quantidade}}</span>
+                                <a href="{{route('delimitarItem', $item->controle)}}">
+                                    <button type="button" class="menos">-</button>
+                                </a>
+                            </div>
+                            <span class="quantidade-produto">{{"Disponível: " . number_format($item->quantidade, 4, ',', '.' )}}</span>
+                        </div>
+                        <div class="flex-c flex-jc ml-5" style="gap: 1rem">
+                            <span class="venda-item">{{"Preço venda R$ " . number_format($item->precovenda, 2, ',', '.' )}}</span>
+                            <span class="promocao-item">{{"Promoção R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span>
+                            @if($item->precopromocao > 0 )
+                                <span class="total-item">{{"Valor subtotal R$ " . number_format($item->precopromocao*$item->quantidade, 2, ',', '.' )}}</span>
+                            @else
+                                <span class="total-item">{{"R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
+                            @endif
+                        </div>
                     </div>
-                    <span style="display: flex; position: relative; top: 43px; left: 73px;">Preço venda</span>
-                    <span class="venda-item">{{"R$ " . number_format($item->precovenda, 2, ',', '.' )}}</span>
-                    <span style="display: flex; position: relative; left: 66px; top: 43px;">Promoção</span>
-                    <span class="promocao-item">{{"R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span>
-                    <span style="display: flex; position: relative; left: 57px; top: 45px;">Valor subtotal</span>
-                    @if($item->precopromocao > 0 )
-                        <span class="total-item">{{"R$ " . number_format($item->precopromocao*$item->quantidade, 2, ',', '.' )}}</span>
-                    @else
-                        <span class="total-item">{{"R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
-                    @endif
                 </article>
                 <a href="{{route('deletarItem', $item->controle)}}">
                     <button type="button" class="deletar ml-2">Deletar</button>
@@ -58,12 +67,12 @@
                 <br>
                 <span class="flex">{{"Valor total R$ " . number_format($valorTotal, 2, ',', '.' )}}</span>
             </div>
-            <div class="flex-c">
+            <div class="flex-c w-100">
                 <a href="{{route('buscainicio.buscar')}}">
-                    <button class="voltar-catalogo hover fas fa-arrow-circle-left">Ir para o catálogo</button>
+                    <button class="botao hover flex-ac flex-jc" style="width: 100%;"><i class="fas fa-long-arrow-alt-left mr-05"></i>Ir para o catálogo</button>
                 </a>
-                <a href="{{route('salvar')}}" class="">
-                    <button class="finalizar-compra hover fas fa-money-bill-alt mt-1">Finalizar compra</button>
+                <a href="{{route('salvar')}}">
+                    <button class="botao hover mt-1 flex-ac flex-jc" style="width: 100%;"><i class="fas fa-cart-arrow-down mr-05"></i>Finalizar compra</button>
                 </a>
             </div>
         </div>

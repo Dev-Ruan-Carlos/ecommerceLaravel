@@ -20,7 +20,7 @@
         @enderror  
         <div class="flex-r flex-jc mt-5">
             <div class="body-card-complemento-cliente">
-                <img src="{{asset('storage/banners/bannercliente.jpg')}}" alt="" class="banners" style="width: 100%; height: 551px; border-radius: 5px;">
+                <img src="{{asset('storage/banners/bannercliente.jpg')}}" alt="" class="banners banner-cadastrocliente" style="width: 100%; height: 568px; border-radius: 5px;">
             </div>
             <div class="body-card-principal-cliente">
                 <span class="mb-3" style="font-size: 18px; font-weight: 400;">@isset($allclientes)
