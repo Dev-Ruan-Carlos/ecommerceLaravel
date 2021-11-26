@@ -19,7 +19,8 @@ class CarrinhoController extends Controller
 
     public function accessInfo(){
         $carrinho = Carrinho::where('session', session()->getId())->first();
-        return view('carrinho', compact('carrinho'));
+        $produto = Produto::get()->first();
+        return view('carrinho', compact('carrinho', 'produto'));
     }
 
     public function adicionaritem($id){

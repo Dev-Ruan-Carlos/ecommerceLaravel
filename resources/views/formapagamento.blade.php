@@ -1,26 +1,23 @@
 @extends('layouts.app')
 @section('body')
-<div class="fundoazul flex-jc flex-ac flex-c">
+<div class="fundoclaro flex-jc flex-ac flex-c">
     <form action="{{route('pagamento.finalizarCompra', $pedido->controle)}}" method="POST">
         @csrf 
         @method('POST')
-        <div class="telaPagamentoFinalizacao flex-jc flex-c flex-ac p-2 mb-1">
-            <h2 class="flex-jc">Forma de pagamento</h2>
+        <div class="telaPagamentoFinalizacao flex-jc flex-c flex-ac p-2 mb-1 mt-1">
+            <h1 class="flex-jc">Forma de pagamento</h1>
                 <div class="flex-c flex-js">
-                    <div class="formDinheiro flex-js mt-3 font">
-                        <input class="radio" name="pagamento" value="dinheiro" id="dinheiro" type="radio" onchange="mostrardiv(this)">
-                        <i class=" ml-2 fas fa-money-bill-alt flex-ac"></i>
+                    <div class="formDinheiro flex-js mt-1 font">
+                        <input class="radio" style="width: 20px !important; height: 20px !important;" name="pagamento" value="dinheiro" id="dinheiro" type="radio" onchange="mostrardiv(this)">
                         <label for="pagamento" class="ml-2 flex-ac">Dinheiro</label>
                     </div>
                     <div class="formBoleto flex-js mt-3 font">
-                        <input class="radio" name="pagamento" value="local" id="local" type="radio" onchange="mostrardiv(this)">
-                        <i class=" ml-2 fas fa-home flex-ac"></i>
-                        <label for="pagamento" class="ml-3 flex-ac">Pagamento no local</label>
+                        <input class="radio" style="width: 20px !important; height: 20px !important;" name="pagamento" value="local" id="local" type="radio" onchange="mostrardiv(this)">
+                        <label for="pagamento" class="ml-2 flex-ac">Pagamento no local</label>
                     </div>
                     <div class="formCartao flex-js mt-3 font">
-                        <input class="radio" name="pagamento" value="cartao" id="cartao" type="radio" onchange="mostrardiv(this)">
-                        <i class=" ml-2 fas fas fa-mail-bulk flex-ac"></i>
-                        <label for="pagamento" class="ml-3 flex-ac">Cartão</label>
+                        <input class="radio" style="width: 20px !important; height: 20px !important;" name="pagamento" value="cartao" id="cartao" type="radio" onchange="mostrardiv(this)">
+                        <label for="pagamento" class="ml-2 flex-ac">Cartão</label>
                     </div>
                     <div class="mt-2 flex-jb">
                         <a href="{{route('admin.pedido')}}" class="footer-finalizacao">Voltar</a>
@@ -28,7 +25,7 @@
                     </div>
                 </div> 
         </div>
-        <div class="mt-2">
+        <div class="mt-1">
             <div class="telaCartaoFinalizacao flex-c" id="telacartao" style="display: none;">
                 <div class="tela-cartao" id="">
                     <img src="{{asset('img/cartão2.jpg')}}" alt="" style="max-width: 195px; max-height: 103px;">
@@ -37,7 +34,7 @@
                     <input type="text" name="nomecartao" class="tamanhoinput black" placeholder="Nome ( Igual no cartão )">
                     <div class="mt-05">
                         <input type="text" class="tamanhoinput black" name="ncartao" id="ncartao" placeholder="Número do cartão" maxlength="19">
-                        <input type="text" class="tamanhoinput black ml-05" value="00/00" name="validadecartao" id="validadecartao" placeholder="Validade mês/ano" style="width: 116px;" maxlength="5">
+                        <input type="text" class="tamanhoinput black" value="00/00" name="validadecartao" id="validadecartao" placeholder="Validade mês/ano" style="width: 116px;" maxlength="5">
                         <input type="text" class="tamanhoinput black ml-05" name="numseguranca" placeholder="CVV" style="width: 70px;" maxlength="3">
                         <label for="" class="ml-05">Tipo pag</label>
                         <select id="tipoPagamento" class="tamanhoinput black mt-05 ml-05" placeholder="Tipo Cartão" name="tipoPagamento" style="width: 75px;" oninput="mostrarDivParcelas(this)">

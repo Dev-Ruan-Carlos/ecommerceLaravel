@@ -22,40 +22,36 @@
             <div class="campo-maior flex-jc p-1">
                 <article style="display: flex; width: 100%;">
                     <img src="{{asset('storage/banners/bannerrelogio2.jpg')}}" alt="LOGO" class="imgproduto-carrinho">
-                    <div class="flex-se w-100">
-                        <div class="flex-c flex-jc ml-5">
-                            <span class="nome-produto">{{"Produto: " . $item->produto}}</span>
-                            <div class="flex-jb box-quantidade">
-                                @if($item->produtos->quantidade >= $item->quantidade + 1)
-                                <a href="{{route('incrementarItem', $item->controle)}}">
-                                    <button type="button" class="mais">+</button>
-                                </a>
-                                @else 
-                                <a href="{{route('incrementarItem', $item->controle)}}">
-                                    <button type="button" class="mais" disabled>+</button>
-                                </a>
-                                @endif
-                                <span class="quantidade-produto flex-ac">{{$item->quantidade}}</span>
-                                <a href="{{route('delimitarItem', $item->controle)}}">
-                                    <button type="button" class="menos">-</button>
-                                </a>
-                            </div>
-                            <span class="quantidade-produto">{{"Disponível: " . number_format($item->quantidade, 4, ',', '.' )}}</span>
-                        </div>
-                        <div class="flex-c flex-jc ml-5" style="gap: 1rem">
-                            <span class="venda-item">{{"Preço venda R$ " . number_format($item->precovenda, 2, ',', '.' )}}</span>
-                            <span class="promocao-item">{{"Promoção R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span>
-                            @if($item->precopromocao > 0 )
-                                <span class="total-item">{{"Valor subtotal R$ " . number_format($item->precopromocao*$item->quantidade, 2, ',', '.' )}}</span>
-                            @else
-                                <span class="total-item">{{"R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
+                    <div class="flex-se flex-c ml-3" style="width: 40%;">
+                        <span class="nome-produto">{{"Produto: " . $item->produto}}</span>
+                        <span class="venda-item">{{"Preço venda R$ " . number_format($item->precovenda, 2, ',', '.' )}}</span>
+                        <span class="promocao-item">{{"Promoção R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span>
+                        @if($item->precopromocao > 0 )
+                        <span class="total-item">{{"Valor subtotal R$ " . number_format($item->precopromocao*$item->quantidade, 2, ',', '.' )}}</span>
+                        @else
+                        <span class="total-item">{{"R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
+                        @endif
+                    </div>
+                    <div class="flex-c flex-jc">
+                        <div class="flex-jb box-quantidade">
+                            @if($item->produtos->quantidade >= $item->quantidade + 1)
+                            <a href="{{route('incrementarItem', $item->controle)}}">
+                                <button type="button" class="mais">+</button>
+                            </a>
+                            @else 
+                            <a href="{{route('incrementarItem', $item->controle)}}">
+                                <button type="button" class="mais" disabled>+</button>
+                            </a>
                             @endif
+                            <span class="quantidade-produto flex-ac">{{$item->quantidade}}</span>
+                            <a href="{{route('delimitarItem', $item->controle)}}">
+                                <button type="button" class="menos">-</button>
+                            </a>
                         </div>
+                        <span class="quantidade-produto mt-1">{{"Disponível: " . number_format($produto->quantidade, 4, ',', '.' )}}</span>
                     </div>
                 </article>
-                <a href="{{route('deletarItem', $item->controle)}}">
-                    <button type="button" class="deletar ml-2">Deletar</button>
-                </a>
+                <a href="{{route('deletarItem', $item->controle)}}" class="deletar">Deletar</a>
             </div>
         @endforeach
     </div>
