@@ -19363,9 +19363,12 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************!*\
   !*** ./resources/css/style.css ***!
   \*********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/css-loader/dist/cjs.js):\nError: Can't resolve '../storage/banners/fundo.jpg' in 'C:\\xampp\\htdocs\\ecommerce\\resources\\css'\n    at finishWithoutResolve (C:\\xampp\\htdocs\\ecommerce\\node_modules\\enhanced-resolve\\lib\\Resolver.js:293:18)\n    at C:\\xampp\\htdocs\\ecommerce\\node_modules\\enhanced-resolve\\lib\\Resolver.js:362:15\n    at C:\\xampp\\htdocs\\ecommerce\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (C:\\xampp\\htdocs\\ecommerce\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at C:\\xampp\\htdocs\\ecommerce\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (C:\\xampp\\htdocs\\ecommerce\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:27:1)\n    at C:\\xampp\\htdocs\\ecommerce\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:87:43\n    at C:\\xampp\\htdocs\\ecommerce\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (C:\\xampp\\htdocs\\ecommerce\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at C:\\xampp\\htdocs\\ecommerce\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at processResult (C:\\xampp\\htdocs\\ecommerce\\node_modules\\webpack\\lib\\NormalModule.js:721:19)\n    at C:\\xampp\\htdocs\\ecommerce\\node_modules\\webpack\\lib\\NormalModule.js:827:5\n    at C:\\xampp\\htdocs\\ecommerce\\node_modules\\loader-runner\\lib\\LoaderRunner.js:399:11\n    at C:\\xampp\\htdocs\\ecommerce\\node_modules\\loader-runner\\lib\\LoaderRunner.js:251:18\n    at context.callback (C:\\xampp\\htdocs\\ecommerce\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\xampp\\htdocs\\ecommerce\\node_modules\\css-loader\\dist\\index.js:155:5)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -19741,6 +19744,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			"css/style-admin": 0,
 /******/ 			"css/body-admin": 0,
 /******/ 			"css/header-admin": 0,
+/******/ 			"css/style": 0,
 /******/ 			"css/responsive": 0,
 /******/ 			"css/datatables": 0,
 /******/ 			"css/table": 0,
@@ -19794,16 +19798,16 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/style.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/header-admin.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/body-admin.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/style-admin.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/cadproduto-admin.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/global.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/table.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/datatables.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/responsive.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/style.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/header-admin.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/body-admin.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/style-admin.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/cadproduto-admin.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/global.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/table.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/datatables.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/cadproduto-admin","css/style-admin","css/body-admin","css/header-admin","css/style","css/responsive","css/datatables","css/table","css/global"], () => (__webpack_require__("./resources/css/responsive.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

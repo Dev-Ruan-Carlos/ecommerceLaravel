@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produto extends Model
 {
-    protected $table = 'tproduto';
-    protected $primaryKey = 'controle';
-    protected $connection = 'criador';
-    public $timestamps = false;
+    protected $table        = 'tproduto';
+    protected $primaryKey   = 'controle';
+    protected $connection   = 'criador';
+    public $timestamps      = false;
 
+    public function galeria() {
+        return $this->hasMany('App\Models\ImageProduto', 'codproduto', 'controle');
+    }
 }

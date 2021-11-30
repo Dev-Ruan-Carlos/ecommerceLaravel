@@ -216,7 +216,7 @@ h4{
     height: 35px;
     border-radius: 5px;
     text-align: center;
-    padding: 0.4rem;
+    padding: 0.5rem;
     cursor: pointer;
     box-shadow: 3px 4px 8px 0px #0000000f;
 }
@@ -301,12 +301,12 @@ h4{
 }
 
 input {
-    box-shadow: 3px 4px 8px 0px #0000000f;
-    background-color: #2500f126;
+    background-color: #c8cacd2b;
     width: 500px;
     height: 40px;
     padding: 0.5rem 2.5rem 0.5rem 2.5rem;
     border-radius: 3px;
+    border: 1px solid #cccccc17;
 }
 
 .error{

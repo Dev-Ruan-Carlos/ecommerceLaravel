@@ -42,7 +42,8 @@ Route::prefix('admin')->group(function(){
     Route::prefix('catalogo')->group(function(){
         Route::get('/', [CatalogoController::class, 'index'])->name('admin.catalogo');
         Route::get('indexcadastro', [CatalogoController::class, 'indexcadastro'])->name('admin.catalogo.indexcadastro');
-        Route::get('cadastro', [CatalogoController::class, 'cadastro'])->name('admin.catalogo.cadastro');
+        Route::post('cadastro', [CatalogoController::class, 'cadastro'])->name('admin.catalogo.cadastro');
+        // Route::get('gravarImg', [CatalogoController::class, 'cadastroImage'])->name('admin.catalogo.cadastroImage');
         Route::get('allProdutos/{id}', [CatalogoController::class, 'allProdutos'])->name('admin.catalogo.allProdutos');
         Route::get('get', [CatalogoController::class, 'get'])->name('admin.catalogo.get');
     });

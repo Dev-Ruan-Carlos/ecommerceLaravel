@@ -1,8 +1,8 @@
 @extends('layouts.appadmin')
 @section('body')
-<form action="{{route('admin.catalogo.cadastro')}}" method="GET">
+<form action="{{route('admin.catalogo.cadastro', (isset($allProdutos) ? $allProdutos->controle : null))}}" method="POST" enctype='multipart/form-data'>
     @csrf 
-    @method('GET')
+    @method('POST')
     <input type="text" name="id" @isset($allProdutos) value="{{$allProdutos->controle}}" @endisset hidden>
     <section class="container">
         <hgroup>
@@ -20,10 +20,6 @@
         @enderror  
         <div class="flex-r flex-jc mt-2">
             <div class="body-card-complemento">
-                {{-- <img src="{{asset('storage/banners/frutas.jpg')}}" alt="" class="banners mt-1" style="width: 100%; max-height: 135px; border-radius: 5px;">
-                <img src="{{asset('storage/banners/frutas2.jpg')}}" alt="" class="banners mt-1" style="width: 100%; max-height: 135px; border-radius: 5px;">
-                <img src="{{asset('storage/banners/melancia.png')}}" alt="" class="banners mt-1" style="width: 100%; max-height: 135px; border-radius: 5px;">
-                <img src="{{asset('storage/banners/caminhao.jpg')}}" alt="" class="banners mt-1" style="width: 100%; max-height: 135px; border-radius: 5px;"> --}}
                 <img src="{{asset('storage/banners/bannerproduto.jpg')}}" alt="" class="banners" style="width: 100%; height: 651px; border-radius: 5px;">
             </div>
             <div class="body-card-principal">
@@ -43,24 +39,34 @@
                 </div>
                 <div>
                     <i class="iconeInput fas fa-poll"></i>
-                    <input type="text" class="mt-1" name="quantidade" placeholder="Quantidade" required="required" maxlength="10"
-                    @isset($allProdutos) value="{{number_format($allProdutos->quantidade, 4, ',', '.' )}}" @endisset>
+                    <input type="number" class="mt-1" name="quantidade" placeholder="Quantidade" required="required" maxlength="10"
+                    @isset($allProdutos) value="{{ number_format($allProdutos->quantidade, 4 , '.', ',') }}" @endisset>
                 </div>
                 <div>
                     <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i>
-                    <input type="text" class="mt-1" name="precocusto" placeholder="Preço custo R$" required="required"
-                    @isset($allProdutos) value="{{number_format($allProdutos->precocusto, 2, ',', '.' )}}" @endisset>
+                    <input type="number" class="mt-1" name="precocusto" placeholder="Preço custo R$" required="required"
+                    @isset($allProdutos) value="{{number_format($allProdutos->precocusto, 2, '.', ',' )}}" @endisset>
                 </div>
                 <div>
                     <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i>
-                    <input type="text" class="mt-1" name="precovenda" placeholder="Preço venda R$" required="required"
-                    @isset($allProdutos) value="{{number_format($allProdutos->precovenda, 2, ',', '.' )}}" @endisset>
+                    <input type="number" class="mt-1" name="precovenda" placeholder="Preço venda R$" required="required"
+                    @isset($allProdutos) value="{{number_format($allProdutos->precovenda, 2, '.', ',' )}}" @endisset>
                 </div>
                 <div>
                     <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i>
-                    <input type="text" class="mt-1" name="precopromocao" placeholder="Preço promoção R$" required="required"
-                    @isset($allProdutos) value="{{number_format($allProdutos->precopromocao, 2, ',', '.' )}}" @endisset>
+                    <input type="number" class="mt-1" name="precopromocao" placeholder="Preço promoção R$" required="required"
+                    @isset($allProdutos) value="{{number_format($allProdutos->precopromocao, 2, '.', ',' )}}" @endisset>
                 </div>
+                <div>
+                    <i class="iconeInput fas fa-file-image" style="font-size: 20px;"></i>
+                    <input type="file" multiple="multiple" class="mt-1 w-100" name="image[]" placeholder="Imagem do produto"
+                    @isset($allProdutos) value="" @endisset>
+                </div>
+                @isset ($allProdutos->galeria)
+                    <div class="w-100 flex-jb">
+                        <img src="{{asset('storage/' . $allProdutos->galeria[0]->descricaoimg)}}" alt="">
+                    </div>
+                @endisset
                 <div class="mt-4 w-100">
                     <a href="{{route('admin.catalogo')}}">
                         <button type="button" class="botao">Voltar</button>

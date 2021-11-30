@@ -149,3 +149,9 @@
       else 
          return substr($string,0,$length) . '...';
    }
+
+   function saveImage() {
+      // Storage::disk('sgbr')->put('public/'.$pathUser.$nome.'.jpg', $jpg);
+   }
+
+?>

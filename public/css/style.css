@@ -1,14 +1,13 @@
 /* ---------- LOGIN ---------- */
 
 .fundoazul {
-  background: #0264d6; /* Old browsers */
   height: 100%;
   min-height: 100vh;
   width: 100%;
 }
 
 .fundoclaro {
-  background: #a29eb473; /* Old browsers */
+  background: #a29eb473;
   height: 100%;
   min-height: 100vh;
   width: 100%;
@@ -309,6 +308,10 @@ h1 {
 .pl-4{padding-left: 4rem;}
 .pl-5{padding-left: 5rem;}
 
+.font-17 {
+  font-size: 17px;
+}
+
 .white {
   color: white;
 }
@@ -551,11 +554,8 @@ body {
 }
 
 .corpo-produtos {
-  /* display: grid; */
-  /* grid-template-columns: repeat(10, 1fr); */
   gap: 2rem;
   margin-top: 3rem;
-  /* overflow: hidden; */
 }
 
 .campo-maior {
@@ -564,8 +564,7 @@ body {
   width: 1171px;
   height: 148px;
   margin-left: 16rem;
-  /* position: absolute; */
-  margin-top: 3.5rem;
+  margin-top: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0px 0px 10px #00000033;
 }
@@ -577,7 +576,7 @@ body {
   height: 380px;
   display: flex;
   left: 1455px;
-  top: 147px;
+  top: 210px;
   border-radius: 1.5rem;
   box-shadow: 0px 0px 10px #00000033;
   padding: 1rem;
@@ -640,10 +639,9 @@ body {
 
 .tela-pagamento {
   display: flex;
-  position: fixed;
   background: white;
   width: 610px;
-  height: 700px;
+  height: 790px;
   border-radius: 5px;
   box-shadow: 2px 4px 20px 0px #1c181826;
 }
@@ -664,14 +662,14 @@ body {
 
 .deletar {
   display: flex;
-  position: relative;
+  /* position: relative; */
   right: 20px;
   top: 8px;
   background: white;
-  height: 20px;
-  width: 64px;
+  height: 30px;
+  width: 70px;
   align-items: center;
-  padding: 0.8rem;
+  padding: 0.5rem;
   border-radius: 3px;
   cursor: pointer;
 }
@@ -750,8 +748,8 @@ body {
   min-width: 172px;
   cursor: pointer;
   align-items: center;
-  box-shadow: 1px 1px 4px #00000059; 
-  font-size: 16px; 
+  box-shadow: 1px 1px 4px #00000059;
+  font-size: 14px;
   align-items: center;
   color: white;
 }
@@ -774,7 +772,7 @@ body {
   width: 241px;
   right: 832px;
   background: red;
-  top: 12px;
+  top: 108px;
   border-radius: 6px;
   padding: 1rem;
   align-items: center;
@@ -846,7 +844,7 @@ body {
   height: 230px;
   display: flex;
   left: 1455px;
-  top: 147px;
+  top: 247px;
   border-radius: 1.5rem;
   box-shadow: 0px 0px 10px #00000033;
   padding: 1rem;
@@ -980,7 +978,7 @@ body {
   max-width: 250px;
   width: 100%;
   height: 185px;
-  box-shadow: 0px 5px 10px 0px #0000002e;
+  box-shadow: 0px 0px 10px 0px #0000002e;
   margin-top: 1rem;
   -o-object-fit: contain;
      object-fit: contain;
@@ -1012,3 +1010,16 @@ body {
   overflow: hidden;
 }
 
+.box-quantidade{
+  height: 30px;
+  background-color: white;
+  width: 100%;
+  border: 1px solid #ede2e2;
+  display: flex;
+}
+
+.mais {
+  width: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}

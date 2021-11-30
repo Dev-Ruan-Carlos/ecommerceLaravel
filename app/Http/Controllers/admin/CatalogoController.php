@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ImageProduto;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,40 +26,58 @@ class CatalogoController extends Controller
     public function cadastro(Request $request){
         if ($request->get('id')) {
             $produto = Produto::where('controle', $request->get('id'))->first();
-            $produto->produto = $request->get('produto');
-            $produto->codbarras = $request->get('codbarras'); 
-            $produto->quantidade = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('quantidade')); 
-            $produto->precocusto = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precocusto'));
-            $produto->precovenda = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precovenda'));
-            $produto->precopromocao = $request->get('precopromocao');
-            if($produto->precocusto > $produto->precovenda){
-                return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Preço de venda superior ao preço de custo! TENTE NOVAMENTE']);        
+            if(!$produto){
+                $produto = new Produto();
             }
-            if($produto->precopromocao > $produto->precovenda) {
-                return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Preço de promoção superior ao preço de venda! TENTE NOVAMENTE']);        
-            }   
-            $produto->ativo = 1;
-            $produto->save();
-            return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Produto alterado com sucesso !']);
-        }else {
+        }else{
             $produto = new Produto();
-            $produto->produto = $request->get('produto');
-            $produto->codbarras = $request->get('codbarras'); 
-            $produto->quantidade = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('quantidade')); 
-            $produto->precocusto = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precocusto'));
-            $produto->precovenda = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precovenda'));
-                if($produto->precocusto > $produto->precovenda){
-                    return redirect()->back()->withInput()->withErrors(['admin.catalogo.indexcadastro' => 'Preço de venda superior ao preço de custo! TENTE NOVAMENTE']);        
-                }
-            $produto->precopromocao = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precopromocao'));
-                if($produto->precopromocao > $produto->precovenda) {
-                    return redirect()->back()->withInput()->withErrors(['admin.catalogo.indexcadastro' => 'Preço de promoção superior ao preço de venda! TENTE NOVAMENTE']);        
-                }   
-            $produto->ativo = 1;
-            $produto->save();
-            return redirect()->back()->withInput()->withErrors(['admin.catalogo.indexcadastro' => 'Produto cadastrado com sucesso!']);
         }
+        $produto->produto = $request->get('produto');
+        $produto->codbarras = $request->get('codbarras'); 
+        $produto->quantidade = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('quantidade')); 
+        $produto->precocusto = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precocusto'));
+        $produto->precovenda = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precovenda'));
+        $produto->precopromocao = $request->get('precopromocao');
+        if($produto->precocusto > $produto->precovenda){
+            return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Preço de venda superior ao preço de custo! TENTE NOVAMENTE']);        
+        }
+        if($produto->precopromocao > $produto->precovenda) {
+            return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Preço de promoção superior ao preço de venda! TENTE NOVAMENTE']);        
+        }   
+        $produto->ativo = 1;
+        $produto->save();
+        if($request->hasfile('image')){
+            foreach ($request->file('image') as $file) {
+                $image = 'produtos/' . generateRandomString(10) . '.jpg';
+                $file->move(public_path('storage').'\produtos',$image);
+                $galeria = new ImageProduto();
+                $galeria->descricaoimg = $image;
+                $galeria->codproduto = $produto->controle;
+                $galeria->ativo = "1";
+                $galeria->save();
+            }
+        }
+        return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Produto alterado com sucesso !']);
     }
+
+    // public function cadastroImage(Request $request){
+    //     dd($request->file);
+    //     if ($request->get('id')) {
+    //         $image                  = ImageProduto::where('controle')->get()->first();
+    //         $image->caminhoimg      = "storage/imgprodutos/";
+    //         $image->descricaoimg    = $request->get('image');
+    //         $image->ativo           = 1;
+    //         $image->save();
+    //     }
+    //     else{
+    //         $image                  = new ImageProduto();
+    //         $image->codproduto      = $request->get('id');
+    //         $image->caminhoimg      = "storage/imgprodutos/";
+    //         $image->descricaoimg    = $request->get('image');
+    //         $image->ativo           = 1;
+    //         $image->save();
+    //     }
+    // }
 
     public function allProdutos($id){
         $allProdutos = Produto::where('controle', $id)->first();
