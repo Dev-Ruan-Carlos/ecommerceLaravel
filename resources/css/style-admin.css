@@ -47,6 +47,7 @@
   
   .mr-0{margin-right: 0rem;}
   .mr-05{margin-right: .5rem;}
+  .mr-06{margin-right: 0.6rem;}
   .mr-1{margin-right: 1rem;}
   .mr-2{margin-right: 2rem;}
   .mr-3{margin-right: 3rem;}
@@ -259,7 +260,7 @@ h4{
 }
 
 .body-card-complemento {
-    background: #007bffc2;
+    background: #010101;
     width: 350px;
     height: 651px;
     border-right: 1px solid #000000;
@@ -280,13 +281,15 @@ h4{
 
 .body-card-principal {
     background: white;
-    width: 800px;
-    height: 650px;
+    width: 795px;
+    height: 360px;
     box-shadow: 3px 2px 4px 0px #0000001f;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    border-bottom: 3px solid black;
+    border-radius: 5px;
 }
 
 .body-card-principal-cliente {
@@ -331,4 +334,55 @@ input {
     right: 23px;
     color: #00000061;
     cursor: pointer;
+}
+
+.body-card-imgprodutos {
+    background: white;
+    width: 1603px;
+    height: 400px;
+    box-shadow: 3px 2px 4px 0px #0000001f;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    border-bottom: 3px solid black;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.body-imgprodutos{
+    width: 150px;
+    height: 160px;
+    background-size: cover;
+    margin-bottom: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    overflow: hidden;
+    color: #848ea1;
+    margin-right: 1rem;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.upload-img{
+    border: 2px dashed #0095ff;
+    border-radius: 4px;
+    padding: 1rem;
+    height: 160px;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 11px;
+    flex-direction: column;
+    color: #0095ff;
+    position: relative;
+    transition: .3s all;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
 }

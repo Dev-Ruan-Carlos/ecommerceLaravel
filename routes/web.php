@@ -43,8 +43,8 @@ Route::prefix('admin')->group(function(){
         Route::get('/', [CatalogoController::class, 'index'])->name('admin.catalogo');
         Route::get('indexcadastro', [CatalogoController::class, 'indexcadastro'])->name('admin.catalogo.indexcadastro');
         Route::post('cadastro', [CatalogoController::class, 'cadastro'])->name('admin.catalogo.cadastro');
-        // Route::get('gravarImg', [CatalogoController::class, 'cadastroImage'])->name('admin.catalogo.cadastroImage');
         Route::get('allProdutos/{id}', [CatalogoController::class, 'allProdutos'])->name('admin.catalogo.allProdutos');
+        // Route::delete('gravarImg', [CatalogoController::class, 'cadastroImage'])->name('admin.catalogo.cadastroImage');
         Route::get('get', [CatalogoController::class, 'get'])->name('admin.catalogo.get');
     });
     Route::prefix('cliente')->group(function(){
