@@ -37,7 +37,7 @@ class CatalogoController extends Controller
         $produto->quantidade = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('quantidade')); 
         $produto->precocusto = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precocusto'));
         $produto->precovenda = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precovenda'));
-        $produto->precopromocao = $request->get('precopromocao');
+        $produto->precopromocao = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precopromocao'));
         if($produto->precocusto > $produto->precovenda){
             return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Preço de venda superior ao preço de custo! TENTE NOVAMENTE']);        
         }
@@ -60,28 +60,28 @@ class CatalogoController extends Controller
         return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Produto alterado com sucesso !']);
     }
 
-    // public function cadastroImage(Request $request){
-    //     dd($request->file);
-    //     if ($request->get('id')) {
-    //         $image                  = ImageProduto::where('controle')->get()->first();
-    //         $image->caminhoimg      = "storage/imgprodutos/";
-    //         $image->descricaoimg    = $request->get('image');
-    //         $image->ativo           = 1;
-    //         $image->save();
-    //     }
-    //     else{
-    //         $image                  = new ImageProduto();
-    //         $image->codproduto      = $request->get('id');
-    //         $image->caminhoimg      = "storage/imgprodutos/";
-    //         $image->descricaoimg    = $request->get('image');
-    //         $image->ativo           = 1;
-    //         $image->save();
-    //     }
-    // }
-
     public function allProdutos($id){
         $allProdutos = Produto::where('controle', $id)->first();
-        return view('admin.cadastroproduto', compact('allProdutos'));
+        $img = ImageProduto::where('controle', $id)->first();
+        return view('admin.cadastroproduto', compact('allProdutos', 'img'));
+    }
+
+    public function deleteImg($id){
+        $img = ImageProduto::where('controle', $id)->first();
+        $img->delete();
+        return response()->json([
+            'status' => 'success'
+        ]);
+    }
+
+    public function deleteAllImg(){
+        $imgs = ImageProduto::get();
+        foreach ($imgs as $img) {
+            $img->delete();
+        }
+        return response()->json([
+            'status' => 'success'
+        ]);
     }
 
     public function get(){

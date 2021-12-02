@@ -42,9 +42,10 @@ Route::prefix('admin')->group(function(){
     Route::prefix('catalogo')->group(function(){
         Route::get('/', [CatalogoController::class, 'index'])->name('admin.catalogo');
         Route::get('indexcadastro', [CatalogoController::class, 'indexcadastro'])->name('admin.catalogo.indexcadastro');
-        Route::post('cadastro', [CatalogoController::class, 'cadastro'])->name('admin.catalogo.cadastro');
+        Route::get('cadastro', [CatalogoController::class, 'cadastro'])->name('admin.catalogo.cadastro');
         Route::get('allProdutos/{id}', [CatalogoController::class, 'allProdutos'])->name('admin.catalogo.allProdutos');
-        // Route::delete('gravarImg', [CatalogoController::class, 'cadastroImage'])->name('admin.catalogo.cadastroImage');
+        Route::delete('deleteImg/{id}', [CatalogoController::class, 'deleteImg'])->name('admin.catalogo.deleteImg');
+        Route::delete('deleteAllImg', [CatalogoController::class, 'deleteAllImg'])->name('admin.catalogo.deleteAllImg');
         Route::get('get', [CatalogoController::class, 'get'])->name('admin.catalogo.get');
     });
     Route::prefix('cliente')->group(function(){

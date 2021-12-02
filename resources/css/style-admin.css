@@ -281,11 +281,11 @@ h4{
 
 .body-card-principal {
     background: white;
-    width: 795px;
-    height: 360px;
+    width: 790px;
+    height: 270px;
     box-shadow: 3px 2px 4px 0px #0000001f;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     border-bottom: 3px solid black;
@@ -303,9 +303,18 @@ h4{
     align-items: center;
 }
 
-input {
+.inputPadrao {
     background-color: #c8cacd2b;
-    width: 500px;
+    width: 600px;
+    height: 40px;
+    padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+    border-radius: 3px;
+    border: 1px solid #cccccc17;
+
+}
+.inputPadrao2 {
+    background-color: #c8cacd2b;
+    width: 300px;
     height: 40px;
     padding: 0.5rem 2.5rem 0.5rem 2.5rem;
     border-radius: 3px;
@@ -338,8 +347,8 @@ input {
 
 .body-card-imgprodutos {
     background: white;
-    width: 1603px;
-    height: 400px;
+    width: 1595px;
+    height: 300px;
     box-shadow: 3px 2px 4px 0px #0000001f;
     display: flex;
     flex-direction: column;
@@ -365,6 +374,7 @@ input {
     margin-right: 1rem;
     overflow: hidden;
     border-radius: 4px;
+    position: revert;
 }
 
 .upload-img{
@@ -382,7 +392,36 @@ input {
     position: relative;
     transition: .3s all;
     margin-right: 0.5rem;
-    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     cursor: pointer;
-    margin-left: 0.5rem;
+}
+
+.iconeTrash {
+    position: relative;
+    left: 150px;
+    top: 15px;
+    cursor: pointer;
+    color: #00000061;
+    height: 21px;
+    width: 19px;
+    /* background: black; */
+    padding: 0.2rem;
+    border-radius: 50%;
+}
+
+.iconeTrash:hover{
+    background-color: white;
+    cursor: pointer;
+}
+
+#image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    -webkit-appearance: none;
+    opacity: 0;
+    cursor: pointer;
 }
