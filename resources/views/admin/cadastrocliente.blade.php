@@ -8,64 +8,91 @@
         @error('admin.catalogo.allClientes')
             <span class="error">{{$message}}</span>
         @enderror 
-        <hgroup>
-            <h1>@isset($allclientes)
-                Alterar cliente
-                @else
-                Cadastro cliente @endisset</h1>
-            <h2>Informe os dados no formulário a baixo</h2>
-        </hgroup>
+        <div class="flex-jb">
+            <div class="flex-c">
+                <h1>@isset($allclientes)
+                    Alterar cliente
+                    @else
+                    Cadastro cliente @endisset</h1>
+                <h2>Informe os dados no formulário a baixo</h2>
+            </div>
+            <div class="flex-ae">
+                <a href="{{route('admin.cliente')}}">
+                    <button type="button" class="botao">Voltar</button>
+                </a>
+                <button type="submit" class="botao ml-1 mr-2">@isset($allclientes)
+                    Alterar
+                    @else
+                    Cadastrar @endisset</button>
+            </div>
+        </div>
         @error('admin.catalogo.indexcadastro')
             <span class="error">{{$message}}</span>
         @enderror  
-        <div class="flex-r flex-jc mt-5">
-            <div class="body-card-complemento-cliente">
-                <img src="{{asset('storage/banners/bannercliente.jpg')}}" alt="" class="banners banner-cadastrocliente" style="width: 100%; height: 568px; border-radius: 5px;">
+        <div class="flex-c mt-1">
+            <div class="flex">
+                <div class="body-card-principal p-2">
+                    <span>Dados do Cliente</span>
+                    <div>
+                        <div>
+                            <i class="iconeInput fas fa-user-alt" style="font-size: 20px;"></i>
+                            <input type="text" class="inputPadrao mt-2" placeholder="Nome">
+                        </div>
+                        <div>
+                            <i class="iconeInput fas fa-unlock" style="font-size: 20px;"></i>
+                            <input type="text" class="inputPadrao mt-1" placeholder="Senha">
+                        </div>
+                    </div>
+                </div>
+                <div class="body-card-principal ml-1 p-2">
+                    <span>Endereço</span>
+                    <div>
+                        <i class="iconeInput fas fa-map-marker-alt" style="font-size: 20px;"></i>
+                        <input type="text" class="inputPadrao2 mt-2" placeholder="CEP">
+                        <i class="iconeInput fas fa-map-marker-alt" style="font-size: 20px;"></i>
+                        <input type="text" class="inputPadrao2 mt-2" placeholder="Rua">
+                    </div>
+                    <div>
+                        <i class="iconeInput fas fa-map-marker-alt" style="font-size: 20px;"></i>
+                        <input type="text" class="inputPadrao2 mt-1" placeholder="Bairro">
+                        <i class="iconeInput fas fa-map-marker-alt" style="font-size: 20px;"></i>
+                        <input type="text" class="inputPadrao2 mt-1" placeholder="Número">
+                    </div>
+                    <div>
+                        <i class="iconeInput fas fa-map-marker-alt" style="font-size: 20px;"></i>
+                        <input type="text" class="inputPadrao2 mt-1" placeholder="UF">
+                        <i class="iconeInput fas fa-map-marker-alt" style="font-size: 20px;"></i>
+                        <input type="text" class="inputPadrao2 mt-1" placeholder="Cidade">
+                    </div>
+                </div>
             </div>
-            <div class="body-card-principal-cliente">
-                <span class="mb-3" style="font-size: 18px; font-weight: 400;">@isset($allclientes)
-                    Alterar cliente
-                    @else
-                    Cadastro cliente @endisset</span>
-                <div>
-                    <i class="iconeInput fas fa-user-alt"></i>
-                    <input type="text" class="mt-1" name="nome" placeholder="Nome" autofocus
-                    @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
+            <div class="flex">
+                <div class="body-card-principal mt-1 p-2">
+                    <span>Contato</span>
+                    <div class="mt-1">
+                        <i class="iconeInput fas fa-tablet-alt" style="font-size: 20px;"></i>
+                        <input type="text" class="inputPadrao mt-1" placeholder="Celular">
+                    </div>
+                    <div>
+                        <i class="iconeInput fas fa-envelope-open-text" style="font-size: 20px;"></i>
+                        <input type="text" class="inputPadrao mt-1" placeholder="E-mail">
+                    </div>
+                    <div>
+                        <i class="iconeInput fas fa-phone" style="font-size: 20px;"></i>
+                        <input type="text" class="inputPadrao mt-1" placeholder="Telefone">
+                    </div>
                 </div>
-                <div>
-                    <i class="iconeInput fas fa-envelope-open-text"></i>
-                    <input type="email" class="mt-1" name="email" placeholder="E-mail"
-                    @isset($allclientes) value="{{$allclientes->email}}" @endisset>
+                <div class="body-card-principal ml-1 mt-1 p-2">
+    
                 </div>
-                <div>
-                    <i class="iconeInput fas fa-lock"></i>
-                    <input type="text" class="mt-1" name="senha" placeholder="Senha"
-                    @isset($allclientes) value="{{$allclientes->password}}" disabled @endisset>
-                </div>
-                <div>
-                    @isset($allclientes)
-                        <i class="iconeInput fas fa-chalkboard-teacher"></i>
-                        <input type="text" class="mt-1" name="nivelAcesso" placeholder="Nível de acesso 1 = administrador 2 = supervisor 3 = limitado"
-                        @isset($allclientes) value="{{$allclientes->nivel_acesso}}" @endisset>
-                    @endisset
-                </div>
-                <div>
+            </div>
+                {{-- <div>
                     @isset($allclientes)
                         <i class="iconeInput fas fa-chalkboard-teacher"></i>
                         <input type="text" class="mt-1" name="nomeNivelAcesso" placeholder="Nome nível de acesso"
                         @isset($allclientes) value="{{$allclientes->nome_acesso}}" @endisset>
                     @endisset
-                </div>
-                <div class="mt-4 w-100">
-                    <a href="{{route('admin.cliente')}}">
-                        <button type="button" class="botao">Voltar</button>
-                    </a>
-                    <button type="submit" class="botao">@isset($allclientes)
-                        Alterar
-                        @else
-                        Cadastrar @endisset</button>
-                </div>
-            </div>
+                </div> --}}
         </div>
     </section>
 </form>

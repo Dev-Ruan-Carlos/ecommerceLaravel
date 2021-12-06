@@ -71,34 +71,34 @@
                             </div>
                         </div>
                     </div>
-                    @if ($allProdutos->galeria)
-                        <div class="body-card-imgprodutos p-2">
-                            <div class="flex-jb flex-ac" style="width: 100%; margin-left: 0.7rem;">
-                                <span style="font-size: 18px; font-weight: 400;">Mídias</span>
-                                <a href="javascript:void(0)" class="botao" onclick="excluirAllImg(this)">Excluir imagens</a>
+                    <div class="body-card-imgprodutos p-2">
+                        <div class="flex-jb flex-ac" style="width: 100%; margin-left: 0.7rem;">
+                            <span style="font-size: 18px; font-weight: 400;">Mídias</span>
+                            <a href="javascript:void(0)" class="botao" onclick="excluirAllImg(this)">Excluir imagens</a>
+                        </div>
+                        <div style="width: 100%; height: 100%;" class="flex-ae flex-w mt-05">
+                            <div id="galeriaImagens" class="galeria flex-w">
+                                <div class="area-upload">
+                                    <label for="upload-file-produto" class="label-upload">
+                                        <i class="fas fa-camera"></i>
+                                        <div class="texto">Clique ou arraste imagens</div>
+                                    </label>
+                                    <input type="file" accept="image/*" name="image[]" id="upload-file-produto" multiple/>
+                                    <input type="text" name="imagens" id="imagensProduto" hidden/>
+                                </div>  
                             </div>
-                            <div style="width: 100%; height: 100%;" class="flex-ae flex-w mt-05">
-                                <div id="galeriaImagens" class="galeria flex-w">
-                                    <div class="area-upload">
-                                        <label for="upload-file-produto" class="label-upload">
-                                            <i class="fas fa-camera"></i>
-                                            <div class="texto">Clique ou arraste imagens</div>
-                                        </label>
-                                        <input type="file" accept="image/*" name="image[]" id="upload-file-produto" multiple/>
-                                        <input type="text" name="imagens" id="imagensProduto" hidden/>
-                                    </div>  
-                                </div>
-                                <div id="galeriaImagenss" class="flex">
+                            <div id="galeriaImagenss" class="flex">
+                                @if (isset($allProdutos))
                                     @foreach ($allProdutos->galeria as $i => $imgproduto)
                                         <div style="position: static;">
                                             <a href="javascript:void(0)" class="fas fa-trash-alt flex-je iconeTrash" onclick="excluirImg(this)" data-id="{{$imgproduto->controle}}"></a>
                                             <img src="{{asset('storage/' . $allProdutos->galeria[$i]->descricaoimg)}}" alt="IMG" class="body-imgprodutos">
                                         </div>
                                     @endforeach
-                                </div>
+                                @endif
                             </div>
                         </div>
-                    @endif
+                    </div>
                 </div>
             </div>
         </section>
