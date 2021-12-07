@@ -12,10 +12,17 @@ class InicioController extends Controller
         return view('login');
     }
 
-    public function buscarProdutos(){
+    public function buscarProdutos(Request $request){
         $user = Auth::user();
         $produto = Produto::get();
-        return view('welcome', compact('produto', 'user'));
+        if($request->get('buscar')){
+            $busca = $request->get('buscar');
+            $buscaProduto = Produto::where('produto', 'LIKE', '%'.$busca.'%')
+                                    ->orWhere('codbarras', 'LIKE', '%'.$busca.'%')
+                                    ->orderBy('produto')->get();
+        }
+        $buscaProduto = Produto::get();
+        return view('welcome', compact('produto', 'user', 'buscaProduto'));
     }
 
 }

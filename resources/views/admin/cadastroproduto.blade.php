@@ -6,7 +6,7 @@
         <input type="text" name="id" @isset($allProdutos) value="{{$allProdutos->controle}}" @endisset hidden>
         <section class="container">
             <div class="flex-jb">
-                <div class="flex-c">
+                <div class="flex-c ml-05">
                     <h1>@isset($allProdutos)
                         Alterar catálogo
                     @else
@@ -43,7 +43,7 @@
                                 @isset($allProdutos) value="{{$allProdutos->produto}}" @endisset>
                             </div>
                             <div>
-                                <i class="iconeInput fas fa-bars"></i>
+                                <i class="iconeInput fas fa-barcode"></i>
                                 <input type="text" class="mt-1 inputPadrao" name="codbarras" placeholder="Código barras" maxlength="13"
                                 @isset($allProdutos) value="{{$allProdutos->codbarras}}" @endisset>
                             </div>
@@ -55,28 +55,28 @@
                                 Cadastre a quantidade/valor @endisset</span>
                             <div>
                                 <i class="iconeInput fas fa-poll"></i>
-                                <input type="text" class="mt-1 inputPadrao2" name="quantidade" placeholder="Quantidade" oninput="formatar(this)" required="required" maxlength="10"
+                                <input type="text" class="mt-1 inputPadrao2 vlr" name="quantidade" placeholder="Quantidade" required="required" maxlength="10"
                                 @isset($allProdutos) value="{{ $allProdutos->quantidade }}" @endisset>
                                 <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i>
-                                <input type="text" class="mt-1 inputPadrao2" id="precocusto" name="precocusto" oninput="formatar(this)" placeholder="Preço custo R$" required="required"
+                                <input type="text" class="mt-1 inputPadrao2 vlr" id="precocusto" name="precocusto" placeholder="Preço custo R$" required="required"
                                 @isset($allProdutos) value="{{$allProdutos->precocusto}}" @endisset>
                             </div>
                             <div>
                                 <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i>
-                                <input type="text" class="mt-1 inputPadrao2" name="precovenda" oninput="formatar(this)" placeholder="Preço venda R$" required="required"
+                                <input type="text" class="mt-1 inputPadrao2 vlr" name="precovenda" placeholder="Preço venda R$" required="required"
                                 @isset($allProdutos) value="{{$allProdutos->precovenda}}" @endisset>
                                 <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i>
-                                <input type="text" class="mt-1 inputPadrao2" name="precopromocao" oninput="formatar(this)" placeholder="Preço promoção R$" required="required"
+                                <input type="text" class="mt-1 inputPadrao2 vlr" name="precopromocao" placeholder="Preço promoção R$" required="required"
                                 @isset($allProdutos) value="{{$allProdutos->precopromocao}}" @endisset>
                             </div>
                         </div>
                     </div>
                     <div class="body-card-imgprodutos p-2">
-                        <div class="flex-jb flex-ac" style="width: 100%; margin-left: 0.7rem;">
+                        <div class="flex-jb flex-ac" style="width: 100%;">
                             <span style="font-size: 18px; font-weight: 400;">Mídias</span>
                             <a href="javascript:void(0)" class="botao" onclick="excluirAllImg(this)">Excluir imagens</a>
                         </div>
-                        <div style="width: 100%; height: 100%;" class="flex-ae flex-w mt-05">
+                        <div style="width: 100%; height: 100%;" class="flex-as flex-w mt-05">
                             <div id="galeriaImagens" class="galeria flex-w">
                                 <div class="area-upload">
                                     <label for="upload-file-produto" class="label-upload">

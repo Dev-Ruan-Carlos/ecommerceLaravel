@@ -26,6 +26,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('js/jquery.mask.js') }}"></script>
     <script src="{{ asset('js/swiper.js') }}"></script> 
     <script src="{{ asset('js/chart.min.js') }}"></script>
     <script src="{{ asset('js/funcoes.js') }}"></script>

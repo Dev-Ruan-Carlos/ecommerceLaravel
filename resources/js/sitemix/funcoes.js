@@ -42,3 +42,16 @@ function formatar(valor, tp = null) {
     }
     return string;
 }
+window.addEventListener('load', function(){
+    $('.vlr').blur(function() {
+        if($(this).val()) {
+            var valor = $(this).val();
+            var possuiVirgula = valor.indexOf(',');
+            if (possuiVirgula == -1) {
+                valor = valor + ',00';
+                $(this).val(valor);
+            }
+        }
+    })
+    $('.vlr').mask("000.000,00", {reverse: true});
+})

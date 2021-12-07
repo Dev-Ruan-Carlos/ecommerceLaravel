@@ -43,81 +43,22 @@
                     bAutoWidth: true,
                     info: false,
                     responsive: false, 
+                    pageLength: 14, 
                     language: {
                         url: "{{ asset('assets/lang/Portuguese-Brasil.json') }}"
                     },
                     ajax: {"url" : "{{ route('admin.catalogo.get') }}"},
                     columnDefs: [
-                        // {
-                        //     targets: 0,
-                        //     render: function(data) {
-                        //         if(data){
-                        //             return data.toUpperCase()
-                        //         }else{
-                        //             return data
-                        //         }
-                        //     }
-                        // },
-                        // {
-                        //     targets: 1,
-                        //     width: "15%",
-                        // },
-                        // {
-                        //     targets: 2,
-                        //     width: "25%",
-                        // },
-                        // {
-                        //     targets: [3,4],
-                        //     width: "15%",
-                        // },
                         {
                             targets: 5,
                             width: "10px",
                         },
-                        // {
-                        //     targets: [1,3,4,5],
-                        //     className: 'text-c pr-2',
-                        // },
-                        // {
-                        //     targets: 1,
-                        //     render: function ( data, type, row, meta ) {
-                        //         cnpjcpf = data;
-                        //         if (!cnpjcpf) return '';
-                        //         if (cnpjcpf.length < 14){
-                        //             formatado  = cnpjcpf.substr(0, 3) + '.' +
-                        //             cnpjcpf.substr(3, 3) + '.' +
-                        //             cnpjcpf.substr(6, 3) + '-' +
-                        //             cnpjcpf.substr(9, 2);
-                        //         }else{
-                        //             formatado  = cnpjcpf.substr(0, 2) + '.' +
-                        //             cnpjcpf.substr(2, 3) + '.' +
-                        //             cnpjcpf.substr(5, 3) + '/' +
-                        //             cnpjcpf.substr(8, 4) + '-' +
-                        //             cnpjcpf.substr(12, 14);
-                        //         }
-                        //         return formatado;                
-                        //     }
-                        // },
                         {
                             targets: [2,3,4],
                             render: function ( data, type, row, meta ) {
                                 return formatar(data);
                             }
                         },
-                        // {
-                        //     targets: 4,
-                        //     render: function ( data, type, row, meta ) {
-                        //         celular = data;
-                        //         if(celular){
-                        //             formatacelular = '(' + celular.substr(0, 2) + ') ' + 
-                        //             celular.substr(1, 1) + ' ' +
-                        //             celular.substr(2,5) + '-' + celular.substr(-4);
-                        //             return formatacelular;
-                        //         }else{
-                        //             return celular;
-                        //         }
-                        //     }
-                        // }
                     ],
                     order: [1, 'asc'],
                     columns: [
@@ -133,14 +74,6 @@
 
             window.addEventListener('load', function() {
                 catalogoTable = $('#catalogoTable').DataTable(catalogoTableParams);
-                // tableClientesBusca = document.getElementById('tableClientesBusca');
-
-                // $('input[type="search"]').focus();
-
-                // setTimeout(() => {
-                //     if (tableClientesBusca.value.length > 0)
-                //         ClienteTable.search(tableClientesBusca.value).draw();
-                // }, 100);
             })
 
     </script>

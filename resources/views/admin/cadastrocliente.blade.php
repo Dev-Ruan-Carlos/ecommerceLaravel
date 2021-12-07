@@ -83,7 +83,9 @@
                     </div>
                 </div>
                 <div class="body-card-principal ml-1 mt-1 p-2">
-    
+                <div class="flex-jc flex-ac w-100 h-100">
+                        <h1>EM BREVE</h1>
+                    </div>
                 </div>
             </div>
                 {{-- <div>
