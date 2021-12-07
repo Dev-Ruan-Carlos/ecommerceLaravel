@@ -28,7 +28,7 @@
                         <p>Totalizador preço de venda:</p>
                         <p>R$ {{number_format($dados->precoVendaTotal, 2, ',', '.' )}}</p>
                     </div>
-                    <div class="flex-jb">
+                    <div class="flex-jb mb-05">
                         <p>Totalizador lucratividade:</p>
                         <p>R$ {{number_format($dados->lucratividade, 2, ',', '.' )}}</p>
                     </div>

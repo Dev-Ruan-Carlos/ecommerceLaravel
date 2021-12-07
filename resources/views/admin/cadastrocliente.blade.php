@@ -82,19 +82,27 @@
                         <input type="text" class="inputPadrao mt-1" placeholder="Telefone">
                     </div>
                 </div>
-                <div class="body-card-principal ml-1 mt-1 p-2">
-                <div class="flex-jc flex-ac w-100 h-100">
-                        <h1>EM BREVE</h1>
+                @isset($allclientes)
+                    <div class="body-card-principal ml-1 mt-1 p-2">
+                        <div class="flex-jc flex-ac w-100 h-100 flex-c flex-js">
+                            <span>Nível de acesso</span>
+                                <div class="mt-1">
+                                    <div>
+                                        <i class="iconeInput fas fa-chalkboard-teacher"></i>
+                                        <input type="text" class="mt-1 inputPadrao" name="nivelNivelAcesso" placeholder="nível de acesso"
+                                        @isset($allclientes) value="{{$allclientes->nivel_acesso}}" @endisset>
+                                    </div>
+                                    <div>
+                                        <i class="iconeInput fas fa-chalkboard-teacher"></i>
+                                        <input type="text" class="mt-1 inputPadrao" name="nomeNivelAcesso" placeholder="Nome nível de acesso"
+                                        @isset($allclientes) value="{{$allclientes->nome_acesso}}" @endisset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endisset
             </div>
-                {{-- <div>
-                    @isset($allclientes)
-                        <i class="iconeInput fas fa-chalkboard-teacher"></i>
-                        <input type="text" class="mt-1" name="nomeNivelAcesso" placeholder="Nome nível de acesso"
-                        @isset($allclientes) value="{{$allclientes->nome_acesso}}" @endisset>
-                    @endisset
-                </div> --}}
         </div>
     </section>
 </form>
