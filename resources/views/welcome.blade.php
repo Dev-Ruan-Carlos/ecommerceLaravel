@@ -68,7 +68,6 @@
                     @endforeach
                 </div>
             </section>
-            {{-- </div> --}}
             <div>
                 <div class="swiper-container swiper-container-fade swiper-banner">
                     <div class="swiper-wrapper swiper-banner mt-2">

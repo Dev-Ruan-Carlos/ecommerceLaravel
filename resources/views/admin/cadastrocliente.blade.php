@@ -1,8 +1,8 @@
 @extends('layouts.appadmin')
 @section('body')
-<form action="{{route('admin.cliente.cadastro')}}" method="GET">
+<form action="{{route('admin.cliente.cadastro')}}" method="POST">
     @csrf 
-    @method('GET')
+    @method('POST')
     <input type="text" name="id" @isset($allclientes) value="{{$allclientes->id}}" @endisset hidden>
     <section class="container">
         @error('admin.catalogo.allClientes')
@@ -36,11 +36,13 @@
                     <div>
                         <div>
                             <i class="iconeInput fas fa-user-alt" style="font-size: 20px;"></i>
-                            <input type="text" class="inputPadrao mt-2" placeholder="Nome">
+                            <input name="nome" type="text" class="inputPadrao mt-2" placeholder="Nome"
+                            @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
                         </div>
                         <div>
                             <i class="iconeInput fas fa-unlock" style="font-size: 20px;"></i>
-                            <input type="text" class="inputPadrao mt-1" placeholder="Senha">
+                            <input name="senha" type="password" class="inputPadrao mt-1" placeholder="Senha"
+                            @isset($allclientes) value="{{$allclientes->password}}" disabled @endisset>
                         </div>
                     </div>
                 </div>
@@ -48,21 +50,27 @@
                     <span>Endereço</span>
                     <div>
                         <i class="iconeInput fas fa-map-marker-alt" style="font-size: 20px;"></i>
-                        <input type="text" class="inputPadrao2 mt-2" placeholder="CEP">
+                        <input name="cep" type="text" class="inputPadrao2 mt-2" placeholder="CEP"
+                        @isset($allclientes) value="{{$allclientes->endereco->cep}}" @endisset>
                         <i class="iconeInput fas fa-map-marker-alt" style="font-size: 20px;"></i>
-                        <input type="text" class="inputPadrao2 mt-2" placeholder="Rua">
+                        <input name="rua" type="text" class="inputPadrao2 mt-2" placeholder="Rua"
+                        @isset($allclientes) value="{{$allclientes->endereco->rua}}" @endisset>
                     </div>
                     <div>
                         <i class="iconeInput fas fa-map-marker-alt" style="font-size: 20px;"></i>
-                        <input type="text" class="inputPadrao2 mt-1" placeholder="Bairro">
+                        <input name="bairro" type="text" class="inputPadrao2 mt-1" placeholder="Bairro"
+                        @isset($allclientes) value="{{$allclientes->endereco->bairro}}" @endisset>
                         <i class="iconeInput fas fa-map-marker-alt" style="font-size: 20px;"></i>
-                        <input type="text" class="inputPadrao2 mt-1" placeholder="Número">
+                        <input name="numero" type="text" class="inputPadrao2 mt-1" placeholder="Número"
+                        @isset($allclientes) value="{{$allclientes->endereco->numero}}" @endisset>
                     </div>
                     <div>
                         <i class="iconeInput fas fa-map-marker-alt" style="font-size: 20px;"></i>
-                        <input type="text" class="inputPadrao2 mt-1" placeholder="UF">
+                        <input name="uf" type="text" class="inputPadrao2 mt-1" placeholder="UF"
+                        @isset($allclientes) value="{{$allclientes->endereco->uf}}" @endisset>
                         <i class="iconeInput fas fa-map-marker-alt" style="font-size: 20px;"></i>
-                        <input type="text" class="inputPadrao2 mt-1" placeholder="Cidade">
+                        <input name="cidade" type="text" class="inputPadrao2 mt-1" placeholder="Cidade"
+                        @isset($allclientes) value="{{$allclientes->endereco->cidade}}" @endisset>
                     </div>
                 </div>
             </div>
@@ -71,15 +79,18 @@
                     <span>Contato</span>
                     <div class="mt-1">
                         <i class="iconeInput fas fa-tablet-alt" style="font-size: 20px;"></i>
-                        <input type="text" class="inputPadrao mt-1" placeholder="Celular">
+                        <input name="celular" type="text" class="inputPadrao mt-1" placeholder="Celular"
+                        @isset($allclientes) value="{{$allclientes->contato->celular}}" @endisset>
                     </div>
                     <div>
                         <i class="iconeInput fas fa-envelope-open-text" style="font-size: 20px;"></i>
-                        <input type="text" class="inputPadrao mt-1" placeholder="E-mail">
+                        <input name="email" type="email" class="inputPadrao mt-1" placeholder="E-mail"
+                        @isset($allclientes) value="{{$allclientes->contato->email}}" @endisset>
                     </div>
                     <div>
                         <i class="iconeInput fas fa-phone" style="font-size: 20px;"></i>
-                        <input type="text" class="inputPadrao mt-1" placeholder="Telefone">
+                        <input name="telefone" type="text" class="inputPadrao mt-1" placeholder="Telefone"
+                        @isset($allclientes) value="{{$allclientes->contato->telefone}}" @endisset>
                     </div>
                 </div>
                 @isset($allclientes)

@@ -43,13 +43,13 @@
 }
 
 #login form span.fa {
-  background-color: #dfd9fd;
+  background-color: #f6f6f7;
   border-radius: 3px 0px 0px 3px;
   color: #00000061;
   display: block;
   float: left;
   height: 50px;
-  font-size:20px;
+  font-size: 20px;
   line-height: 50px;
   text-align: center;
   width: 50px;
@@ -63,7 +63,7 @@ fieldset{
 }
 #login form input {
   height: 50px;
-  background-color: #dfd9fd;
+  background-color: #c8cacd2b;
   border-radius: 0px 3px 3px 0px;
   color: #000;
   margin-bottom: 1em;

@@ -1,9 +1,9 @@
-<div class="chart-card">
+<div class="chart-card mr-05">
     <h4 style="font-size: 23px;">Produtos mais lucrativos</h4>
     <span id="totalProdutosMaisLucrativos" class="d-none">0</span>
     <div class="parent-charts">
         <canvas id="chartProdutosMaisLucrativos" class="d-none"></canvas>
-        <div id="semProdutosMaisLucrativos" class="d-none h-100 flex-jc flex-ac"><span></span></div>
+        <div id="semProdutosMaisLucrativos" class="d-none"><span></span></div>
     </div>
 </div>
 <script>

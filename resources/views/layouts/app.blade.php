@@ -36,7 +36,9 @@
     <title>Ecommerce</title>
 </head>
 <body>
-    @include('admin.includes.header2')
+    @if (!request()->routeIs('inicio'))
+        @include('admin.includes.header2')
+    @endif
     <main class="mainAppBlade fundoclaro">
         @yield('body')
     </main>

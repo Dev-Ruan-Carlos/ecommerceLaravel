@@ -43,7 +43,7 @@
                     bAutoWidth: true,
                     info: false,
                     responsive: false, 
-                    pageLength: 14, 
+                    pageLength: 13, 
                     language: {
                         url: "{{ asset('assets/lang/Portuguese-Brasil.json') }}"
                     },

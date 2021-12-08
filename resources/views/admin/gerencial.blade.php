@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card mr-05">
                 <div class="flex-jb">
                     <span style="font-size: 23px;">Pedidos</span>
                     <i class="fas fa-shopping-cart aumentaIcone"></i>

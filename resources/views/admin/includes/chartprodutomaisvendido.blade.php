@@ -3,7 +3,7 @@
     <span id="totalProdutosMaisVendidos" class="d-none">0</span>
     <div class="parent-charts">
         <canvas id="chartProdutosMaisVendidos" class="d-none"></canvas>
-        <div id="semProdutosMaisVendidos" class="d-none h-100 flex-jc flex-ac"><span></span></div>
+        <div id="semProdutosMaisVendidos" class="d-none"><span></span></div>
     </div>
 </div>
 <script>

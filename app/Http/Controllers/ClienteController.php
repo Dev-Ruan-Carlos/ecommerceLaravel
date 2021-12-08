@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UsuarioContato;
+use App\Models\UsuarioEndereco;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use stdClass;
@@ -56,6 +58,21 @@ class ClienteController extends Controller
                 $user->nome_acesso = 'limitado';
                 $user->ativo = 1;
                 $user->save();
+                    $userContato = new UsuarioContato();
+                    $userContato->codusuario = $user->id;
+                    $userContato->celular = $request->get('celular');
+                    $userContato->telefone = $request->get('telefone');
+                    $userContato->email = $request->get('email');
+                    $userContato->save();
+                        $userEndereco = new UsuarioEndereco();
+                        $userEndereco->codusuario = $user->id;
+                        $userEndereco->cep = $request->get('cep');
+                        $userEndereco->rua = $request->get('rua');
+                        $userEndereco->bairro = $request->get('bairro');
+                        $userEndereco->numero = $request->get('numero');
+                        $userEndereco->uf = $request->get('uf');
+                        $userEndereco->cidade = $request->get('cidade');
+                        $userEndereco->save();
                 return redirect()->back()->withInput()->withErrors(['cadastro' => 'Usuário cadastrado com sucesso!']);
             }
         }

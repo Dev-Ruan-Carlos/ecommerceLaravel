@@ -51,7 +51,7 @@ Route::prefix('admin')->group(function(){
     Route::prefix('cliente')->group(function(){
         Route::get('/', [ClienteController::class, 'index'])->name('admin.cliente');
         Route::get('index', [ClienteController::class, 'indexCliente'])->name('admin.cliente.indexCliente');
-        Route::get('cadastro', [ClienteController::class, 'cadastro'])->name('admin.cliente.cadastro');
+        Route::post('cadastro', [ClienteController::class, 'cadastro'])->name('admin.cliente.cadastro');
         Route::get('allClientes/{id}', [ClienteController::class, 'allClientes'])->name('admin.cliente.allClientes');
         Route::get('get', [ClienteController::class, 'get'])->name('admin.cliente.get');
     });

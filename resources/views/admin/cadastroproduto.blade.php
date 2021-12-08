@@ -13,7 +13,7 @@
                         Cadastro catálogo @endisset</h1>
                     <h2>Informe os dados no formulário a baixo</h2>
                 </div>
-                    <div class="flex-ae w-100 mr-1">
+                    <div class="flex-ae mr-05">
                         <a href="{{route('admin.catalogo')}}">
                             <button type="button" class="botao">Voltar</button>
                         </a>
@@ -29,52 +29,58 @@
             @error('admin.catalogo.allProdutos')
                 <span class="error mt-1">{{$message}}</span>
             @enderror  
-            <div class="flex-r flex-jc mt-2">
-                <div class="flex-c">
+            <div class="flex-r flex-jc mt-1 w-100">
+                <div class="flex-c w-100 mr-05 ml-05">
                     <div class="flex">
                         <div class="body-card-principal p-2">
-                            <span class="mb-3" style="font-size: 18px; font-weight: 400;">@isset($allProdutos)
+                            <span class="mb-2 subtitulo-card">@isset($allProdutos)
                                 Alterar informações
                                 @else
-                                Cadastre seu produto/serviço @endisset</span>
-                            <div>
-                                <i class="iconeInput fas fa-box"></i>
-                                <input type="text" class="mt-1 inputPadrao" name="produto" placeholder="Produto/serviço" required="required" maxlength="20" autofocus
-                                @isset($allProdutos) value="{{$allProdutos->produto}}" @endisset>
-                            </div>
-                            <div>
-                                <i class="iconeInput fas fa-barcode"></i>
-                                <input type="text" class="mt-1 inputPadrao" name="codbarras" placeholder="Código barras" maxlength="13"
-                                @isset($allProdutos) value="{{$allProdutos->codbarras}}" @endisset>
+                                Cadastre seu produto/serviço @endisset
+                            </span>
+                            <div class="gap-1 flex-c">
+                                <div class="w-100">
+                                    {{-- <i class="iconeInput fas fa-box"></i> --}}
+                                    <input type="text" class=" inputPadrao3" name="produto" placeholder="Produto/serviço" required="required" maxlength="20" autofocus
+                                    @isset($allProdutos) value="{{$allProdutos->produto}}" @endisset>
+                                </div>
+                                <div class="w-100">
+                                    {{-- <i class="iconeInput fas fa-barcode"></i> --}}
+                                    <input type="text" class=" inputPadrao3" name="codbarras" placeholder="Código barras" maxlength="13"
+                                    @isset($allProdutos) value="{{$allProdutos->codbarras}}" @endisset>
+                                </div>
                             </div>
                         </div>
                         <div class="body-card-principal ml-1 p-2">
-                            <span class="mb-3" style="font-size: 18px; font-weight: 400;">@isset($allProdutos)
+                            <span class="mb-2 subtitulo-card">@isset($allProdutos)
                                 Alterar quantidade/valor
                                 @else
-                                Cadastre a quantidade/valor @endisset</span>
-                            <div>
-                                <i class="iconeInput fas fa-poll"></i>
-                                <input type="text" class="mt-1 inputPadrao2 vlr" name="quantidade" placeholder="Quantidade" required="required" maxlength="10"
-                                @isset($allProdutos) value="{{ $allProdutos->quantidade }}" @endisset>
-                                <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i>
-                                <input type="text" class="mt-1 inputPadrao2 vlr" id="precocusto" name="precocusto" placeholder="Preço custo R$" required="required"
-                                @isset($allProdutos) value="{{$allProdutos->precocusto}}" @endisset>
-                            </div>
-                            <div>
-                                <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i>
-                                <input type="text" class="mt-1 inputPadrao2 vlr" name="precovenda" placeholder="Preço venda R$" required="required"
-                                @isset($allProdutos) value="{{$allProdutos->precovenda}}" @endisset>
-                                <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i>
-                                <input type="text" class="mt-1 inputPadrao2 vlr" name="precopromocao" placeholder="Preço promoção R$" required="required"
-                                @isset($allProdutos) value="{{$allProdutos->precopromocao}}" @endisset>
+                                Cadastre a quantidade/valor @endisset
+                            </span>
+                            <div class="gap-1 flex-c">
+                                <div class="w-100 gap-1">
+                                    {{-- <i class="iconeInput fas fa-poll"></i> --}}
+                                    <input type="text" class=" inputPadrao2" name="quantidade" placeholder="Quantidade" required="required" maxlength="10"
+                                    @isset($allProdutos) value="{{ $allProdutos->quantidade }}" @endisset>
+                                    {{-- <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i> --}}
+                                    <input type="text" class=" inputPadrao2 vlr" id="precocusto" name="precocusto" placeholder="Preço custo R$" required="required"
+                                    @isset($allProdutos) value="{{$allProdutos->precocusto}}" @endisset>
+                                </div>
+                                <div class="w-100 gap-1">
+                                    {{-- <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i> --}}
+                                    <input type="text" class=" inputPadrao2 vlr" name="precovenda" placeholder="Preço venda R$" required="required"
+                                    @isset($allProdutos) value="{{$allProdutos->precovenda}}" @endisset>
+                                    {{-- <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i> --}}
+                                    <input type="text" class=" inputPadrao2 vlr" name="precopromocao" placeholder="Preço promoção R$" required="required"
+                                    @isset($allProdutos) value="{{$allProdutos->precopromocao}}" @endisset>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="body-card-imgprodutos p-2">
                         <div class="flex-jb flex-ac" style="width: 100%;">
-                            <span style="font-size: 18px; font-weight: 400;">Mídias</span>
-                            <a href="javascript:void(0)" class="botao" onclick="excluirAllImg(this)">Excluir imagens</a>
+                            <span class="subtitulo-card">Mídias</span>
+                            <a href="javascript:void(0)" class="botao-secundario" onclick="excluirAllImg(this)">Excluir imagens</a>
                         </div>
                         <div style="width: 100%; height: 100%;" class="flex-as flex-w mt-05">
                             <div id="galeriaImagens" class="galeria flex-w">

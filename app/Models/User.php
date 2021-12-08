@@ -45,4 +45,13 @@ class User extends Authenticatable
     protected $table = 'tusuario';
     protected $primaryKey = 'id';
     protected $connection = 'criador';
+    public $timestamps = false;
+
+    public function endereco() {
+        return $this->hasOne('App\Models\UsuarioEndereco', 'codusuario', 'id');
+    }
+
+    public function contato() {
+        return $this->hasOne('App\Models\UsuarioContato', 'codusuario', 'id');
+    }
 }

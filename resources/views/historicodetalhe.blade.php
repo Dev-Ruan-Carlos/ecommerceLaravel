@@ -39,16 +39,17 @@
                         <td><strong>Valor subtotal</strong></td>
                     </div>
                     <div class="flex-jb w-100 flex-c">
-                        <table>
+                        <div class="flex-c">
                             @foreach ($pedido->pedidoItens as $p)
-                                <td>{{$p->produto->produto}}</td>
-                                <td>{{number_format($p->quantidade, 4, ',', '.' )}}</td>
-                                <td>{{number_format($p->valorun, 2, ',', '.' )}}</td>
-                                <td>{{number_format($p->valorpromocao, 2, ',', '.' )}}</td>
+                            <div class="flex-jb">
+                                <span>{{$p->produto->produto}}</span>
+                                <span>{{number_format($p->quantidade, 4, ',', '.' )}}</span>
+                                <span>{{number_format($p->valorun, 2, ',', '.' )}}</span>
+                                <span>{{number_format($p->valorpromocao, 2, ',', '.' )}}</span>
                                 @if($p->valorpromocao > 0)
-                                    <td>{{number_format($p->valorpromocao*$p->quantidade, 2, ',', '.' )}}</td>
+                                    <span>{{number_format($p->valorpromocao*$p->quantidade, 2, ',', '.' )}}</span>
                                 @else 
-                                    <td>{{number_format($p->valorun*$p->quantidade, 2, ',', '.' )}}</td>
+                                    <span>{{number_format($p->valorun*$p->quantidade, 2, ',', '.' )}}</span>
                                 @endif
                                 @php
                                     $quantidadeTotal = $quantidadeTotal + $p->quantidade;
@@ -60,8 +61,9 @@
                                     $totalPromo += $p->valorpromocao;
                                     $totalDesconto +=  ($p->valorun*$p->quantidade) - ($p->valorpromocao*$p->quantidade);   
                                     @endphp
+                            </div>
                             @endforeach
-                        </table>
+                        </div>
                     </div>
                     <h3 class="mt-1">Totalizadores</h3>
                     <div class="flex-c">
