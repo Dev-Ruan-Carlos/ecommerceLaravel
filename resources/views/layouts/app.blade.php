@@ -36,7 +36,7 @@
     <title>Ecommerce</title>
 </head>
 <body>
-    @if (!request()->routeIs('inicio'))
+    @if (!request()->routeIs('inicio', 'cadastro.indexcad'))
         @include('admin.includes.header2')
     @endif
     <main class="mainAppBlade fundoclaro">

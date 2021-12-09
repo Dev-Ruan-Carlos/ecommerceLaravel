@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('body')
-<form action="{{route('admin.cliente.cadastro')}}" method="GET">
+<form action="{{route('admin.cliente.cadastro')}}" method="POST">
     @csrf 
-    @method('GET')
+    @method('POST')
     <input type="text" name="id" @isset($allclientes) value="{{$allclientes->id}}" @endisset hidden>
     <section class="container mt-6 flex-c flex-ac">
         @error('admin.catalogo.allClientes')
@@ -16,10 +16,12 @@
                 <img src="{{asset('storage/banners/bannercliente.jpg')}}" alt="" class="banners banner-cadcliente" style="width: 100%; height: 569px; border-radius: 5px;">
             </div>
             <div class="body-card-principal-cliente">
-                <h2 class="mb-3" style="font-size: 18px; font-weight: 400;">@isset($allclientes)
-                    Alterar cliente
-                    @else
-                    Cadastro cliente @endisset</h2>
+                <h2 class="mb-3" style="font-size: 18px; font-weight: 400;">
+                    @isset($allclientes)
+                        Alterar cliente
+                        @else
+                        Cadastro cliente 
+                    @endisset</h2>
                 <div>
                     <i class="iconeInput fas fa-user-alt"></i>
                     <input type="text" class="mt-1 inputPadrao" name="nome" placeholder="Nome" autofocus
@@ -53,10 +55,13 @@
                     <a href="{{route('inicio')}}">
                         <button type="button" class="botao">Voltar</button>
                     </a>
-                    <button type="submit" class="botao ml-2">@isset($allclientes)
-                        Alterar
-                        @else
-                        Cadastrar @endisset</button>
+                    <button type="submit" class="botao ml-2">
+                        @isset($allclientes)
+                            Alterar
+                            @else
+                            Cadastrar 
+                        @endisset
+                    </button>
                 </div>
             </div>
         </div>

@@ -42,6 +42,7 @@ function formatar(valor, tp = null) {
     }
     return string;
 }
+
 window.addEventListener('load', function(){
     $('.vlr').blur(function() {
         if($(this).val()) {
@@ -57,20 +58,21 @@ window.addEventListener('load', function(){
 
     document.addEventListener('focusin', function(event){
         var input = event.target.parentElement;
-        if (input && input.querySelector('label')) {
+        if (input && input.querySelector('label') && !event.target.value) {
             input.querySelector('label').classList.add('moveUp');
         }
-    })
+    });
 
     document.addEventListener('focusout', function(event){
         var input = event.target.parentElement;
-        if (input && input.querySelector('label')) {
-            input.querySelector('label').classList.remove('moveUp');
+        if (input && input.querySelector('label') && event.target.value == '') {
+            input.querySelector('label').classList.remove('moveUp', 'moveUpNotFx');
         }
-    })
+    });
+
     document.querySelectorAll('input:not([type=hidden]):not([hidden])').forEach(input => {
         if (input.value) {
-            input.parentElement.querySelector('label').classList.add('moveUp');
+            input.parentElement.querySelector('label').classList.add('moveUpNotFx');
         }
     });
 })

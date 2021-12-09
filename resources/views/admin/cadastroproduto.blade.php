@@ -32,43 +32,59 @@
             <div class="flex-r flex-jc mt-1 w-100">
                 <div class="flex-c w-100 mr-05 ml-05">
                     <div class="flex">
-                        <div class="body-card-principal p-2">
-                            <span class="mb-2 subtitulo-card">@isset($allProdutos)
-                                Alterar informações
-                                @else
-                                Cadastre seu produto/serviço @endisset
+                        <div class="body-card-principal p-2 flex-c">
+                            <span class="mb-2 subtitulo-card">
+                                @isset($allProdutos)
+                                    Alterar informações
+                                    @else
+                                    Cadastre seu produto/serviço 
+                                @endisset
                             </span>
                             <div class="gap-1 flex-c">
-                                <div class="w-100">
-                                    {{-- <i class="iconeInput fas fa-box"></i> --}}
-                                    <input type="text" class=" inputPadrao cl" name="produto" placeholder="Produto/serviço" required="required" maxlength="20" autofocus
+                                <div class="w-100 field">
+                                    <label class="label mb-1" for="produto">Produto/serviço</label>
+                                    <input type="text" class="inputPadrao cl-12" name="produto" required="required" maxlength="20" autofocus
                                     @isset($allProdutos) value="{{$allProdutos->produto}}" @endisset>
                                 </div>
-                                <div class="w-100">
-                                    {{-- <i class="iconeInput fas fa-barcode"></i> --}}
-                                    <input type="text" class=" inputPadrao" name="codbarras" placeholder="Código barras" maxlength="13"
+                                <div class="w-100 field">
+                                    <label class="label mb-1" for="codbarras">Código barras</label>
+                                    <input type="text" class="inputPadrao cl-12" name="codbarras" maxlength="13"
                                     @isset($allProdutos) value="{{$allProdutos->codbarras}}" @endisset>
                                 </div>
                             </div>
                         </div>
-                        <div class="body-card-principal ml-1 p-2">
-                            <span class="mb-2 subtitulo-card">@isset($allProdutos)
-                                Alterar quantidade/valor
-                                @else
-                                Cadastre a quantidade/valor @endisset
+                        <div class="body-card-principal flex-c ml-1 p-2">
+                            <span class="mb-1 subtitulo-card">
+                                @isset($allProdutos)
+                                    Alterar quantidade/valor
+                                    @else
+                                    Cadastre a quantidade/valor 
+                                @endisset
                             </span>
-                            <div class="gap-1 flex-c">
-                                <div class="w-100 gap-1">
-                                    <input type="text" class=" inputPadrao" name="quantidade" placeholder="Quantidade" required="required" maxlength="10"
-                                    @isset($allProdutos) value="{{ $allProdutos->quantidade }}" @endisset>
-                                    <input type="text" class=" inputPadrao vlr" id="precocusto" name="precocusto" placeholder="Preço custo R$" required="required"
-                                    @isset($allProdutos) value="{{$allProdutos->precocusto}}" @endisset>
+                            <div class="w-100 mt-1">
+                                <div class="gap-1 w-100">
+                                    <div class="w-100 field">
+                                        <label class="label mb-1" for="quantidade">Quantidade</label>
+                                        <input type="text" class="inputPadrao cl" name="quantidade" required="required" maxlength="10"
+                                        @isset($allProdutos) value="{{ $allProdutos->quantidade }}" @endisset>
+                                    </div>
+                                    <div class="w-100 field">
+                                        <label class="label mb-1" for="precocusto">Preço custo R$</label>
+                                        <input type="text" class="inputPadrao cl vlr" id="precocusto" name="precocusto" required="required"
+                                        @isset($allProdutos) value="{{$allProdutos->precocusto}}" @endisset>
+                                    </div>
                                 </div>
                                 <div class="w-100 gap-1">
-                                    <input type="text" class=" inputPadrao vlr" name="precovenda" placeholder="Preço venda R$" required="required"
-                                    @isset($allProdutos) value="{{$allProdutos->precovenda}}" @endisset>
-                                    <input type="text" class=" inputPadrao vlr" name="precopromocao" placeholder="Preço promoção R$" required="required"
-                                    @isset($allProdutos) value="{{$allProdutos->precopromocao}}" @endisset>
+                                    <div class="w-100 field">
+                                        <label class="label mb-1" for="precovenda">Preço venda R$</label>
+                                        <input type="text" class="inputPadrao cl mt-1 vlr" name="precovenda" required="required"
+                                        @isset($allProdutos) value="{{$allProdutos->precovenda}}" @endisset>
+                                    </div>
+                                    <div class="w-100 field">
+                                        <label class="label mb-1" for="precopromocao">Preço promoção R$</label>
+                                        <input type="text" class="inputPadrao cl mt-1 vlr" name="precopromocao" required="required"
+                                        @isset($allProdutos) value="{{$allProdutos->precopromocao}}" @endisset>
+                                    </div>
                                 </div>
                             </div>
                         </div>
