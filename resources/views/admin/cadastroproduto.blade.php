@@ -41,12 +41,12 @@
                             <div class="gap-1 flex-c">
                                 <div class="w-100">
                                     {{-- <i class="iconeInput fas fa-box"></i> --}}
-                                    <input type="text" class=" inputPadrao3" name="produto" placeholder="Produto/serviço" required="required" maxlength="20" autofocus
+                                    <input type="text" class=" inputPadrao cl" name="produto" placeholder="Produto/serviço" required="required" maxlength="20" autofocus
                                     @isset($allProdutos) value="{{$allProdutos->produto}}" @endisset>
                                 </div>
                                 <div class="w-100">
                                     {{-- <i class="iconeInput fas fa-barcode"></i> --}}
-                                    <input type="text" class=" inputPadrao3" name="codbarras" placeholder="Código barras" maxlength="13"
+                                    <input type="text" class=" inputPadrao" name="codbarras" placeholder="Código barras" maxlength="13"
                                     @isset($allProdutos) value="{{$allProdutos->codbarras}}" @endisset>
                                 </div>
                             </div>
@@ -59,19 +59,15 @@
                             </span>
                             <div class="gap-1 flex-c">
                                 <div class="w-100 gap-1">
-                                    {{-- <i class="iconeInput fas fa-poll"></i> --}}
-                                    <input type="text" class=" inputPadrao2" name="quantidade" placeholder="Quantidade" required="required" maxlength="10"
+                                    <input type="text" class=" inputPadrao" name="quantidade" placeholder="Quantidade" required="required" maxlength="10"
                                     @isset($allProdutos) value="{{ $allProdutos->quantidade }}" @endisset>
-                                    {{-- <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i> --}}
-                                    <input type="text" class=" inputPadrao2 vlr" id="precocusto" name="precocusto" placeholder="Preço custo R$" required="required"
+                                    <input type="text" class=" inputPadrao vlr" id="precocusto" name="precocusto" placeholder="Preço custo R$" required="required"
                                     @isset($allProdutos) value="{{$allProdutos->precocusto}}" @endisset>
                                 </div>
                                 <div class="w-100 gap-1">
-                                    {{-- <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i> --}}
-                                    <input type="text" class=" inputPadrao2 vlr" name="precovenda" placeholder="Preço venda R$" required="required"
+                                    <input type="text" class=" inputPadrao vlr" name="precovenda" placeholder="Preço venda R$" required="required"
                                     @isset($allProdutos) value="{{$allProdutos->precovenda}}" @endisset>
-                                    {{-- <i class="iconeInput fa fa-dollar-sign" style="font-size: 20px;"></i> --}}
-                                    <input type="text" class=" inputPadrao2 vlr" name="precopromocao" placeholder="Preço promoção R$" required="required"
+                                    <input type="text" class=" inputPadrao vlr" name="precopromocao" placeholder="Preço promoção R$" required="required"
                                     @isset($allProdutos) value="{{$allProdutos->precopromocao}}" @endisset>
                                 </div>
                             </div>

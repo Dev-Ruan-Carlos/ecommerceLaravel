@@ -54,4 +54,24 @@ window.addEventListener('load', function(){
         }
     })
     $('.vlr').mask("000.000,00", {reverse: true});
+
+    document.addEventListener('focusin', function(event){
+        var input = event.target.parentElement;
+        if (input && input.querySelector('label')) {
+            input.querySelector('label').classList.add('moveUp');
+        }
+    })
+
+    document.addEventListener('focusout', function(event){
+        var input = event.target.parentElement;
+        if (input && input.querySelector('label')) {
+            input.querySelector('label').classList.remove('moveUp');
+        }
+    })
+    document.querySelectorAll('input:not([type=hidden]):not([hidden])').forEach(input => {
+        if (input.value) {
+            input.parentElement.querySelector('label').classList.add('moveUp');
+        }
+    });
 })
+

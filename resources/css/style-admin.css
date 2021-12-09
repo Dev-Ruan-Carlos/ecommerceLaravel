@@ -127,8 +127,75 @@
 
   .h-100 {height: 100%;}
   .w-100 {width: 100%;}
+  .gap-05 {gap: 0.5rem; display: flex;}
   .gap-1 {gap: 1rem; display: flex;}
   .gap-2 {gap: 2rem; display: flex;}
+
+    .cl, .cl-1, .cl-2, .cl-3, .cl-4, .cl-5, .cl-55 .cl-6, .cl-7, .cl-8, .cl-9, .cl-10, .cl-11, .cl-12{
+    position: relative;
+    width: 100%;
+    }   
+
+  @media only screen and (min-width: 768px){
+    .cl {
+        flex-basis: 0;
+        -webkit-box-flex: 1;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+    .cl-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .cl-11 {
+        flex: 0 0 91.6666666667%;
+        max-width: 91.6666666667%;
+    }
+    .cl-10 {
+        flex: 0 0 83.3333333333%;
+        max-width: 83.3333333333%;
+    }
+    .cl-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    .cl-8 {
+        flex: 0 0 66.6666666667%;
+        max-width: 66.6666666667%;
+    }
+    .cl-7 {
+        flex: 0 0 58.3333333333%;
+        max-width: 58.3333333333%;
+    }
+    .cl-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .cl-5 {
+        flex: 0 0 41.6666666667%;
+        max-width: 41.6666666667%;
+    }
+    .cl-55 {
+        flex: 0 0 49%;
+        max-width: 49%;
+    }
+    .cl-4 {
+        flex: 0 0 33.3333333333%;
+        max-width: 33.3333333333%;
+    }
+    .cl-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .cl-2 {
+        flex: 0 0 16.6666666667%;
+        max-width: 16.6666666667%;
+    }
+    .cl-1 {
+        flex: 0 0 8.3333333333%;
+        max-width: 8.3333333333%;
+    }
+}
 
 .body-card, .body-chart {
     display: flex;
@@ -222,16 +289,19 @@ h4{
     background: #007bffc2;
     color: white;
     width: 160px;
-    height: 35px;
+    height: 40px;
     border-radius: 5px;
     text-align: center;
     padding: 0.5rem;
     cursor: pointer;
     box-shadow: 3px 4px 8px 0px #0000000f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .botao:hover{
-    background-color: blue;
+    background-color: #017bfe;
     cursor: pointer;
     box-shadow: 3px 4px 8px 0px #0000000f;
 }
@@ -240,12 +310,14 @@ h4{
     border: 1px solid #007bffc2;
     color: #007bffc2;
     width: 160px;
-    height: 35px;
+    height: 40px;
     border-radius: 5px;
-    text-align: center;
     padding: 0.5rem;
     cursor: pointer;
     box-shadow: 3px 4px 8px 0px #0000000f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .botao-secundario:hover{
@@ -309,11 +381,10 @@ h4{
 .body-card-principal {
     background: white;
     flex: 1;
-    height: 270px;
+    height: 100%;
     box-shadow: 3px 2px 4px 0px #00000008;
     display: flex;
     justify-content: flex-start;
-    flex-direction: column;
     border-radius: 5px;
 }
 
@@ -329,24 +400,6 @@ h4{
 }
 
 .inputPadrao {
-    background-color: #c8cacd2b;
-    width: 500px;
-    height: 40px;
-    padding: 0.5rem 2.5rem 0.5rem 2.5rem;
-    border-radius: 3px;
-    border: 1px solid #cccccc17;
-}
-
-.inputPadrao2 {
-    background-color: #c8cacd2b;
-    flex: 1;
-    height: 40px;
-    padding: 0.5rem 2.5rem 0.5rem 2.5rem;
-    border-radius: 3px;
-    border: 1px solid #cccccc17;
-}
-
-.inputPadrao3 {
     background-color: #c8cacd2b;
     width: 100%;
     height: 40px;
@@ -670,4 +723,33 @@ h4{
     font-size: 18px;
     font-weight: 400;
     color: #4d4d4d;
+}
+
+form {
+    display: inline-block;
+}
+
+.field {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+label {
+    padding-left: 5px;
+    transition: all 0.3s ease-in;
+    transform: translateY(24px);
+    pointer-events: none;
+    position: absolute;
+    display: flex;
+    margin-left: 2.2rem;
+}
+
+.moveUp {
+    transform: translateY(-2px);
+    margin-left: 0rem;
+    margin-bottom: 0.5rem;
+    padding: 0;
+    font-size: 12px;
 }
