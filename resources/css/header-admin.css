@@ -207,7 +207,7 @@ header.active-mobile{
 .toggleUser{
     background-color: white;
     width: 230px;
-    height: 300px;
+    height: 288px;
     position: absolute;
     border-radius: 5px;
     right: 0;
@@ -216,6 +216,7 @@ header.active-mobile{
     display: none;
     box-shadow: 3px 2px 4px 0px #00000008;
     border: 1px solid #dedede;
+    flex-direction: column;
 }
 
 .toggleUser.toggleUserActive{
@@ -224,21 +225,30 @@ header.active-mobile{
 
 .toggleUserHeader{
     width: 100%;
-    height: 55px;
+    height: 54px;
     background-color: #f4f6f9;
+    position: relative;
 }
 
 .togglerUserImg{
-    max-width: 40px;
-    max-height: 40px;
+    width: 80px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    -o-object-fit: contain;
-    object-fit: contain;
+    overflow: hidden;
+    border-radius: 100%;
     pointer-events: none;
-    position: relative;
-    border-radius: 20px;
+    position: absolute;
+    top: 1rem;
+    background-color: #eadede;
+    border: 5px solid #FFF;
+}
+
+.togglerUserImg img{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
 }
 
 /* RESPONSIVO */

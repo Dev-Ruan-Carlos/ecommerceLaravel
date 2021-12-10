@@ -25,12 +25,17 @@
             <div class="toggleUser">
                 <div class="toggleUserHeader">
                     <div class="flex-jc flex-ac flex-c h-100 mt-1">
-                        <span class="mb-05">{{$dados->user->nome}}</span>
-                        <img class="togglerUserImg " src="{{asset('img/user.jpg')}}" alt="FOTO">
+                        <div class="togglerUserImg">
+                            <img src="{{asset('img/user.jpg')}}" alt="">
+                        </div>
                     </div>
                 </div>
-                <div class="toggleUserBody">
-
+                <div class="toggleUserBody flex-je p-1 flex-c">
+                    <div class="w-100 flex-je flex-c" style="height: 200px;">
+                        <span class="mb-3 flex-jc flex-ac">{{$dados->user->nome . " - Conectado"}}<i class="fas fa-circle ml-05" style="color: #60902191;"></i></span>
+                        <a href="" class="botao-100 mb-1">Meus dados</a>
+                        <a href="{{route('inicio')}}" class="botao-100">Deslogar</a>
+                    </div>
                 </div>
             </div>
         @endif

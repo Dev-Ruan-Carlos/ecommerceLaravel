@@ -46,6 +46,7 @@ class CatalogoController extends Controller
         }   
         $produto->ativo = 1;
         $produto->save();
+        return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Produto cadastrado com sucesso !']);
         if($request->hasfile('image')){
             foreach ($request->file('image') as $file) {
                 $image = 'produtos/' . generateRandomString(10) . '.jpg';
@@ -61,9 +62,11 @@ class CatalogoController extends Controller
     }
 
     public function allProdutos($id){
+        $dados = new stdClass;
+        $dados->user = Auth::user();
         $allProdutos = Produto::where('controle', $id)->first();
         $img = ImageProduto::where('controle', $id)->first();
-        return view('admin.cadastroproduto', compact('allProdutos', 'img'));
+        return view('admin.cadastroproduto', compact('allProdutos', 'img', 'dados'));
     }
 
     public function deleteImg($id){
