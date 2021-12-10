@@ -19,7 +19,7 @@
                 <div class="flex-ae">
                     <div class="flex flex-je">
                         <a href="{{route('admin.cliente')}}">
-                            <button type="button" class="botao">Voltar</button>
+                            <button type="button" class="botao-secundario">Voltar</button>
                         </a>
                         <button type="submit" class="botao ml-1">@isset($allclientes)
                             Alterar
@@ -101,17 +101,17 @@
                         <div class="mt-1 flex-c">
                             <div class="field flex">
                                 <label class="label mb-1" for="celular">Celular</label>
-                                <input name="celular" type="text" class="inputPadrao mt-1"
+                                <input name="celular" type="text" class="inputPadrao cl mt-1"
                                 @isset($allclientes) value="{{$allclientes->contato->celular}}" @endisset>
                             </div>
                             <div class="w-100 field flex">
                                 <label class="label mb-1" for="email">E-mail</label>
-                                <input name="email" type="email" class="inputPadrao mt-1"
+                                <input name="email" type="email" class="inputPadrao cl mt-1"
                                 @isset($allclientes) value="{{$allclientes->contato->email}}" @endisset>
                             </div>
                             <div class="w-100 field flex">
                                 <label class="label mb-1" for="telefone">Telefone</label>
-                                <input name="telefone" type="text" class="inputPadrao mt-1"
+                                <input name="telefone" type="text" class="inputPadrao cl mt-1"
                                 @isset($allclientes) value="{{$allclientes->contato->telefone}}" @endisset>
                             </div>
                         </div>
@@ -123,17 +123,17 @@
                                     <div class="w-100 mt-1">
                                         <div class="w-100 field flex">
                                             <label class="label mb-1" for="nivelNivelAcesso">Nível de acesso</label>
-                                            <input type="text" class="mt-1 inputPadrao" name="nivelNivelAcesso"
+                                            <input type="text" class="mt-1 inputPadrao cl" name="nivelNivelAcesso"
                                             @isset($allclientes) value="{{$allclientes->nivel_acesso}}" @endisset>
                                         </div>
                                         <div class="w-100 field flex">
                                             <label class="label mb-1" for="nomeNivelAcesso">Nome nível de acesso</label>
-                                            <input type="text" class="mt-1 inputPadrao" name="nomeNivelAcesso"
+                                            <input type="text" class="mt-1 inputPadrao cl" name="nomeNivelAcesso"
                                             @isset($allclientes) value="{{$allclientes->nome_acesso}}" @endisset>
                                         </div>
                                         <div class="w-100 field flex">
                                             <label class="label mb-1" for="ativo">Ativo/Inativo</label>
-                                            <input type="text" class="mt-1 inputPadrao" name="ativo"
+                                            <input type="text" class="mt-1 inputPadrao cl" name="ativo"
                                             @isset($allclientes) value="{{$allclientes->ativo}}" @endisset>
                                         </div>
                                     </div>
