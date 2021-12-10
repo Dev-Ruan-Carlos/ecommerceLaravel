@@ -29,41 +29,43 @@
                     $totalPromo = 0;
                     $totalDesconto = 0;
                 @endphp
-                <h3 class="mt-3">Produtos</h3>
+                <h3 class="mt-1">Produtos</h3>
                 <div class="flex-c mt-05 h-100 flex-jb mt-1">
-                    <div class="w-100 flex-jb">
-                        <td><strong>Descrição</strong></td>
-                        <td><strong>Qtde</strong></td>
-                        <td><strong>Valor un</strong></td>
-                        <td><strong>Promoção</strong></td>
-                        <td><strong>Valor subtotal</strong></td>
-                        <tr class="w-100 mt-1" style="border-bottom: 0px solid white !important;">
-                    </div>
-                    <section class="flex-c flex-jb w-100">
-                        @foreach ($pedido->pedidoItens as $p)
-                            <table>
-                                <td>{{$p->produto->produto}}</td>
-                                <td>{{number_format($p->quantidade, 4, ',', '.' )}}</td>
-                                <td>{{"R$ " . number_format($p->valorun, 2, ',', '.' )}}</td>
-                                <td>{{"R$ " . number_format($p->valorpromocao, 2, ',', '.' )}}</td>
-                                @if($p->valorpromocao > 0)
-                                    <td>{{"R$ " . number_format($p->valorpromocao*$p->quantidade, 2, ',', '.' )}}</td>
-                                @else 
-                                    <td>{{"R$ " . number_format($p->valorun*$p->quantidade, 2, ',', '.' )}}</td>
-                                @endif
-                                @php
-                                    $quantidadeTotal = $quantidadeTotal + $p->quantidade;
-                                    if($p->valorpromocao > 0)
-                                        $valorTotal += $p->valorpromocao*$p->quantidade;
-                                    else
-                                        $valorTotal += $p->valorun*$p->quantidade;
-                                    $totalUn += $p->valorun;
-                                    $totalPromo += $p->valorpromocao;
-                                    $totalDesconto +=  ($p->valorun*$p->quantidade) - ($p->valorpromocao*$p->quantidade);   
-                                @endphp
-                            </table>
-                        @endforeach
-                    </section>
+                    <table>
+                        <thead class="w-100">
+                            <th><strong>Descrição</strong></th>
+                            <th><strong>Qtde</strong></th>
+                            <th><strong>Valor un</strong></th>
+                            <th><strong>Promoção</strong></th>
+                            <th><strong>Valor subtotal</strong></th>
+                        </thead>
+                        <tbody class="w-100">
+                            @foreach ($pedido->pedidoItens as $p)
+                                <tr class="">
+                                        <td>{{$p->produto->produto}}</td>
+                                        <td>{{number_format($p->quantidade, 4, ',', '.' )}}</td>
+                                        <td>{{"R$ " . number_format($p->valorun, 2, ',', '.' )}}</td>
+                                        <td>{{"R$ " . number_format($p->valorpromocao, 2, ',', '.' )}}</td>
+                                    </div>
+                                    @if($p->valorpromocao > 0)
+                                        <td>{{"R$ " . number_format($p->valorpromocao*$p->quantidade, 2, ',', '.' )}}</td>
+                                    @else 
+                                        <td>{{"R$ " . number_format($p->valorun*$p->quantidade, 2, ',', '.' )}}</td>
+                                    @endif
+                                    @php
+                                        $quantidadeTotal = $quantidadeTotal + $p->quantidade;
+                                        if($p->valorpromocao > 0)
+                                            $valorTotal += $p->valorpromocao*$p->quantidade;
+                                        else
+                                            $valorTotal += $p->valorun*$p->quantidade;
+                                        $totalUn += $p->valorun;
+                                        $totalPromo += $p->valorpromocao;
+                                        $totalDesconto +=  ($p->valorun*$p->quantidade) - ($p->valorpromocao*$p->quantidade);   
+                                    @endphp
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                     <div class="flex-c">
                         <h3 class="mt-05">Totalizadores</h3>
                         <div class="flex-jb mt-05">
@@ -92,7 +94,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex-jb mt-05">
+                    <div class="flex-jb mt-1">
                         @if($pedido->status == "Pendente")
                             <div>
                                 <a href="{{route('admin.pedido')}}" class="footer-finalizacao">Voltar</a>

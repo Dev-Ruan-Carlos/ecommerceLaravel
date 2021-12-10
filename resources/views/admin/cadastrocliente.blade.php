@@ -38,7 +38,7 @@
                         <div class="w-100 mt-1">
                             <div class="w-100 field">
                                 <label class="label mb-1" for="nome">Nome</label>
-                                <input name="nome" type="text" class="inputPadrao cl-12 mt-1"
+                                <input name="nome" type="text" class="inputPadrao cl-12 mt-1" autofocus
                                 @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
                             </div>
                             <div class="w-100 field">
@@ -56,7 +56,7 @@
                     <div class="body-card-principal mt-1 flex-c ml-1 p-2">
                         <span>Endereço</span>
                         <div class="w-100 mt-1">
-                            <div class="flex w-100 gap-1">
+                            <div class="flex w-100 gap-2">
                                 <div class="field w-100">
                                     <label class="label mb-1" for="cep">CEP</label>
                                     <input name="cep" type="text" class="inputPadrao cl mt-1"
@@ -68,7 +68,7 @@
                                     @isset($allclientes) value="{{$allclientes->endereco->rua}}" @endisset>
                                 </div>
                             </div>
-                            <div class="flex w-100 gap-1">
+                            <div class="flex w-100 gap-2">
                                 <div class="field w-100">
                                     <label class="label mb-1" for="bairro">Bairro</label>
                                     <input name="bairro" type="text" class="inputPadrao cl mt-1"
@@ -80,7 +80,7 @@
                                     @isset($allclientes) value="{{$allclientes->endereco->numero}}" @endisset>
                                 </div>
                             </div>
-                            <div class="flex w-100 gap-1">
+                            <div class="flex w-100 gap-2">
                                 <div class="field w-100">
                                     <label class="label mb-1" for="uf">UF</label>
                                     <input name="uf" type="text" class="inputPadrao cl mt-1"

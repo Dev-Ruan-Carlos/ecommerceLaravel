@@ -17,10 +17,21 @@
         <a href="{{route('buscainicio.buscar')}}" class="ml-1" style="color: #007bff;">Início</a>
     </div>
     <div class="header-conta">
-        @if(request()->routeIs('admin.pedido', 'admin.gerencial', 'admin.cliente', 'admin.catalogo' ))
-            <span>{{$dados->user->nome}}</span>
+        @if(request()->routeIs('admin.*'))
+            <span class="mr-1">{{$dados->user->nome}}</span>
             <div class="header-conta-img">
                 <img src="{{asset('img/user.jpg')}}" alt="">
+            </div>
+            <div class="toggleUser">
+                <div class="toggleUserHeader">
+                    <div class="flex-jc flex-ac flex-c h-100 mt-1">
+                        <span class="mb-05">{{$dados->user->nome}}</span>
+                        <img class="togglerUserImg " src="{{asset('img/user.jpg')}}" alt="FOTO">
+                    </div>
+                </div>
+                <div class="toggleUserBody">
+
+                </div>
             </div>
         @endif
     </div>
@@ -38,4 +49,13 @@
         main.classList.toggle('active-mobile');
         header.classList.toggle('active-mobile');
     }
+
+    window.addEventListener('click', function(event){
+        var toggleUser = document.querySelector('.toggleUser');
+        if (event.target.classList.contains('header-conta')) {
+            toggleUser.classList.toggle('toggleUserActive');
+        }else if(!event.target.classList.contains('toggleUser')){
+            toggleUser.classList.remove('toggleUserActive');
+        }
+    })
 </script>

@@ -79,8 +79,10 @@ class ClienteController extends Controller
     }
 
     public function allClientes($id){
+        $dados = new stdClass;
+        $dados->user = Auth::user();
         $allclientes = User::where('id', $id)->first();
-        return view('admin.cadastrocliente', compact('allclientes'));
+        return view('admin.cadastrocliente', compact('allclientes', 'dados'));
     }
 
     public function get(){

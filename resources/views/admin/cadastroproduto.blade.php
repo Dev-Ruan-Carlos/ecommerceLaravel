@@ -64,7 +64,7 @@
                                 @endisset
                             </span>
                             <div class="w-100 mt-1">
-                                <div class="gap-1 w-100">
+                                <div class="gap-2 w-100">
                                     <div class="w-100 field">
                                         <label class="label mb-1" for="quantidade">Quantidade</label>
                                         <input type="text" class="inputPadrao mt-1 cl" name="quantidade" required="required" maxlength="10"
@@ -72,19 +72,19 @@
                                     </div>
                                     <div class="w-100 field">
                                         <label class="label mb-1" for="precocusto">Preço custo R$</label>
-                                        <input type="text" class="inputPadrao cl mt-1 vlr" id="precocusto" name="precocusto" required="required"
+                                        <input type="text" class="inputPadrao cl mt-1 vlr" id="precocusto" name="precocusto" required="required" style="text-align: right"
                                         @isset($allProdutos) value="{{$allProdutos->precocusto}}" @endisset>
                                     </div>
                                 </div>
-                                <div class="w-100 gap-1">
+                                <div class="w-100 gap-2">
                                     <div class="w-100 field">
                                         <label class="label mb-1" for="precovenda">Preço venda R$</label>
-                                        <input type="text" class="inputPadrao cl mt-1 vlr" name="precovenda" required="required"
+                                        <input type="text" class="inputPadrao cl mt-1 vlr" name="precovenda" required="required" style="text-align: right"
                                         @isset($allProdutos) value="{{$allProdutos->precovenda}}" @endisset>
                                     </div>
                                     <div class="w-100 field">
                                         <label class="label mb-1" for="precopromocao">Preço promoção R$</label>
-                                        <input type="text" class="inputPadrao cl mt-1 vlr" name="precopromocao" required="required"
+                                        <input type="text" class="inputPadrao cl mt-1 vlr" name="precopromocao" required="required" style="text-align: right"
                                         @isset($allProdutos) value="{{$allProdutos->precopromocao}}" @endisset>
                                     </div>
                                 </div>
