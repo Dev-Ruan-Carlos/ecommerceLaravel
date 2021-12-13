@@ -13,14 +13,14 @@
                     @error('inicio')
                         <span class="error-login">{{$message}}</span>
                     @enderror    
-                        <p>
-                            <span class="fa fa-user"></span>
-                            <input type="text"  Placeholder="Usuário" name="login" required autofocus>
-                        </p>
-                        <p>
-                            <span class="fa fa-lock"></span>
-                            <input type="password"  Placeholder="Senha" name="senha" required>
-                        </p> 
+                        <div>
+                            {{-- <span class="fa fa-user"></span> --}}
+                            <input type="text" Placeholder="Usuário" name="login" required autofocus>
+                        </div>
+                        <div>
+                            {{-- <span class="fa fa-lock"></span> --}}
+                            <input type="password" class="mt-1" Placeholder="Senha" name="senha" required>
+                        </div>
                         <div id="entrar" class="entrar flex-jc flex-ac mt-1" style="width: 76%; gap: 1rem; margin-top: 1rem; font-size: 13px;">                 
                             <a href="{{route('cadastro.indexcad')}}" class="flex-jc botao2 flex-ac">Registre-se</a>
                             <button type="submit" class="flex-jc flex-ac botao2">Entrar</button>
