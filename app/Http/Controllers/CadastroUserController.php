@@ -32,20 +32,20 @@ class CadastroUserController extends Controller
             }
             $usuarios->ativo = $request->post('status');
             $usuarios->save();
-            return redirect()->route('controleuser.listagem');
+            return redirect()->back()->with(['admin.cliente.allClientes' => 'Usuário alterado com sucesso!']);
         }else{
-            if(User::where('email', $request->get('emailCadastro'))->orWhere('nome', $request->get('loginCadastro'))->count() > 0 ){
-                return redirect()->back()->withInput()->withErrors(['cadastro' => 'Usuário/E-mail já cadastrado, tente novamente!']);
+            if(User::where('email', $request->get('email'))->orWhere('nome', $request->get('nome'))->count() > 0 ){
+                return redirect()->back()->withInput()->withErrors(['admin.cliente.allClientes' => 'Usuário/E-mail já cadastrado, tente novamente!']);
             }else{
             $user = new User();
-            $user->nome = $request->get('loginCadastro');
-            $user->email = $request->get('emailCadastro');
-            $user->password = bcrypt($request->get('password')); 
+            $user->nome = $request->get('nome');
+            $user->email = $request->get('email');
+            $user->password = bcrypt($request->get('senha')); 
             $user->nivel_acesso = 3;
             $user->nome_acesso = 'limitado';
             $user->ativo = 0;
             $user->save();
-            return redirect()->back()->withInput()->withErrors(['cadastro' => 'Usuário cadastrado com sucesso!']);
+            return redirect()->back()->with(['admin.cliente.allClientes' => 'Usuário cadastrado com sucesso!']);
             }
         }
     }

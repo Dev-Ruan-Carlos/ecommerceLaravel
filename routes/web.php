@@ -68,6 +68,7 @@ Route::prefix('login')->group(function(){
 
 Route::prefix('buscainicio')->group(function(){
     Route::get('buscarProdutos', [InicioController::class, 'buscarProdutos'])->name('buscainicio.buscar');
+    Route::get('detalhesProdutos', [InicioController::class, 'detalhesProdutos'])->name('buscainicio.buscar.detalhesprodutos');
 }); 
 
 Route::prefix('carrinho')->group(function(){

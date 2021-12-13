@@ -46,7 +46,7 @@ class CatalogoController extends Controller
         }   
         $produto->ativo = 1;
         $produto->save();
-        return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Produto cadastrado com sucesso !']);
+        return redirect()->back()->with(['admin.catalogo.allProdutos' => 'Produto cadastrado com sucesso !']);
         if($request->hasfile('image')){
             foreach ($request->file('image') as $file) {
                 $image = 'produtos/' . generateRandomString(10) . '.jpg';
@@ -58,7 +58,7 @@ class CatalogoController extends Controller
                 $galeria->save();
             }
         }
-        return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Produto alterado com sucesso !']);
+        return redirect()->back()->with(['admin.catalogo.allProdutos' => 'Produto alterado com sucesso !']);
     }
 
     public function allProdutos($id){

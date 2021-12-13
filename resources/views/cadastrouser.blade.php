@@ -11,6 +11,11 @@
         @error('admin.catalogo.indexcadastro')
             <span class="error">{{$message}}</span>
         @enderror  
+        @if(session()->has('admin.catalogo.allProdutos'))
+            <div class="alert alert-success">
+                {{ session()->get('admin.catalogo.allProdutos') }}
+            </div>
+        @endif 
         <div class="flex-r flex-jc mt-6">
             <div class="body-card-complemento-cliente">
                 <img src="{{asset('storage/banners/bannercliente.jpg')}}" alt="" class="banners banner-cadcliente" style="width: 100%; height: 569px; border-radius: 5px;">

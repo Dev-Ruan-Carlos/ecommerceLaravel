@@ -25,4 +25,17 @@ class InicioController extends Controller
         return view('welcome', compact('produto', 'user', 'buscaProduto'));
     }
 
+    public function detalhesProdutos(Request $request){
+        $user = Auth::user();
+        $produtos = null;
+        if($request->get('buscar')){
+            $busca = $request->get('buscar');
+            $produtos = Produto::where('produto', 'LIKE', '%'.$busca.'%')
+                                    ->orWhere('codbarras', 'LIKE', '%'.$busca.'%')
+                                    ->orderBy('produto')->get();
+        }else{
+            $produtos = Produto::get();    
+        }
+        return view('detalhescatalogo', compact('produtos', 'user'));
+    }
 }

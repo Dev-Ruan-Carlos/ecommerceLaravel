@@ -5,9 +5,6 @@
         @method('POST')
         <input type="text" name="id" @isset($allclientes) value="{{$allclientes->id}}" @endisset hidden>
         <section class="container">
-            @error('admin.catalogo.allClientes')
-                <span class="error">{{$message}}</span>
-            @enderror 
             <div class="flex-jb">
                 <div class="flex-c">
                     <h1>@isset($allclientes)
@@ -28,9 +25,14 @@
                     </div>
                 </div>
             </div>
-            @error('admin.catalogo.indexcadastro')
+            @error('admin.cliente.allClientes')
                 <span class="error">{{$message}}</span>
             @enderror  
+            @if(session()->has('admin.cliente.allClientes'))
+                <div class="alert alert-success">
+                    {{ session()->get('admin.cliente.allClientes') }}
+                </div>
+            @endif 
             <div class="flex-c">
                 <div class="flex">
                     <div class="body-card-principal mt-1 flex-c p-2">
@@ -83,7 +85,7 @@
                             <div class="flex w-100 gap-2">
                                 <div class="field w-100">
                                     <label class="label mb-1" for="uf">UF</label>
-                                    <input name="uf" type="text" class="inputPadrao cl mt-1"
+                                    <input name="uf" type="text" class="inputPadrao cl mt-1" maxlength="2"
                                     @isset($allclientes) value="{{$allclientes->endereco->uf}}" @endisset>
                                 </div>
                                 <div class="field w-100">

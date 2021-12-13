@@ -28,7 +28,12 @@
             @enderror  
             @error('admin.catalogo.allProdutos')
                 <span class="error mt-1">{{$message}}</span>
-            @enderror  
+            @enderror
+            @if(session()->has('admin.catalogo.allProdutos'))
+                <div class="alert alert-success mt-1">
+                    {{ session()->get('admin.catalogo.allProdutos') }}
+                </div>
+            @endif 
             <div class="flex-r flex-jc mt-1 w-100">
                 <div class="flex-c w-100 mr-05 ml-05">
                     <div class="flex">
@@ -67,8 +72,8 @@
                                 <div class="gap-2 w-100">
                                     <div class="w-100 field">
                                         <label class="label mb-1" for="quantidade">Quantidade</label>
-                                        <input type="text" class="inputPadrao mt-1 cl" name="quantidade" required="required" maxlength="10"
-                                        @isset($allProdutos) value="{{ $allProdutos->quantidade }}" @endisset>
+                                        <input type="text" class="inputPadrao mt-1 cl" name="quantidade" required="required" maxlength="10" style="text-align: right"
+                                        @isset($allProdutos) value="{{ number_format($allProdutos->quantidade, 2, ',', '.' ) }}" @endisset>
                                     </div>
                                     <div class="w-100 field">
                                         <label class="label mb-1" for="precocusto">Preço custo R$</label>

@@ -20,9 +20,9 @@
         </div>
         <h1 class="mt-2">Produtos em ofertas</h1>
         <section class="slide-group">
-            <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
-                @foreach ($produto as $p)
-                    <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
+            <div class="@if($produtos->count() < 7) flex-jc @endif swiper-wrapper w-100">
+                @foreach ($produtos as $p)
+                    <div class="card-produto swiper-slide flex-c flex-jc slide-inicio" style="margin-right: 10px;">
                         <div>
                             <img src="{{asset('storage/banners/fileira1.jpg')}}" alt="LOGO" class="imgproduto">
                         </div>
@@ -43,9 +43,9 @@
             </div>
         </section>
         <section class="slide-group">
-            <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
-                @foreach ($produto as $p)
-                    <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
+            <div class="@if($produtos->count() < 7) flex-jc @endif swiper-wrapper w-100">
+                @foreach ($produtos as $p)
+                    <div class="card-produto swiper-slide flex-c flex-jc slide-inicio" style="margin-right: 10px;">
                         <div>
                             <img src="{{asset('storage/banners/fileira2.jpg')}}" alt="LOGO" class="imgproduto">
                         </div>
@@ -75,9 +75,9 @@
             </div>
             <h1 class="mt-2">Produtos em promoção</h1>
             <section class="slide-group">
-                <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
-                    @foreach ($produto as $p)
-                        <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
+                <div class="@if($produtos->count() < 7) flex-jc @endif swiper-wrapper w-100">
+                    @foreach ($produtos as $p)
+                        <div class="card-produto swiper-slide flex-c flex-jc slide-inicio" style="margin-right: 10px;">
                             <div>
                                 <img src="{{asset('storage/banners/fileira3.jpg')}}" alt="LOGO" class="imgproduto">
                             </div>
@@ -98,9 +98,9 @@
                 </div>
             </section>
             <section class="slide-group">
-                <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
-                    @foreach ($produto as $p)
-                        <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
+                <div class="@if($produtos->count() < 7) flex-jc @endif swiper-wrapper w-100">
+                    @foreach ($produtos as $p)
+                        <div class="card-produto swiper-slide flex-c flex-jc slide-inicio" style="margin-right: 10px;">
                             <div>
                                 <img src="{{asset('storage/banners/fileira4.jpg')}}" alt="LOGO" class="imgproduto">
                             </div>
@@ -126,57 +126,4 @@
         <span class="white flex-ac">Developer Ruan Carlos | CNPJ 000.000.000-00 - Politíca de privacidade - Termos de uso</span>
     </footer>
 </main>
-<script>
-    var
-        swiper = null;
-
-    window.addEventListener('load', () => {
-        swiper = new Swiper('.swiper-container', {
-            spaceBetween: 0,
-            centeredSlides: true,
-            effect: 'fade',
-            loop: true,
-            autoplay: {
-                delay: 6000,
-                disableOnInteraction: false,
-            }
-        });   
-        slideGroup = new Swiper('.slide-group', {
-            spaceBetween: 10,
-                    centeredSlidesBounds: true,
-                    autoplay: {
-                        delay: 6000,
-                        disableOnInteraction: false,
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: '.slide-group-next',
-                        prevEl: '.slide-group-prev',
-                    },
-                    autoplay: false,
-                    breakpoints: {
-                        0: {
-                            slidesPerView: 'auto',
-                        },
-                        500: {
-                            slidesPerView: 'auto',
-                        },
-                        750: {
-                            slidesPerView: 'auto',
-                        },
-                        1030: {
-                            slidesPerView: 'auto',
-                        },
-                        1240: {
-                            centeredSlides: false,
-                            slidesPerView: 'auto',
-                        },
-                    }
-        });   
-    })
-
-</script>
 @endsection 
