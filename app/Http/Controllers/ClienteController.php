@@ -73,7 +73,7 @@ class ClienteController extends Controller
                         $userEndereco->uf = $request->get('uf');
                         $userEndereco->cidade = $request->get('cidade');
                         $userEndereco->save();
-                return redirect()->back()->withInput()->withErrors(['cadastro' => 'Usuário cadastrado com sucesso!']);
+                return redirect()->back()->with(['cadastro' => 'Usuário cadastrado com sucesso!']);
             }
         }
     }

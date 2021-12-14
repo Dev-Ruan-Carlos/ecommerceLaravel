@@ -3,7 +3,7 @@
         <img src="{{asset('img/logo-sgbr.png')}}" alt="LOGO" class="banners2" style="max-width: 150px; margin-right: 2rem;">
         <form action="{{route('buscainicio.buscar.detalhesprodutos')}}" method="GET" class="w-100">
             <div class="inputBusca w-100">
-                <input type="text" id="buscar" name="buscar" class="ml-1 cl-10" 
+                <input type="text" id="buscar" name="buscar" class="ml-1 cl-10" autofocus
                     @if (!request()->routeIs('buscainicio.buscar') && !request()->routeIs('buscainicio.buscar.detalhesprodutos'))
                         disabled
                     @else

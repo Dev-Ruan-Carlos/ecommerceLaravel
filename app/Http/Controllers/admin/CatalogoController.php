@@ -39,26 +39,27 @@ class CatalogoController extends Controller
         $produto->precovenda = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precovenda'));
         $produto->precopromocao = (float) preg_replace(['/\./', '/\,/'], ['', '.'], $request->get('precopromocao'));
         if($produto->precocusto > $produto->precovenda){
-            return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Preço de venda superior ao preço de custo! TENTE NOVAMENTE']);        
+            return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Preço de custo superior ao preço de venda ! TENTE NOVAMENTE']);        
         }
         if($produto->precopromocao > $produto->precovenda) {
-            return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Preço de promoção superior ao preço de venda! TENTE NOVAMENTE']);        
+            return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Preço de promoção superior ao preço de venda ! TENTE NOVAMENTE']);        
         }   
-        $produto->ativo = 1;
-        $produto->save();
-        return redirect()->back()->with(['admin.catalogo.allProdutos' => 'Produto cadastrado com sucesso !']);
+        $produto->ativo = "1";
         if($request->hasfile('image')){
-            foreach ($request->file('image') as $file) {
-                $image = 'produtos/' . generateRandomString(10) . '.jpg';
-                $file->move(public_path('storage').'\produtos',$image);
+            foreach ($request->file('image') as $i => $file) {
+                dd($file);
+                $image = 'cadastroprodutos/' . generateRandomString(10) . '.jpg';
+                $file->move(public_path('storage').'\cadastroprodutos',$image);
                 $galeria = new ImageProduto();
                 $galeria->descricaoimg = $image;
                 $galeria->codproduto = $produto->controle;
                 $galeria->ativo = "1";
                 $galeria->save();
+                return redirect()->back()->with(['success' => 'Produto salvo com sucesso !']);
             }
         }
-        return redirect()->back()->with(['admin.catalogo.allProdutos' => 'Produto alterado com sucesso !']);
+        $produto->save();
+        return redirect()->back()->with(['success' => 'Produto salvo com sucesso !']);
     }
 
     public function allProdutos($id){

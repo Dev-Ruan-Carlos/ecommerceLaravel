@@ -11,7 +11,7 @@
                     @enderror    
                         <p>
                             <span class="fa fa-user"></span>
-                            <input type="text"  Placeholder="Usuário" name="login" required autofocus>
+                            <input type="text"  Placeholder="Usuário" name="login" required>
                         </p>
                         <p>
                             <span class="fa fa-lock"></span>

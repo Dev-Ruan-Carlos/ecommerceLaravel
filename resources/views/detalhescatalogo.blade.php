@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <h1 class="mt-2">Produtos em ofertas</h1>
+        <h1 class="mt-2 flex-jc">Produtos em ofertas</h1>
         <section class="slide-group">
             <div class="@if($produtos->count() < 7) flex-jc @endif swiper-wrapper w-100">
                 @foreach ($produtos as $p)
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <h1 class="mt-2">Produtos em promoção</h1>
+            <h1 class="mt-2 flex-jc">Produtos em promoção</h1>
             <section class="slide-group">
                 <div class="@if($produtos->count() < 7) flex-jc @endif swiper-wrapper w-100">
                     @foreach ($produtos as $p)

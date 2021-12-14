@@ -696,7 +696,7 @@ body {
   height: 25px;
 }
 
-.error{
+/* .error{
   color: white;
   background-color: red;
   width: 100%;
@@ -705,7 +705,7 @@ body {
   margin-bottom: 1rem;
   padding: 1rem;
   border-radius: 5px;
-}
+} */
 
 .cadastro-de-produtos {
   background: #0084ff;
@@ -746,7 +746,7 @@ body {
   color:black;
 }
 
-.alert {
+/* .alert {
   display: flex;
   position: absolute;
   color: white;
@@ -757,7 +757,7 @@ body {
   border-radius: 6px;
   padding: 1rem;
   align-items: center;
-}
+} */
 
 .historico {
   display: flex;

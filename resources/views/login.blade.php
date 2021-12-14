@@ -18,7 +18,7 @@
                             <div class="w-100 field">
                                 <label class="label" for="login mb-1">Login</label>
                                 {{-- <i class="fas fa-user-tie iconeInput"></i> --}}
-                                <input type="text" class="inputPadrao cl-12 mt-1" name="login" required autofocus>
+                                <input type="text" class="inputPadrao cl-12 mt-1" name="login" required>
                             </div>
                             <div class="w-100 field">
                                 <label class="label" for="senha">Senha</label>

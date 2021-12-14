@@ -13,27 +13,29 @@
                         Cadastro catálogo @endisset</h1>
                     <h2>Informe os dados no formulário a baixo</h2>
                 </div>
-                    <div class="flex-ae mr-05">
-                        <a href="{{route('admin.catalogo')}}">
-                            <button type="button" class="botao-secundario">Voltar</button>
-                        </a>
-                        <button type="submit" class=" ml-1 botao">@isset($allProdutos)
-                            Salvar
-                            @else 
-                            Gravar @endisset</button>
+                <div class="flex-ae mr-05">
+                    <a href="{{route('admin.catalogo')}}">
+                        <button type="button" class="botao-secundario">Voltar</button>
+                    </a>
+                    <button type="submit" class=" ml-1 botao">@isset($allProdutos)
+                        Salvar
+                        @else 
+                        Gravar @endisset</button>
+                </div>
+            </div>
+            <div class="ml-05" style="width: 99%">
+                @error('admin.catalogo.indexcadastro')
+                    <span class="error mt-1">{{$message}}</span>
+                @enderror  
+                @error('admin.catalogo.allProdutos')
+                    <span class="error mt-1">{{$message}}</span>
+                @enderror
+                @if(session()->has('success'))
+                    <div class="alert alert-success mt-1">
+                        {{ session()->get('success') }}
                     </div>
-                </div>
-            @error('admin.catalogo.indexcadastro')
-                <span class="error mt-1">{{$message}}</span>
-            @enderror  
-            @error('admin.catalogo.allProdutos')
-                <span class="error mt-1">{{$message}}</span>
-            @enderror
-            @if(session()->has('admin.catalogo.allProdutos'))
-                <div class="alert alert-success mt-1">
-                    {{ session()->get('admin.catalogo.allProdutos') }}
-                </div>
-            @endif 
+                @endif 
+            </div>
             <div class="flex-r flex-jc mt-1 w-100">
                 <div class="flex-c w-100 mr-05 ml-05">
                     <div class="flex">
@@ -49,7 +51,7 @@
                                 <div class="w-100 flex-c">
                                     <div class="w-100 field">
                                         <label class="label mb-1" for="produto">Produto/serviço</label>
-                                        <input type="text" class="inputPadrao mt-1 cl" name="produto" required="required" maxlength="20" autofocus
+                                        <input type="text" class="inputPadrao mt-1 cl" name="produto" required="required" maxlength="20"
                                         @isset($allProdutos) value="{{$allProdutos->produto}}" @endisset>
                                     </div>
                                     <div class="w-100 field">
@@ -89,7 +91,7 @@
                                     </div>
                                     <div class="w-100 field">
                                         <label class="label mb-1" for="precopromocao">Preço promoção R$</label>
-                                        <input type="text" class="inputPadrao cl mt-1 vlr" name="precopromocao" required="required" style="text-align: right"
+                                        <input type="text" class="inputPadrao cl mt-1 vlr" name="precopromocao" style="text-align: right"
                                         @isset($allProdutos) value="{{$allProdutos->precopromocao}}" @endisset>
                                     </div>
                                 </div>

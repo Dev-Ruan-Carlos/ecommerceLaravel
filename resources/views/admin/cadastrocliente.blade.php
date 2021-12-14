@@ -40,7 +40,7 @@
                         <div class="w-100 mt-1">
                             <div class="w-100 field">
                                 <label class="label mb-1" for="nome">Nome</label>
-                                <input name="nome" type="text" class="inputPadrao cl-12 mt-1" autofocus
+                                <input name="nome" type="text" class="inputPadrao cl-12 mt-1"
                                 @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
                             </div>
                             <div class="w-100 field">
@@ -61,8 +61,9 @@
                             <div class="flex w-100 gap-2">
                                 <div class="field w-100">
                                     <label class="label mb-1" for="cep">CEP</label>
-                                    <input name="cep" type="text" class="inputPadrao cl mt-1"
+                                    <input name="cep" id="cep" type="text" class="inputPadrao cl mt-1" maxlength="9" onclick="formatarCEP(this)"
                                     @isset($allclientes) value="{{$allclientes->endereco->cep}}" @endisset>
+                                    <i class="fas fa-search iconeInputRight" id="pesquisar" data-tooltip="Consultar dados do CNPJ !" data-tooltip-location="top"></i>
                                 </div>
                                 <div class="field w-100">
                                     <label class="label mb-1" for="rua">Rua</label>
@@ -121,7 +122,14 @@
                     @isset($allclientes)
                         <div class="body-card-principal ml-1 mt-1 p-2">
                             <div class="w-100 h-100 flex-c flex-js">
-                                <span>Nível de acesso</span>
+                                <div class="flex-jb">
+                                    <span>Nível de acesso</span>
+                                    <div class="flex gap-1">
+                                        <span><strong>1 - Administrador</strong></span>
+                                        <span><strong>2 - Supervisor</strong></span>
+                                        <span><strong>3 - Limitado</strong></span>
+                                    </div>
+                                </div>
                                     <div class="w-100 mt-1">
                                         <div class="w-100 field flex">
                                             <label class="label mb-1" for="nivelNivelAcesso">Nível de acesso</label>
