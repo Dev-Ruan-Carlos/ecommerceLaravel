@@ -39,7 +39,7 @@
     @if (!request()->routeIs('inicio', 'cadastro.indexcad'))
         @include('admin.includes.header2')
     @endif
-    <main class="mainAppBlade fundoclaro">
+    <main class="mainAppBlade">
         @yield('body')
     </main>
 </body>

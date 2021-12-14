@@ -7,17 +7,13 @@
 }
 
 .fundoclaro {
-  /* background-image: url(../../public/storage/banners/fundoprincipal3.jpg); */
+  background-image: url(/images/fundoprincipal5.jpg?c3567780349922694e8745704c466a1d);
+  /* background-color: cadetblue; */
   height: 100%;
   min-height: 100vh;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-#login form {
-  width: 250px;
-  margin-right: 2rem;
 }
 
 #login, .logo {
@@ -66,20 +62,6 @@ fieldset{
   border:0;
   margin: 0;
 }
-#login form input {
-  height: 50px;
-  background-color: #c8cacd2b;
-  border-radius: 0px 3px 3px 0px;
-  color: #000;
-  margin-bottom: 1em;
-  padding: 0 16px;
-  width: 385px;
-  padding: 0.5rem;
-  padding-left: 3.5rem;
-  border-radius: 5px;
-  margin-right: 8rem;
-  box-shadow: 0px 0px 3px 1px #0000001f;
-}
 
 .button {
   border-radius: 3px;
@@ -125,7 +107,7 @@ fieldset{
 .error-login{
   color: white;
   background-color: red;
-  width: 75%;
+  width: 100%;
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
@@ -139,12 +121,6 @@ fieldset{
   background-color: white;
   padding: 2rem;
   border-radius: 7px;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: black
 }
 
 .form-input {
@@ -190,6 +166,7 @@ h1 {
   /* color: #5d5d5d; */
   color: inherit;
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
 }
 
 .flex, .flex-c, .flex-cr, .flex-r, .flex-w, .flex-jb, .flex-jc, .flex-js, .flex-je, .flex-as, .flex-ac, .flex-ae, .flex-ja, .flex-ab{
@@ -437,12 +414,11 @@ body {
 }
 
 .banners-login{
-  max-width: 347px;
-  border-radius: 0.5rem;
-  position: relative;
-  right: 100px;
-  top: 2px;
+  width: 330px;
+  height: 500px;
   box-shadow: 0px 0px 10px 0px #0000002e;
+  position: relative;
+  top: 2px;
 }
 
 .demonstracao {
@@ -966,11 +942,11 @@ body {
 
 .box-login {
   background-color: white;
-  width: 900px;
-  height: 501px;
+  width: 550px;
+  height: 500px;
   justify-content: center;
-  border-radius: 5px;
   box-shadow: 0px 0px 10px 0px #0000002e;
+  border-radius: 10px;
 }
 
 .clearfix {
