@@ -21,7 +21,7 @@
                 @endphp
                 <div class="campo-historico flex-jb p-1">
                     <div class="flex-c" style="width: 100%; border-right: 1px solid #00000026;">
-                        <div class="flex-jb" style="height: 21px; width: 11%;">
+                        <div class="w-100" style="height: 21px">
                             <span class="nowrap">Itens comprados: </span>
                             @foreach ($pedido->pedidoItens as $key => $pedidoItem)
                                 @if ($key > 0)

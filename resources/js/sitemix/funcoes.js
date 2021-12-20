@@ -57,17 +57,16 @@ window.addEventListener('load', function(){
     $('.vlr').mask("000.000,00", {reverse: true});
 
     
-    document.addEventListener('focusin', function(event){
+    document.addEventListener('click', function(event){
         var input = event.target.parentElement;
-        if (input && input.querySelector('label') && !event.target.value) {
+        if (input && input.querySelector('label') && input.value !== '') {
             input.querySelector('label').classList.add('moveUp');
         }
     });
 
-    document.addEventListener('blur', function(event){
+    document.addEventListener('click', function(event){
         var input = event.target.parentElement;
-        console.log('123');
-        if (input && input.querySelector('label') && event.target.value == '') {
+        if (input && input.querySelector('label') && event.target.value !== '') {
             input.querySelector('label').classList.remove('moveUp', 'moveUpNotFx');
         }
     });
