@@ -546,7 +546,7 @@ body {
   width: 1171px;
   height: 148px;
   margin-left: 16rem;
-  margin-top: 1.5rem;
+  margin-top: 3.2rem;
   border-radius: 1rem;
   box-shadow: 0px 0px 10px #00000033;
 }
@@ -622,9 +622,10 @@ body {
 .tela-pagamento {
   display: flex;
   background: white;
-  height: 100%;
+  height: auto;
   border-radius: 5px;
   box-shadow: 2px 4px 20px 0px #1c181826;
+  width: auto;
 }
 
 .tela-form2 {
@@ -825,7 +826,7 @@ body {
   height: 230px;
   display: flex;
   left: 1455px;
-  top: 247px;
+  top: 230px;
   border-radius: 1.5rem;
   box-shadow: 0px 0px 10px #00000033;
   padding: 1rem;

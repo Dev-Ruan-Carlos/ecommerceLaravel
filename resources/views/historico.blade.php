@@ -59,11 +59,11 @@
                     </div>
                     @if ($pedido->status <> 'Pendente')
                         <div class="flex-ac black ml-1">
-                            <a href="{{route('historico.detalhe', $pedido->controle)}}" class="buttonhistorico">></a>
+                            <a href="{{route('historico.detalhe', $pedido->controle)}}" class="buttonhistorico"></a>
                         </div>
                     @else
                     <div class="flex-ac black ml-1">
-                        <a href="{{route('formaPagamento', $pedido->controle)}}" class="buttonhistorico">></a>
+                        <a href="{{route('formaPagamento', $pedido->controle)}}" class="buttonhistorico"></a>
                     </div>                      
                     @endif
                 </div>

@@ -45,9 +45,9 @@ class CatalogoController extends Controller
             return redirect()->back()->withInput()->withErrors(['admin.catalogo.allProdutos' => 'Preço de promoção superior ao preço de venda ! TENTE NOVAMENTE']);        
         }   
         $produto->ativo = "1";
+        $produto->save();
         if($request->hasfile('image')){
-            foreach ($request->file('image') as $i => $file) {
-                dd($file);
+            foreach ($request->file('image') as $file) {
                 $image = 'cadastroprodutos/' . generateRandomString(10) . '.jpg';
                 $file->move(public_path('storage').'\cadastroprodutos',$image);
                 $galeria = new ImageProduto();
@@ -58,7 +58,6 @@ class CatalogoController extends Controller
                 return redirect()->back()->with(['success' => 'Produto salvo com sucesso !']);
             }
         }
-        $produto->save();
         return redirect()->back()->with(['success' => 'Produto salvo com sucesso !']);
     }
 

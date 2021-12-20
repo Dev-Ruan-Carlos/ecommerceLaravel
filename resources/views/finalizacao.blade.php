@@ -4,13 +4,13 @@
     @csrf
     @method('POST')
         <div class="fundoclaro flex-jc flex-ac flex-c">
-            @if(session()->has('finalizacao'))
-                <div class="alert alert-success">
-                    {{ session()->get('finalizacao') }}
-                </div>
-            @endif
             <div class="tela-pagamento flex-c p-2 mb-1">
                 <h2 class="flex-jc">{{"Compra nº " . $pedido->numpedido}}</h2>
+                @if(session()->has('finalizacao'))
+                    <div class="alert alert-success mt-1">
+                        {{ session()->get('finalizacao') }}
+                    </div>
+                @endif
                 <h3 class="black mt-2">Dados para retidada</h3>
                 <div class="flex-c">
                     <div class="flex-jb mt-05">

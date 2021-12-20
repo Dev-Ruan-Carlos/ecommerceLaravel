@@ -23,8 +23,12 @@
             <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
                 @foreach ($produto as $p)
                     <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
-                        <div>
+                        @if ($p->galeria->count() > 0)
+                            <img src="{{asset('storage/' . $p->galeria[0]->descricaoimg)}}" alt="LOGO" class="imgproduto">
+                        @else 
                             <img src="{{asset('storage/produtos/semimagem.png')}}" alt="LOGO" class="imgproduto">
+                        @endif
+                        <div>
                         </div>
                         <div class="mt-05 p-1">
                             <p class="">{{"Produto: " . $p->produto}}</p>
@@ -46,8 +50,12 @@
             <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
                 @foreach ($produto as $p)
                     <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
-                        <div>
+                        @if ($p->galeria->count() > 0)
+                            <img src="{{asset('storage/' . $p->galeria[0]->descricaoimg)}}" alt="LOGO" class="imgproduto">
+                        @else 
                             <img src="{{asset('storage/produtos/semimagem.png')}}" alt="LOGO" class="imgproduto">
+                        @endif
+                        <div>
                         </div>
                         <div class="mt-05 p-1">
                             <p class="">{{"Produto: " . $p->produto}}</p>
@@ -78,8 +86,12 @@
                 <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
                     @foreach ($produto as $p)
                         <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
-                            <div>
+                            @if ($p->galeria->count() > 0)
+                                <img src="{{asset('storage/' . $p->galeria[0]->descricaoimg)}}" alt="LOGO" class="imgproduto">
+                            @else 
                                 <img src="{{asset('storage/produtos/semimagem.png')}}" alt="LOGO" class="imgproduto">
+                            @endif
+                            <div>
                             </div>
                             <div class="mt-05 p-1">
                                 <p class="">{{"Produto: " . $p->produto}}</p>
@@ -101,8 +113,12 @@
                 <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
                     @foreach ($produto as $p)
                         <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
-                            <div>
+                            @if ($p->galeria->count() > 0)
+                                <img src="{{asset('storage/' . $p->galeria[0]->descricaoimg)}}" alt="LOGO" class="imgproduto">
+                            @else 
                                 <img src="{{asset('storage/produtos/semimagem.png')}}" alt="LOGO" class="imgproduto">
+                            @endif
+                            <div>
                             </div>
                             <div class="mt-05 p-1">
                                 <p class="">{{"Produto: " . $p->produto}}</p>

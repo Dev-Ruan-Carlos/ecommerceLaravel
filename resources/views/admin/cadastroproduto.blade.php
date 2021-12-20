@@ -50,12 +50,12 @@
                             <div class="w-100 mt-1">
                                 <div class="w-100 flex-c">
                                     <div class="w-100 field">
-                                        <label class="label mb-1" for="produto">Produto/serviço</label>
+                                        <label class="label mb-1" for="produto">Produto/serviço *</label>
                                         <input type="text" class="inputPadrao mt-1 cl" name="produto" required="required" maxlength="20"
                                         @isset($allProdutos) value="{{$allProdutos->produto}}" @endisset>
                                     </div>
                                     <div class="w-100 field">
-                                        <label class="label mb-1" for="codbarras">Código barras</label>
+                                        <label class="label mb-1" for="codbarras">Código barras *</label>
                                         <input type="text" class="inputPadrao mt-1 cl" name="codbarras" maxlength="13"
                                         @isset($allProdutos) value="{{$allProdutos->codbarras}}" @endisset>
                                     </div>
@@ -73,24 +73,24 @@
                             <div class="w-100 mt-1">
                                 <div class="gap-2 w-100">
                                     <div class="w-100 field">
-                                        <label class="label mb-1" for="quantidade">Quantidade</label>
+                                        <label class="label mb-1" for="quantidade">Quantidade *</label>
                                         <input type="text" class="inputPadrao mt-1 cl" name="quantidade" required="required" maxlength="10" style="text-align: right"
                                         @isset($allProdutos) value="{{ number_format($allProdutos->quantidade, 2, ',', '.' ) }}" @endisset>
                                     </div>
                                     <div class="w-100 field">
-                                        <label class="label mb-1" for="precocusto">Preço custo R$</label>
+                                        <label class="label mb-1" for="precocusto">Preço custo R$ *</label>
                                         <input type="text" class="inputPadrao cl mt-1 vlr" id="precocusto" name="precocusto" required="required" style="text-align: right"
                                         @isset($allProdutos) value="{{$allProdutos->precocusto}}" @endisset>
                                     </div>
                                 </div>
                                 <div class="w-100 gap-2">
                                     <div class="w-100 field">
-                                        <label class="label mb-1" for="precovenda">Preço venda R$</label>
+                                        <label class="label mb-1" for="precovenda">Preço venda R$ *</label>
                                         <input type="text" class="inputPadrao cl mt-1 vlr" name="precovenda" required="required" style="text-align: right"
                                         @isset($allProdutos) value="{{$allProdutos->precovenda}}" @endisset>
                                     </div>
                                     <div class="w-100 field">
-                                        <label class="label mb-1" for="precopromocao">Preço promoção R$</label>
+                                        <label class="label mb-1" for="precopromocao">Preço promoção R$ *</label>
                                         <input type="text" class="inputPadrao cl mt-1 vlr" name="precopromocao" style="text-align: right"
                                         @isset($allProdutos) value="{{$allProdutos->precopromocao}}" @endisset>
                                     </div>
@@ -171,7 +171,7 @@
                     galeriaImagens = document.querySelectorAll('#galeriaImagens .img'),
                     imagensProduto = document.getElementById('imagensProduto');
                     arrayImagens = [];
-
+                    
                 if(galeriaImagens && galeriaImagens.length > 0){
                     galeriaImagens.forEach(element => {
                         arrayImagens.push(element.getAttribute('rel'));
@@ -204,45 +204,49 @@
                     countImg        = images.querySelectorAll('.img').length,
                     erroBanner      = document.getElementById('erroBanner');
 
-                Array.prototype.forEach.call(files, function(item, indice, array){
-                    var 
-                        uploader    = document.createElement('input'),
-                        div         = document.createElement('div'),
-                        divAdc      = document.createElement('div'),
-                        reader      = new FileReader();
-
-                    if (countImg >= 24) {
-                        return false;
-                    }
-
-                    ++countImg;
+                if (files.length > 1) {
+                    alert('Só é possível selecionar uma imagem por produto !')
+                }else{
+                    Array.prototype.forEach.call(files, function(item, indice, array){
+                        var 
+                            uploader    = document.createElement('input'),
+                            div         = document.createElement('div'),
+                            divAdc      = document.createElement('div'),
+                            reader      = new FileReader();
     
-                    reader.onload = function(event) {
-                        if (event.total < 10485760) {
-                            div.classList.add('img');
-                            div.classList.add('addNewImg');
-                            div.style.backgroundImage = 'url(\'' + event.target.result + '\')';
-                            div.setAttribute('rel', event.target.result);
-
-                            div.innerHTML = `
-                                <div class="group-buttons-galeria-produtos">
-                                    <div class="flex-jc flex-ac divRemoveImg pointer" onclick="removerImagem(this)" data-tooltip="Remover imagem" data-tooltip-location="left">
-                                        <svg class="svg-lixeira"></svg>
-                                    </div>
-                                </div>
-                            `;
-                            
-                            images.append(div);
+                        if (countImg >= 24) {
+                            return false;
                         }
-                    }
-                    reader.readAsDataURL(item);
-
-                    if (countImg >= 24) {
-                        images.querySelector('.area-upload').style.display = 'none';
-                    }else{
-                        images.querySelector('.area-upload').style.display = 'block';
-                    }
-                });
+    
+                        ++countImg;
+        
+                        reader.onload = function(event) {
+                            if (event.total < 10485760) {
+                                div.classList.add('img');
+                                div.classList.add('addNewImg');
+                                div.style.backgroundImage = 'url(\'' + event.target.result + '\')';
+                                div.setAttribute('rel', event.target.result);
+    
+                                div.innerHTML = `
+                                    <div class="group-buttons-galeria-produtos">
+                                        <div class="flex-jc flex-ac divRemoveImg pointer" onclick="removerImagem(this)" data-tooltip="Remover imagem" data-tooltip-location="left">
+                                            <svg class="svg-lixeira"></svg>
+                                        </div>
+                                    </div>
+                                `;
+                                
+                                images.append(div);
+                            }
+                        }
+                        reader.readAsDataURL(item);
+    
+                        if (countImg >= 24) {
+                            images.querySelector('.area-upload').style.display = 'none';
+                        }else{
+                            images.querySelector('.area-upload').style.display = 'block';
+                        }
+                    });
+                }
             });
         });
     </script>

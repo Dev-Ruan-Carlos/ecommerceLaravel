@@ -9,15 +9,15 @@
                     <div class="flex-c flex-js">
                         <div class="formDinheiro flex-js mt-1 font">
                             <input class="radio" style="width: 20px !important; height: 20px !important;" name="pagamento" value="dinheiro" id="dinheiro" type="radio" onchange="mostrardiv(this)">
-                            <label for="pagamento" class="ml-2 flex-ac">Dinheiro</label>
+                            <label for="pagamento" class="ml-2 flex-ac">Dinheiro *</label>
                         </div>
                         <div class="formBoleto flex-js mt-3 font">
                             <input class="radio" style="width: 20px !important; height: 20px !important;" name="pagamento" value="local" id="local" type="radio" onchange="mostrardiv(this)">
-                            <label for="pagamento" class="ml-2 flex-ac">Pagamento no local</label>
+                            <label for="pagamento" class="ml-2 flex-ac">Pagamento no local *</label>
                         </div>
                         <div class="formCartao flex-js mt-3 font">
                             <input class="radio" style="width: 20px !important; height: 20px !important;" name="pagamento" value="cartao" id="cartao" type="radio" onchange="mostrardiv(this)">
-                            <label for="pagamento" class="ml-2 flex-ac">Cartão</label>
+                            <label for="pagamento" class="ml-2 flex-ac">Cartão *</label>
                         </div>
                         <div class="mt-2 flex-jb">
                             <a href="{{route('admin.pedido')}}" class="footer-finalizacao">Voltar</a>
