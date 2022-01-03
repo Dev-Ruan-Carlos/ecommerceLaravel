@@ -83,7 +83,10 @@ window.addEventListener('load', function(){
 })
 
 jQuery(function() {
-    $(".cep").mask("#####-###");
+    $(".cep").mask("99999-999");
     $(".celular").mask('(99) 99999-9999');
     $(".telefone").mask('(99) 9999-9999');
+    $(".data").mask("99/99/9999");
+    $(".cpf").mask("999.999.999-99");
+    $(".rg").mask("9.999.999");
 });

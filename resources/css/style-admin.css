@@ -819,3 +819,7 @@ form {
     border-radius: 3px;
     border: 1px solid #cccccc17;
 }
+
+.initRight {
+    text-align: right;
+}

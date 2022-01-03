@@ -13,4 +13,8 @@ class MeusDadosController extends Controller
         $dados->user = Auth::user();
         return view('admin.meusdados', compact('dados'));
     }
+
+    public function cadastro(){
+        
+    }
 }
