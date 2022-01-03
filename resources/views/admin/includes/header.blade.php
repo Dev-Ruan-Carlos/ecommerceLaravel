@@ -4,6 +4,7 @@
     </div>
     <nav>
         <ul>
+            <li><a href="{{route('admin.meusdados')}}" @if(request()->routeIs('admin.meusdados*')) class="li-active" @endif><i class="fas fa-id-badge"></i><span>Meus dados</span></a></li>
             <li><a href="{{route('admin.gerencial')}}" @if(request()->routeIs('admin.gerencial')) class="li-active" @endif><i class="fas fa-chart-pie"></i><span>Gerencial</span></a></li>
             <li><a href="{{route('admin.catalogo')}}" @if(request()->routeIs('admin.catalogo*')) class="li-active" @endif><i class="fas fa-box"></i><span>Catálogo</span></a></li>
             <li><a href="{{route('admin.cliente')}}" @if(request()->routeIs('admin.cliente*')) class="li-active" @endif><i class="fa fa-user" ></i><span>Clientes</span></a></li>
@@ -33,7 +34,7 @@
                 <div class="toggleUserBody flex-je p-1 flex-c">
                     <div class="w-100 flex-je flex-c" style="height: 200px;">
                         <span class="mb-3 flex-jc flex-ac">{{$dados->user->nome . " - Conectado"}}<i class="fas fa-circle ml-05" style="color: #60902191;"></i></span>
-                        <a href="" class="botao-100 mb-1">Meus dados</a>
+                        <a href="{{route('admin.meusdados')}}" class="botao-100 mb-1">Meus dados</a>
                         <a href="{{route('inicio')}}" class="botao-100">Deslogar</a>
                     </div>
                 </div>

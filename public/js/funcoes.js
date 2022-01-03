@@ -56,27 +56,30 @@ window.addEventListener('load', function(){
     })
     $('.vlr').mask("000.000,00", {reverse: true});
 
-    
-    document.addEventListener('click', function(event){
-        var input = event.target.parentElement;
-        if (input && input.querySelector('label') && input.value !== '') {
-            input.querySelector('label').classList.add('moveUp');
-        }
-    });
-
-    document.addEventListener('click', function(event){
-        var input = event.target.parentElement;
-        if (input && input.querySelector('label') && event.target.value !== '') {
-            input.querySelector('label').classList.remove('moveUp', 'moveUpNotFx');
-        }
-    });
-
     document.querySelectorAll('input:not([type=hidden]):not([hidden])').forEach(input => {
-        if (input.value) {
-            input.parentElement.querySelector('label').classList.add('moveUpNotFx');
-        }
+        input.addEventListener('blur', function(){
+            if (input.value === '') {
+                input.parentElement.querySelector('label')?.classList.remove('moveUp');
+            }
+        });
+
+        input.addEventListener('focusin', function(){
+            input.parentElement.querySelector('label')?.classList.add('moveUp');
+        });
+
+        new MutationObserver(function(mutations) {
+            for (mutation of mutations) {
+                if (mutation.type == 'attributes') {
+                    if (mutation.attributeName == 'value') {
+                        if ((mutation.oldValue == '' || mutation.oldValue == null) && mutation.target.value != '') {
+                            mutation.target.parentElement.querySelector('label').classList.add('moveUp');
+                        }
+                    }
+                }
+            }
+        }).observe(input, {attributes: true})
     });
-    document.querySelector('.inputPadrao').focus();
+    document.querySelector('.inputPadrao')?.focus();
 })
 
 jQuery(function() {

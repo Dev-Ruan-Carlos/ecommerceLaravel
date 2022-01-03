@@ -68,20 +68,20 @@
                     </table>
                     <div class="flex-c">
                         <h3 class="mt-05">Totalizadores</h3>
-                        <div class="flex-jb mt-05">
-                            <span class="">Valor Total: </span>
-                            <span class="">{{number_format($valorTotal, 2, ',', '.' )}}</span>
+                        <div class="flex-jb mt-1">
+                            <span>Valor Total: </span>
+                            <span>{{number_format($valorTotal, 2, ',', '.' )}}</span>
                         </div>
-                        <div class="flex-jb mt-05">
-                            <span class="">Desconto: </span>
-                            <span class="">{{number_format($totalDesconto, 2, ',', '.' )}}</span>
+                        <div class="flex-jb mt-1">
+                            <span>Desconto: </span>
+                            <span>{{number_format($totalDesconto, 2, ',', '.' )}}</span>
                         </div>
-                        <div class="flex-jb mt-05">
-                            <span class="">Quantidade: </span>
-                            <span class="">{{number_format($quantidadeTotal, 3, ',', '.' )}}</span>
+                        <div class="flex-jb mt-1">
+                            <span>Quantidade: </span>
+                            <span>{{number_format($quantidadeTotal, 3, ',', '.' )}}</span>
                         </div>
                     </div>
-                    <div class="flex-jb mt-05 flex-c">
+                    <div class="flex-jb mt-1 flex-c">
                         <h3>Detalhes</h3>
                         <div class="mt-1">
                             <div class="flex-jb">
@@ -107,11 +107,11 @@
                             </div>
                         @else   
                             <div>
-                                <a href="{{route('admin.pedido')}}" class="footer-finalizacao">Voltar</a>
+                                <a href="{{route('admin.pedido')}}" class="botao">Voltar</a>
                             </div>
                             @if($pedido->status <> "Cancelado")
                                 <div>
-                                    <a href="{{route('cancelarPedido', $pedido->controle)}}" class="footer-finalizacao">Cancelar pedido</a>
+                                    <a href="{{route('cancelarPedido', $pedido->controle)}}" class="botao">Cancelar pedido</a>
                                 </div>
                             @endif
                         @endif

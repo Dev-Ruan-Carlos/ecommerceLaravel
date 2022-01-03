@@ -198,9 +198,13 @@
                     // $("#estados").val(dados.uf);
 
                     rua.value = dados.logradouro;
+                    rua.setAttribute('value', dados.logradouro);
                     bairro.value = dados.bairro;
+                    bairro.setAttribute('value', dados.bairro);
                     cidade.value = dados.localidade;
+                    cidade.setAttribute('value', dados.localidade);
                     estados.value = dados.uf;
+                    estados.setAttribute('value', dados.uf);
                 }
             });
         }

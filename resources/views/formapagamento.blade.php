@@ -6,24 +6,26 @@
             @method('POST')
             <div class="telaPagamentoFinalizacao flex-jc flex-c flex-ac p-2 mb-1 mt-1">
                 <h1 class="flex-jc">Forma de pagamento</h1>
-                    <div class="flex-c flex-js">
-                        <div class="formDinheiro flex-js mt-1 font">
+                <div class="flex-c flex-js w-100">
+                    <div class="">
+                        <div class="formDinheiro flex-js flex-jc mt-3 font">
                             <input class="radio" style="width: 20px !important; height: 20px !important;" name="pagamento" value="dinheiro" id="dinheiro" type="radio" onchange="mostrardiv(this)">
                             <label for="pagamento" class="ml-2 flex-ac">Dinheiro *</label>
                         </div>
-                        <div class="formBoleto flex-js mt-3 font">
+                        <div class="formBoleto flex-js flex-jc mt-3 font">
                             <input class="radio" style="width: 20px !important; height: 20px !important;" name="pagamento" value="local" id="local" type="radio" onchange="mostrardiv(this)">
                             <label for="pagamento" class="ml-2 flex-ac">Pagamento no local *</label>
                         </div>
-                        <div class="formCartao flex-js mt-3 font">
+                        <div class="formCartao flex-js flex-jc mt-3 font">
                             <input class="radio" style="width: 20px !important; height: 20px !important;" name="pagamento" value="cartao" id="cartao" type="radio" onchange="mostrardiv(this)">
                             <label for="pagamento" class="ml-2 flex-ac">Cartão *</label>
                         </div>
-                        <div class="mt-2 flex-jb">
-                            <a href="{{route('admin.pedido')}}" class="footer-finalizacao">Voltar</a>
-                            <button type="submit" class="ml-5 footer-finalizacao">Finalizar compra</button>
+                        <div class="mt-3 flex-jb w-100">
+                            <a href="{{route('admin.pedido')}}" class="botao">Voltar</a>
+                            <button type="submit" class="botao">Finalizar compra</button>
                         </div>
-                    </div> 
+                    </div>
+                </div> 
             </div>
             <div class="mt-1">
                 <div class="telaCartaoFinalizacao flex-c" id="telacartao" style="display: none;">

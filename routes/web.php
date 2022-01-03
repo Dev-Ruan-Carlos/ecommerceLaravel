@@ -12,6 +12,7 @@ use App\Http\Controllers\HistoricoCompraController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LoginPagamentoController;
+use App\Http\Controllers\MeusDadosController;
 use App\Http\Controllers\PedidoController;
 use App\Models\Carrinho;
 use App\Models\CarrinhoItem;
@@ -58,6 +59,9 @@ Route::prefix('admin')->group(function(){
     Route::prefix('pedido')->group(function(){
         Route::get('/', [PedidoController::class, 'index'])->name('admin.pedido');
         Route::get('get', [PedidoController::class, 'get'])->name('admin.pedido.get');
+    });
+    Route::prefix('meusdados')->group(function(){
+        Route::get('/', [MeusDadosController::class, 'index'])->name('admin.meusdados');
     });
 });
 
