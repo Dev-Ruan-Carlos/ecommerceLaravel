@@ -1,116 +1,125 @@
 @extends('layouts.appadmin')
 @section('body')
-    <section class="container">
-        <div class="flex-c mr-1">
-            <h1>Meus dados</h1>
-            <h2>Informações do usuário logado</h2>
-        </div>
-        <div class="flex-c">
-            <div class="flex">
-                <div class="body-card-principal mt-1 flex-c p-2">
-                    <span>Dados do usuário</span>
-                    <div class="w-100 mt-1">
-                        <div class="flex w-100 gap-2">
-                            <div class="w-100 field">
-                                <label class="label mb-1" for="nome">Nome *</label>
-                                <input name="nome" type="text" class="inputPadrao cl mt-1"
-                                @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
-                            </div>
-                            <div class="w-100 field">
-                                <label class="label mb-1" for="sobrenome">Sobrenome *</label>
-                                <input name="sobrenome" type="text" class="inputPadrao cl mt-1"
-                                @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
-                            </div>
-                        </div>
-                        <div class="flex w-100 gap-2">
-                            <div class="w-100 field">
-                                <label class="label mb-1" for="cpf">CPF *</label>
-                                <input name="cpf" type="text" class="inputPadrao cl mt-1 cpf"
-                                @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
-                            </div>
-                            <div class="w-100 field">
-                                <label class="label mb-1" for="rg">RG *</label>
-                                <input name="rg" type="text" class="inputPadrao cl mt-1 rg"
-                                @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
-                            </div>
-                        </div>
-                        <div class="w-100 field">
-                            <label class="label mb-1" for="cargo">Cargo *</label>
-                            <input name="cargo" type="text" class="inputPadrao cl-12 mt-1"
-                            @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
-                        </div>
-                    </div>
+    <form id="form-produto" action="{{route('admin.meusdados.cadastro')}}" method="GET">
+        @csrf 
+        @method('GET')
+        <input type="text" name="id" @isset($dados->meusDados) value="{{$dados->meusDados->id}}" @endisset hidden>
+        <section class="container">
+            <div class="flex-jb flex-ae flex-w">
+                <div class="flex-c mr-1">
+                    <h1>Meus dados</h1>
+                    <h2>Informações do usuário logado</h2>
                 </div>
+                {{-- <a href="" class="botao"></a> --}}
+                <button type="submit" class="botao">Cadastrar dados</button>
             </div>
-            <div class="flex">
-                <div class="body-card-principal mt-1 flex-c p-2">
-                    <span>Datas</span>
-                    <div class="w-100 mt-1">
-                        <div class="w-100 field">
-                            <label class="label mb-1" for="datanascimento">Data de nascimento *</label>
-                            <input name="datanascimento" type="text" class="inputPadrao cl-12 mt-1 data"
-                            @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
-                        </div>
-                        <div class="flex w-100 gap-2">
-                            <div class="w-100 field">
-                                <label class="label mb-1" for="dataadmissao">Data admissão</label>
-                                <input name="dataadmissao" type="text" class="inputPadrao cl mt-1 initRight data"
-                                @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
-                            </div>
-                            <div class="w-100 field">
-                                <label class="label mb-1" for="datarescisao">Data rescisão</label>
-                                <input name="datarescisao" type="text" class="inputPadrao cl mt-1 initRight data"
-                                @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="body-card-principal ml-1 mt-1 flex-c p-2">
-                    <span>Complementar</span>
-                    <div class="w-100 mt-1">
-                        <div class="w-100 field">
-                            <label class="label mb-1" for="nomepai">Nome do pai *</label>
-                            <input name="nomepai" type="text" class="inputPadrao cl-12 mt-1"
-                            @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
-                        </div>
-                        <div class="w-100 field">
-                            <label class="label mb-1" for="nomemae">Nome da mãe *</label>
-                            <input name="nomemae" type="text" class="inputPadrao cl-12 mt-1"
-                            @isset($allclientes) value="{{$allclientes->nome}}" @endisset>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="body-card-imgprodutos p-2">
-                <div class="flex-jb flex-ac" style="width: 100%;">
-                    <span class="subtitulo-card">Mídias</span>
-                    <a href="javascript:void(0)" class="botao-secundario" onclick="excluirAllImg(this)">Excluir imagens</a>
-                </div>
-                <div style="width: 100%; height: 100%;" class="flex-as flex-w mt-05">
-                    <div id="galeriaImagens" class="galeria flex-w">
-                        <div class="area-upload">
-                            <label for="upload-file-produto" class="label-upload">
-                                <i class="fas fa-camera"></i>
-                                <div class="texto">Clique ou arraste imagens</div>
-                            </label>
-                            <input type="file" accept="image/*" name="image[]" id="upload-file-produto" multiple/>
-                            <input type="text" name="imagens" id="imagensProduto" hidden/>
-                        </div>  
-                    </div>
-                    <div id="galeriaImagenss" class="flex">
-                        @if (isset($allProdutos))
-                            @foreach ($allProdutos->galeria as $i => $imgproduto)
-                                <div style="position: static;">
-                                    <a href="javascript:void(0)" class="fas fa-trash-alt flex-je iconeTrash" onclick="excluirImg(this)" data-id="{{$imgproduto->controle}}"></a>
-                                    <img src="{{asset('storage/' . $allProdutos->galeria[$i]->descricaoimg)}}" alt="IMG" class="body-imgprodutos">
+            <div class="flex-c">
+                <div class="flex">
+                    <div class="body-card-principal mt-1 flex-c p-2">
+                        <span>Dados do usuário</span>
+                        <div class="w-100 mt-1">
+                            <div class="flex w-100 gap-2">
+                                <div class="w-100 field">
+                                    <label class="label mb-1" for="nome">Nome *</label>
+                                    <input name="nome" type="text" class="inputPadrao cl mt-1"
+                                    @isset($dados->meusDados) value="{{$dados->meusDados->nomeusuario}}" @endisset>
                                 </div>
-                            @endforeach
-                        @endif
+                                <div class="w-100 field">
+                                    <label class="label mb-1" for="sobrenome">Sobrenome *</label>
+                                    <input name="sobrenome" type="text" class="inputPadrao cl mt-1"
+                                    @isset($dados->meusDados) value="{{$dados->meusDados->sobrenomeusuario}}" @endisset>
+                                </div>
+                            </div>
+                            <div class="flex w-100 gap-2">
+                                <div class="w-100 field">
+                                    <label class="label mb-1" for="cpf">CPF *</label>
+                                    <input name="cpf" type="text" class="inputPadrao cl mt-1 cpf"
+                                    @isset($dados->meusDados) value="{{$dados->meusDados->cpf}}" @endisset>
+                                </div>
+                                <div class="w-100 field">
+                                    <label class="label mb-1" for="rg">RG *</label>
+                                    <input name="rg" type="text" class="inputPadrao cl mt-1 rg"
+                                    @isset($dados->meusDados) value="{{$dados->meusDados->rg}}" @endisset>
+                                </div>
+                            </div>
+                            <div class="w-100 field">
+                                <label class="label mb-1" for="cargo">Cargo *</label>
+                                <input name="cargo" type="text" class="inputPadrao cl-12 mt-1"
+                                @isset($dados->meusDados) value="{{$dados->meusDados->cargo}}" @endisset>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="flex">
+                    <div class="body-card-principal mt-1 flex-c p-2">
+                        <span>Datas</span>
+                        <div class="w-100 mt-1">
+                            <div class="w-100 field">
+                                <label class="label mb-1" for="datanascimento">Data de nascimento *</label>
+                                <input name="datanascimento" type="date" class="inputPadrao mt-1 initRight"
+                                @isset($dados->meusDados) value="{{$dados->meusDados->datanascimento}}" @endisset>
+                            </div>
+                            <div class="flex w-100 gap-2">
+                                <div class="w-100 field">
+                                    <label class="label mb-1" for="dataadmissao">Data admissão</label>
+                                    <input name="dataadmissao" type="date" class="inputPadrao mt-1 initRight"
+                                    @isset($dados->meusDados) value="{{$dados->meusDados->dataadmissao}}" @endisset>
+                                </div>
+                                <div class="w-100 field">
+                                    <label class="label mb-1" for="datarescisao">Data rescisão</label>
+                                    <input name="datarescisao" type="date" class="inputPadrao mt-1 initRight"
+                                    @isset($dados->meusDados) value="{{$dados->meusDados->datarescisao}}" @endisset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body-card-principal ml-1 mt-1 flex-c p-2">
+                        <span>Complementar</span>
+                        <div class="w-100 mt-1">
+                            <div class="w-100 field">
+                                <label class="label mb-1" for="nomepai">Nome do pai *</label>
+                                <input name="nomepai" type="text" class="inputPadrao cl-12 mt-1"
+                                @isset($dados->meusDados) value="{{$dados->meusDados->nomepai}}" @endisset>
+                            </div>
+                            <div class="w-100 field">
+                                <label class="label mb-1" for="nomemae">Nome da mãe *</label>
+                                <input name="nomemae" type="text" class="inputPadrao cl-12 mt-1"
+                                @isset($dados->meusDados) value="{{$dados->meusDados->nomemae}}" @endisset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="body-card-imgprodutos p-2">
+                    <div class="flex-jb flex-ac" style="width: 100%;">
+                        <span class="subtitulo-card">Mídias</span>
+                        <a href="javascript:void(0)" class="botao-secundario" onclick="excluirAllImg(this)">Excluir imagens</a>
+                    </div>
+                    <div style="width: 100%; height: 100%;" class="flex-as flex-w mt-05">
+                        <div id="galeriaImagens" class="galeria flex-w">
+                            <div class="area-upload">
+                                <label for="upload-file-produto" class="label-upload">
+                                    <i class="fas fa-camera"></i>
+                                    <div class="texto">Clique ou arraste imagens</div>
+                                </label>
+                                <input type="file" accept="image/*" name="image[]" id="upload-file-produto" multiple/>
+                                <input type="text" name="imagens" id="imagensProduto" hidden/>
+                            </div>  
+                        </div>
+                        <div id="galeriaImagenss" class="flex">
+                            @if (isset($allProdutos))
+                                @foreach ($allProdutos->galeria as $i => $imgproduto)
+                                    <div style="position: static;">
+                                        <a href="javascript:void(0)" class="fas fa-trash-alt flex-je iconeTrash" onclick="excluirImg(this)" data-id="{{$imgproduto->controle}}"></a>
+                                        <img src="{{asset('storage/' . $allProdutos->galeria[$i]->descricaoimg)}}" alt="IMG" class="body-imgprodutos">
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                </div> --}}
             </div>
-        </div>
-    </section>
+        </section>
+    </form>
     {{-- <script>
         function excluirImg(el){
             $.ajax({

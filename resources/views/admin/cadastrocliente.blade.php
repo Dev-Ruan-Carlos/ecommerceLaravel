@@ -18,10 +18,13 @@
                         <a href="{{route('admin.cliente')}}">
                             <button type="button" class="botao-secundario">Voltar</button>
                         </a>
-                        <button type="submit" class="botao ml-1">@isset($allclientes)
-                            Alterar
+                        <button type="submit" class="botao ml-1">
+                            @isset($allclientes)
+                                Alterar
                             @else
-                            Cadastrar @endisset</button>
+                                Cadastrar 
+                            @endisset
+                        </button>
                     </div>
                 </div>
             </div>

@@ -57,6 +57,7 @@ window.addEventListener('load', function(){
     $('.vlr').mask("000.000,00", {reverse: true});
 
     document.querySelectorAll('input:not([type=hidden]):not([hidden])').forEach(input => {
+
         input.addEventListener('blur', function(){
             if (input.value === '') {
                 input.parentElement.querySelector('label')?.classList.remove('moveUp');
@@ -71,7 +72,7 @@ window.addEventListener('load', function(){
             for (mutation of mutations) {
                 if (mutation.type == 'attributes') {
                     if (mutation.attributeName == 'value') {
-                        if ((mutation.oldValue == '' || mutation.oldValue == null) && mutation.target.value != '') {
+                        if ((mutation.oldValue == '' || mutation.oldValue == null) && mutation.target.value !== '') {
                             mutation.target.parentElement.querySelector('label').classList.add('moveUp');
                         }
                     }
@@ -86,7 +87,6 @@ jQuery(function() {
     $(".cep").mask("99999-999");
     $(".celular").mask('(99) 99999-9999');
     $(".telefone").mask('(99) 9999-9999');
-    $(".data").mask("99/99/9999");
     $(".cpf").mask("999.999.999-99");
     $(".rg").mask("9.999.999");
 });

@@ -62,7 +62,7 @@ Route::prefix('admin')->group(function(){
     });
     Route::prefix('meusdados')->group(function(){
         Route::get('/', [MeusDadosController::class, 'index'])->name('admin.meusdados');
-        Route::post('cadastro', [MeusDadosController::class, 'cadastro'])->name('admin.meusdados.cadastro');
+        Route::get('cadastro', [MeusDadosController::class, 'cadastro'])->name('admin.meusdados.cadastro');
     });
 });
 
