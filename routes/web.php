@@ -83,7 +83,8 @@ Route::prefix('carrinho')->group(function(){
     Route::get('incrementarItem/{id}', [CarrinhoController::class, 'incrementarItem'])->name('incrementarItem');
     Route::get('delimitarItem/{id}', [CarrinhoController::class, 'delimitarItem'])->name('delimitarItem');
     Route::get('deletarItem/{id}', [CarrinhoController::class, 'deletarItem'])->name('deletarItem');
-    Route::get('quantidades', [CarrinhoController::class, 'quantidades'])->name('quantidades');
+    Route::get('carregarDados', [CarrinhoController::class, 'carregarDados'])->name('carregarDados');
+    // Route::get('quantidades', [CarrinhoController::class, 'quantidades'])->name('quantidades');
     Route::get('salvar', [CarrinhoController::class, 'salvar'])->name('salvar');
 });
 

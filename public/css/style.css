@@ -543,10 +543,10 @@ body {
 .campo-maior {
   background: white;
   display: flex;
-  width: 1171px;
+  width: 980px;
   height: 148px;
-  margin-left: 16rem;
-  margin-top: 3.2rem;
+  margin-left: 19.5rem;
+  margin-top: 2rem;
   border-radius: 1rem;
   box-shadow: 0px 0px 10px #00000033;
 }
@@ -557,8 +557,8 @@ body {
   width: 321px;
   height: 380px;
   display: flex;
-  left: 1455px;
-  top: 210px;
+  left: 1295px;
+  top: 190px;
   border-radius: 1.5rem;
   box-shadow: 0px 0px 10px #00000033;
   padding: 1rem;
@@ -648,8 +648,8 @@ body {
   right: 20px;
   top: 8px;
   background: white;
-  height: 30px;
-  width: 70px;
+  height: 25px;
+  width: 65px;
   align-items: center;
   padding: 0.5rem;
   border-radius: 3px;
@@ -657,7 +657,7 @@ body {
 }
 
 .deletar:hover {
-  background-color: #0084ff;
+  background-color: red;
   color: white;
 }
 
@@ -999,8 +999,12 @@ body {
   display: flex;
 }
 
-.mais {
+.mais, .menos {
   width: 25px;
   font-size: 20px;
   cursor: pointer;
+}
+
+.mais:disabled{
+  color: #CCC;
 }

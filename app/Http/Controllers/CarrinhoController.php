@@ -18,8 +18,9 @@ class CarrinhoController extends Controller
     }
 
     public function accessInfo(){
-        $carrinho = Carrinho::where('session', session()->getId())->first();
-        return view('carrinho', compact('carrinho'));
+        $carrinho       = Carrinho::where('session', session()->getId())->first();
+        $carrinhoItem   = CarrinhoItem::get();
+        return view('carrinho', compact('carrinho', 'carrinhoItem'));
     }
 
     public function adicionaritem($id){
@@ -61,7 +62,12 @@ class CarrinhoController extends Controller
             $carrinhoItem->quantidade = $carrinhoItem->quantidade + 1;
             $carrinho->itens()->save($carrinhoItem);
         }
-        return redirect()->route('acesso');
+        // return redirect()->route('acesso');
+        return response()->json([
+            'message'               => 'Item incrementado com sucesso',
+            'quantidade'            => $carrinhoItem->quantidade,
+            'quantidadeDisponivel'  => $carrinhoItem->produtos->quantidade
+        ]);
     }
 
     public function delimitarItem($id){
@@ -73,20 +79,38 @@ class CarrinhoController extends Controller
         }
         $carrinhoItem = $carrinho->itens()->find($id);
         $carrinhoItem->quantidade = $carrinhoItem->quantidade - 1;
+        // dd($carrinhoItem->quantidade);
         if($carrinhoItem->quantidade <= 0){
             $this->deletarItem($id);
         }else{
             $carrinho->itens()->save($carrinhoItem);
         }
         if($carrinho->itens->count() == 0){
-            return redirect()->route('buscainicio.buscar');
+            // return redirect()->route('buscainicio.buscar');
         }
-        return redirect()->route('acesso'); 
+        // return redirect()->route('acesso'); 
+        return response()->json([
+            'message'               => 'Item delimitado com sucesso',
+            'quantidade'            => $carrinhoItem->quantidade,
+            'quantidadeDisponivel'  => $carrinhoItem->produtos->quantidade
+        ]);
     }
 
     public function deletarItem($id){
         CarrinhoItem::find($id)->delete();
-        return redirect()->route('acesso'); 
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Item deletado com sucesso'
+        ]);
+    }
+
+    public function carregarDados(){
+        $carrinhoItem = CarrinhoItem::get();
+        // dd($carrinhoItem);
+        return response()->json([
+            'quantidade'        => $carrinhoItem->quantidade,
+            'precovendaTotal'   => $carrinhoItem->precocusto*$carrinhoItem->quantidade
+        ]);
     }
 
     public function salvar(){

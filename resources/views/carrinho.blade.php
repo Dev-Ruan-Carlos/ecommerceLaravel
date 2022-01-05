@@ -21,7 +21,7 @@
             @endphp
             <div class="campo-maior flex-jc p-1">
                 <article style="display: flex; width: 100%;">
-                    <img src="{{asset('storage/banners/bannerrelogio2.jpg')}}" alt="LOGO" class="imgproduto-carrinho">
+                    <img src="{{asset('storage/banners/bannerrelogio9.jpg')}}" alt="LOGO" class="imgproduto-carrinho">
                     <div class="flex-se flex-c flex-jb ml-3" style="width: 40%;">
                         <span class="nome-produto">{{"Produto: " . $item->produto}}</span>
                         <span class="venda-item">{{"Preço venda R$ " . number_format($item->precovenda, 2, ',', '.' )}}</span>
@@ -34,24 +34,24 @@
                     </div>
                     <div class="flex-c flex-jc">
                         <div class="flex-jb box-quantidade">
-                            @if($item->produtos->quantidade >= $item->quantidade + 1)
-                                <a href="{{route('incrementarItem', $item->controle)}}" class="flex">
-                                    <button type="button" class="mais">+</button>
+                            @if($item->produtos->quantidade <= $carrinhoItem )
+                                <a href="javascript:void(0)" class="flex">
+                                    <button type="button" onclick="incrementarItem(this)" data-id="{{$item->controle}}" class="mais">+</button>
                                 </a>
                             @else 
-                                <a href="{{route('incrementarItem', $item->controle)}}" class="flex">
-                                    <button type="button" class="mais" disabled>+</button>
+                                <a href="javascript:void(0)" class="flex">
+                                    <button type="button" onclick="incrementarItem(this)" data-id="{{$item->controle}}" class="mais" disabled>+</button>
                                 </a>
                             @endif
                             <span class="quantidade-produto flex-ac">{{$item->quantidade}}</span>
-                            <a href="{{route('delimitarItem', $item->controle)}}" class="flex">
-                                <button type="button" class="mais">-</button>
+                            <a href="javascript:void(0)" class="flex">
+                                <button type="button" onclick="delimitarItem(this)" data-id="{{$item->controle}}" class="menos">-</button>
                             </a>
                         </div>
                         <span class="quantidade-produto mt-1">{{"Disponível: " . number_format($item->produtos->quantidade, 4, ',', '.' )}}</span>
                     </div>
                 </article>
-                <a href="{{route('deletarItem', $item->controle)}}" class="deletar">Deletar</a>
+                <a href="javascript:void(0)" onclick="deletarItem(this)" data-id="{{$item->controle}}" class="deletar">Deletar</a>
             </div>
         @endforeach
     </div>
@@ -59,9 +59,9 @@
         <div class="flex-c w-100 flex-jb">
             <div class=>
                 <h4 style="display: flex; justify-content: center;">Resumo de pedido</h4>
-                <span class="mt-2 flex">{{"Quantidade de produtos: " . number_format($quantidadeTotal, 2, ',', '.' )}}</span>
+                <span class="mt-2 flex quantidadeTotal">0</span>
                 <br>
-                <span class="flex">{{"Valor total R$ " . number_format($valorTotal, 2, ',', '.' )}}</span>
+                <span class="flex valorTotal">0</span>
             </div>
             <div class="flex-c w-100">
                 <a href="{{route('buscainicio.buscar')}}">
@@ -77,33 +77,46 @@
 
         function incrementarItem(el){
             $.ajax({
-                url: "{{route('incrementarItem')}}".replace(el.dataset.id),
-                type: "DELETE",
-                data: {
-                    id: el.dataset.id
-                },
-                beforeSend: function(request){
-                    request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
-                }
+                url: "{{route('incrementarItem','_id_')}}".replace('_id_', el.dataset.id),
+                type: "GET",
             }).done(response => {
-                window.location.reload();
+                el.closest('.box-quantidade').querySelector('.quantidade-produto').innerHTML = response.quantidade
+                carregarDados();
+                if (response.quantidade >= response.quantidadeDisponivel) {
+                    el.disabled = true;
+                }
             })  
         }
-
+        
         function delimitarItem(el){
             $.ajax({
-                url: "{{route('delimitarItem')}}".replace(el.dataset.id),
-                type: "DELETE",
-                data: {
-                    id: el.dataset.id
-                },
-                beforeSend: function(request){
-                    request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
-                }
+                url: "{{route('delimitarItem','_id_')}}".replace('_id_', el.dataset.id),
+                type: "GET",
             }).done(response => {
-                window.location.reload();
+                el.closest('.box-quantidade').querySelector('.quantidade-produto').innerHTML    = response.quantidade;
+                el.closest('.box-quantidade').querySelector('.mais').disabled                   = false;
+                carregarDados();
             })  
         }
 
+        function deletarItem(el){
+            $.ajax({
+                url: "{{route('deletarItem', '_id_')}}".replace('_id_', el.dataset.id),
+                type: "GET",
+            }).done(response => {
+                el.closest('.campo-maior').remove();
+                carregarDados();
+            })
+        }
+
+        function carregarDados(){
+            $.ajax({
+                url: "{{route('carregarDados')}}",
+                type: "GET",
+            }).done(response =>{
+                document.querySelector('.quantidadeTotal').innerHTML    = response.quantidade;
+                document.querySelector('.valorTotal').innerHTML         = response.precovendaTotal; 
+            })
+        }
     </script>
 @endsection 
