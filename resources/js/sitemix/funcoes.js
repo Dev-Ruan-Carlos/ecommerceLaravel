@@ -79,8 +79,11 @@ window.addEventListener('load', function(){
                 }
             }
         }).observe(input, {attributes: true})
+        if(input.value !== ''){
+            input.parentElement.querySelector('label')?.classList.add('moveUpNotFx');
+        }
     });
-    document.querySelector('.inputPadrao')?.focus();
+    document.querySelector('.inputPadrao')?.select();
 })
 
 jQuery(function() {

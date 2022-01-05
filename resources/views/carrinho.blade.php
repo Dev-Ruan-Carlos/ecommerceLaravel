@@ -73,4 +73,37 @@
             </div>
         </div>
     </div>
+    <script>
+
+        function incrementarItem(el){
+            $.ajax({
+                url: "{{route('incrementarItem')}}".replace(el.dataset.id),
+                type: "DELETE",
+                data: {
+                    id: el.dataset.id
+                },
+                beforeSend: function(request){
+                    request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
+                }
+            }).done(response => {
+                window.location.reload();
+            })  
+        }
+
+        function delimitarItem(el){
+            $.ajax({
+                url: "{{route('delimitarItem')}}".replace(el.dataset.id),
+                type: "DELETE",
+                data: {
+                    id: el.dataset.id
+                },
+                beforeSend: function(request){
+                    request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
+                }
+            }).done(response => {
+                window.location.reload();
+            })  
+        }
+
+    </script>
 @endsection 

@@ -89,7 +89,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="body-card-imgprodutos p-2">
+                <div class="body-card-imgprodutos p-2">
                     <div class="flex-jb flex-ac" style="width: 100%;">
                         <span class="subtitulo-card">Mídias</span>
                         <a href="javascript:void(0)" class="botao-secundario" onclick="excluirAllImg(this)">Excluir imagens</a>
@@ -116,7 +116,7 @@
                             @endif
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
         </section>
     </form>
