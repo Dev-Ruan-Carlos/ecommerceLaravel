@@ -62,7 +62,9 @@ Route::prefix('admin')->group(function(){
     });
     Route::prefix('meusdados')->group(function(){
         Route::get('/', [MeusDadosController::class, 'index'])->name('admin.meusdados');
-        Route::get('cadastro', [MeusDadosController::class, 'cadastro'])->name('admin.meusdados.cadastro');
+        Route::post('cadastro', [MeusDadosController::class, 'cadastro'])->name('admin.meusdados.cadastro');
+        Route::delete('deleteImg/{id}', [MeusDadosController::class, 'deleteImg'])->name('admin.meusdados.deleteImg');
+        Route::delete('deleteAllImg', [MeusDadosController::class, 'deleteAllImg'])->name('admin.meusdados.deleteAllImg');
     });
 });
 

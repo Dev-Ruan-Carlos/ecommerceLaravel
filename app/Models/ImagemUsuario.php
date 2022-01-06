@@ -15,4 +15,9 @@ class ImagemUsuario extends Model
     public function usuario() {
         return $this->hasOne('App\Models\User', 'codusuario', 'id');
     }
+
+    public function meusDados() {
+        return $this->hasMany('App\Models\MeusDados', 'codusuario', 'codusuario');
+    }
+
 }

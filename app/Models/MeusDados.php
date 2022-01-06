@@ -15,4 +15,8 @@ class MeusDados extends Model
     public function usuario() {
         return $this->hasOne('App\Models\User', 'codusuario', 'id');
     }
+
+    public function galeria() {
+        return $this->hasMany('App\Models\ImagemUsuario', 'codusuario', 'codusuario');
+    }
 }

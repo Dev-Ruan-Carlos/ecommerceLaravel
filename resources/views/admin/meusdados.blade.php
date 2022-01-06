@@ -1,9 +1,10 @@
 @extends('layouts.appadmin')
 @section('body')
-    <form id="form-produto" action="{{route('admin.meusdados.cadastro')}}" method="GET">
+    <form id="form-usuario" action="{{route('admin.meusdados.cadastro', (isset($dados->meusDados) ? $dados->meusDados->controle : null))}}" method="POST" enctype='multipart/form-data'>
         @csrf 
-        @method('GET')
-        <input type="text" name="id" @isset($dados->meusDados) value="{{$dados->meusDados->id}}" @endisset hidden>
+        @method('POST')
+        <input type="text" name="id" @isset($dados->meusDados) value="{{$dados->meusDados->codusuario}}" @endisset hidden>
+        {{-- {{dd($dados->meusDados->galeria)}} --}}
         <section class="container">
             <div class="flex-jb flex-ae flex-w">
                 <div class="flex-c mr-1">
@@ -92,25 +93,25 @@
                 <div class="body-card-imgprodutos p-2">
                     <div class="flex-jb flex-ac" style="width: 100%;">
                         <span class="subtitulo-card">Mídias</span>
-                        <a href="javascript:void(0)" class="botao-secundario" onclick="excluirAllImg(this)">Excluir imagens</a>
+                        <a href="javascript:void(0)" class="botao-secundario" onclick="excluirAllImg(this)">Excluir imagem</a>
                     </div>
                     <div style="width: 100%; height: 100%;" class="flex-as flex-w mt-05">
                         <div id="galeriaImagens" class="galeria flex-w">
                             <div class="area-upload">
-                                <label for="upload-file-produto" class="label-upload">
+                                <label for="upload-file-usuario" class="label-upload">
                                     <i class="fas fa-camera"></i>
                                     <div class="texto">Clique ou arraste imagens</div>
                                 </label>
-                                <input type="file" accept="image/*" name="image[]" id="upload-file-produto" multiple/>
-                                <input type="text" name="imagens" id="imagensProduto" hidden/>
+                                <input type="file" accept="image/*" name="image[]" id="upload-file-usuario" multiple/>
+                                <input type="text" name="imagens" id="imagensUsuario" hidden/>
                             </div>  
                         </div>
                         <div id="galeriaImagenss" class="flex">
-                            @if (isset($allProdutos))
-                                @foreach ($allProdutos->galeria as $i => $imgproduto)
+                            @if (isset($dados->meusDados->galeria))
+                                @foreach ($dados->meusDados->galeria as $i => $imgusuario)
                                     <div style="position: static;">
-                                        <a href="javascript:void(0)" class="fas fa-trash-alt flex-je iconeTrash" onclick="excluirImg(this)" data-id="{{$imgproduto->controle}}"></a>
-                                        <img src="{{asset('storage/' . $allProdutos->galeria[$i]->descricaoimg)}}" alt="IMG" class="body-imgprodutos">
+                                        <a href="javascript:void(0)" class="fas fa-trash-alt flex-je iconeTrash" onclick="excluirImg(this)" data-id="{{$imgusuario->controle}}"></a>
+                                        <img src="{{asset('storage/' . $dados->meusDados->galeria[$i]->descricaoimg)}}" alt="IMG" class="body-imgprodutos">
                                     </div>
                                 @endforeach
                             @endif
@@ -120,10 +121,10 @@
             </div>
         </section>
     </form>
-    {{-- <script>
+    <script>
         function excluirImg(el){
             $.ajax({
-                url: "{{route('admin.catalogo.deleteImg', '_id_')}}".replace('_id_', el.dataset.id),
+                url: "{{route('admin.meusdados.deleteImg', '_id_')}}".replace('_id_', el.dataset.id),
                 type: "DELETE",
                 data: {
                     id: el.dataset.id
@@ -138,7 +139,7 @@
 
         function excluirAllImg(el){
             $.ajax({
-                url: "{{route('admin.catalogo.deleteAllImg')}}".replace(el.dataset.id),
+                url: "{{route('admin.meusdados.deleteAllImg')}}".replace(el.dataset.id),
                 type: "DELETE",
                 data: {
                     id: el.dataset.id
@@ -153,41 +154,41 @@
 
         window.addEventListener('load', function() {
 
-            var formProduto = document.getElementById('form-produto');
+            var formProduto = document.getElementById('form-usuario');
 
             formProduto.addEventListener('submit', function(e){
                 e.preventDefault();
-                var image = document.getElementById('upload-file-produto'),
+                var image = document.getElementById('upload-file-usuario'),
                     galeriaImagens = document.querySelectorAll('#galeriaImagens .img'),
-                    imagensProduto = document.getElementById('imagensProduto');
+                    imagensUsuario = document.getElementById('imagensUsuario');
                     arrayImagens = [];
                     
                 if(galeriaImagens && galeriaImagens.length > 0){
                     galeriaImagens.forEach(element => {
                         arrayImagens.push(element.getAttribute('rel'));
                     });
-                    imagensProduto.value = JSON.parse(JSON.stringify(arrayImagens));
+                    imagensUsuario.value = JSON.parse(JSON.stringify(arrayImagens));
                 }
                 formProduto.submit();
             })
             
-            dropProdutoAdd_ = document.querySelector('.area-upload #upload-file-produto');
+            dropProdutoAdd_ = document.querySelector('.area-upload #upload-file-usuario');
 
             if(dropProdutoAdd_){
                 dropProdutoAdd_.addEventListener('dragenter', function(){
-                    document.querySelector('.area-upload #upload-file-produto').previousElementSibling.classList.add('highlight');
+                    document.querySelector('.area-upload #upload-file-usuario').previousElementSibling.classList.add('highlight');
                 });
         
                 dropProdutoAdd_.addEventListener('dragleave', function(){
-                    document.querySelector('.area-upload #upload-file-produto').previousElementSibling.classList.remove('highlight');
+                    document.querySelector('.area-upload #upload-file-usuario').previousElementSibling.classList.remove('highlight');
                 });
         
                 dropProdutoAdd_.addEventListener('drop', function(){
-                    document.querySelector('.area-upload #upload-file-produto').previousElementSibling.classList.remove('highlight');
+                    document.querySelector('.area-upload #upload-file-usuario').previousElementSibling.classList.remove('highlight');
                 });
             }
     
-            document.querySelector('#upload-file-produto').addEventListener('change', function() { 
+            document.querySelector('#upload-file-usuario').addEventListener('change', function() { 
                 var 
                     files           = this.files,
                     images          = document.getElementById('galeriaImagens'),
@@ -195,7 +196,7 @@
                     erroBanner      = document.getElementById('erroBanner');
 
                 if (files.length > 1) {
-                    alert('Só é possível selecionar uma imagem por produto !')
+                    alert('Só é possível selecionar uma imagem por usuário !')
                 }else{
                     Array.prototype.forEach.call(files, function(item, indice, array){
                         var 
@@ -217,13 +218,13 @@
                                 div.style.backgroundImage = 'url(\'' + event.target.result + '\')';
                                 div.setAttribute('rel', event.target.result);
     
-                                div.innerHTML = `
-                                    <div class="group-buttons-galeria-produtos">
-                                        <div class="flex-jc flex-ac divRemoveImg pointer" onclick="removerImagem(this)" data-tooltip="Remover imagem" data-tooltip-location="left">
-                                            <svg class="svg-lixeira"></svg>
-                                        </div>
-                                    </div>
-                                `;
+                                // div.innerHTML = `
+                                //     <div class="group-buttons-galeria-produtos">
+                                //         <div class="flex-jc flex-ac divRemoveImg pointer" onclick="excluirImg(this)" data-tooltip="Remover imagem" data-tooltip-location="left">
+                                //             <svg class="svg-lixeira"></svg>
+                                //         </div>
+                                //     </div>
+                                // `;
                                 
                                 images.append(div);
                             }
@@ -239,5 +240,5 @@
                 }
             });
         });
-    </script> --}}
+    </script>
 @endsection 

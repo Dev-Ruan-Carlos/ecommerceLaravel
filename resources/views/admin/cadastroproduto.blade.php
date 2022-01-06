@@ -101,7 +101,7 @@
                     <div class="body-card-imgprodutos p-2">
                         <div class="flex-jb flex-ac" style="width: 100%;">
                             <span class="subtitulo-card">Mídias</span>
-                            <a href="javascript:void(0)" class="botao-secundario" onclick="excluirAllImg(this)">Excluir imagens</a>
+                            <a href="javascript:void(0)" class="botao-secundario" onclick="excluirAllImg(this)">Excluir imagem</a>
                         </div>
                         <div style="width: 100%; height: 100%;" class="flex-as flex-w mt-05">
                             <div id="galeriaImagens" class="galeria flex-w">
@@ -227,13 +227,13 @@
                                 div.style.backgroundImage = 'url(\'' + event.target.result + '\')';
                                 div.setAttribute('rel', event.target.result);
     
-                                div.innerHTML = `
-                                    <div class="group-buttons-galeria-produtos">
-                                        <div class="flex-jc flex-ac divRemoveImg pointer" onclick="removerImagem(this)" data-tooltip="Remover imagem" data-tooltip-location="left">
-                                            <svg class="svg-lixeira"></svg>
-                                        </div>
-                                    </div>
-                                `;
+                                // div.innerHTML = `
+                                //     <div class="group-buttons-galeria-produtos">
+                                //         <div class="flex-jc flex-ac divRemoveImg pointer" onclick="excluirImg(this)" data-tooltip="Remover imagem" data-tooltip-location="left">
+                                //             <svg class="svg-lixeira"></svg>
+                                //         </div>
+                                //     </div>
+                                // `;
                                 
                                 images.append(div);
                             }
