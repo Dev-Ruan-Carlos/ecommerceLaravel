@@ -54,4 +54,8 @@ class User extends Authenticatable
     public function contato() {
         return $this->hasOne('App\Models\UsuarioContato', 'codusuario', 'id');
     }
+
+    public function carrinho() {
+        return $this->hasOne('App\Models\Carrinho', 'codusuario', 'id');
+    }  
 }

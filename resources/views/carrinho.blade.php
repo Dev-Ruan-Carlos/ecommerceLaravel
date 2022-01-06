@@ -59,9 +59,15 @@
         <div class="flex-c w-100 flex-jb">
             <div class=>
                 <h4 style="display: flex; justify-content: center;">Resumo de pedido</h4>
-                <span class="mt-2 flex quantidadeTotal">0</span>
+                <div class="flex-jb">
+                    <span class="mt-2 flex">{{ "Quantidade total comprada: " }}</span>
+                    <span class="quantidadeTotal mt-2 ml-05">0,00</span>
+                </div>
                 <br>
-                <span class="flex valorTotal">0</span>
+                <div class="flex-jb">
+                    <span>{{ "Valor total: " }}</span>
+                    <span class="flex valorTotal ml-05">0,00</span>
+                </div>
             </div>
             <div class="flex-c w-100">
                 <a href="{{route('buscainicio.buscar')}}">
@@ -114,8 +120,8 @@
                 url: "{{route('carregarDados')}}",
                 type: "GET",
             }).done(response =>{
-                document.querySelector('.quantidadeTotal').innerHTML    = response.quantidade;
-                document.querySelector('.valorTotal').innerHTML         = response.precovendaTotal; 
+                document.querySelector('.quantidadeTotal').innerHTML    = response.resumo.quantidade;
+                document.querySelector('.valorTotal').innerHTML         = formatar(response.resumo.precovendatotal); 
             })
         }
     </script>

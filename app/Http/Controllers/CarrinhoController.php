@@ -10,6 +10,7 @@ use App\Models\Produto;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CarrinhoController extends Controller
 {
@@ -105,11 +106,12 @@ class CarrinhoController extends Controller
     }
 
     public function carregarDados(){
-        $carrinhoItem = CarrinhoItem::get();
-        // dd($carrinhoItem);
+        $carrinho                   = Auth()->user()->carrinho;
+        $resumo = $carrinho->itens()->select(  DB::raw('sum(quantidade) as quantidade'), 
+                                        DB::raw('sum(precovenda) as precovenda'), 
+                                        DB::raw('sum(precovenda*quantidade) as precovendatotal'))->first();
         return response()->json([
-            'quantidade'        => $carrinhoItem->quantidade,
-            'precovendaTotal'   => $carrinhoItem->precocusto*$carrinhoItem->quantidade
+            'resumo' => $resumo
         ]);
     }
 
