@@ -20,15 +20,27 @@
     <div class="header-conta">
         @if(request()->routeIs('admin.*'))
             <span class="mr-1">{{$dados->user->nome}}</span>
-            <div class="header-conta-img">
-                <img src="{{asset('img/user.jpg')}}" alt="">
-            </div>
+                @if ( Auth()->user()->img )
+                    <div class="header-conta-img">
+                        <img src="{{asset('storage/' . Auth()->user()->img->descricaoimg)}}" alt="">
+                    </div>
+                @else 
+                    <div class="header-conta-img">
+                        <img src="{{asset('storage/produtos/semimagem2.png')}}" alt="LOGO" class="imgproduto">
+                    </div>
+                @endif
             <div class="toggleUser">
                 <div class="toggleUserHeader">
                     <div class="flex-jc flex-ac flex-c h-100 mt-1">
-                        <div class="togglerUserImg">
-                            <img src="{{asset('img/user.jpg')}}" alt="">
-                        </div>
+                        @if ( Auth()->user()->img )
+                            <div class="togglerUserImg">
+                                <img src="{{asset('storage/' . Auth()->user()->img->descricaoimg)}}" alt="">
+                            </div>
+                        @else 
+                            <div class="togglerUserImg">
+                                <img src="{{asset('storage/produtos/semimagem2.png')}}" alt="LOGO" class="imgproduto">
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="toggleUserBody flex-je p-1 flex-c">

@@ -61,7 +61,7 @@
                 <h4 style="display: flex; justify-content: center;">Resumo de pedido</h4>
                 <div class="flex-jb">
                     <span class="mt-2 flex">{{ "Quantidade total comprada: " }}</span>
-                    <span class="quantidadeTotal mt-2 ml-05">0,00</span>
+                    <span class="quantidadeTotal mt-2 ml-05">1</span>
                 </div>
                 <br>
                 <div class="flex-jb">

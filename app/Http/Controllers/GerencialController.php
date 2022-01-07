@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ImagemUsuario;
 use App\Models\Pedido;
 use App\Models\PedidoItem;
 use App\Models\Produto;

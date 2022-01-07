@@ -93,24 +93,28 @@
                 <div class="body-card-imgprodutos p-2">
                     <div class="flex-jb flex-ac" style="width: 100%;">
                         <span class="subtitulo-card">Mídias</span>
-                        <a href="javascript:void(0)" class="botao-secundario" onclick="excluirAllImg(this)">Excluir imagem</a>
+                        @if ($dados->user->img)
+                            <a href="javascript:void(0)" class="botao-secundario" onclick="excluirImg(this)" data-id="{{$dados->user->img->controle}}">Excluir imagem</a>
+                        @endif
                     </div>
                     <div style="width: 100%; height: 100%;" class="flex-as flex-w mt-05">
-                        <div id="galeriaImagens" class="galeria flex-w">
-                            <div class="area-upload">
-                                <label for="upload-file-usuario" class="label-upload">
-                                    <i class="fas fa-camera"></i>
-                                    <div class="texto">Clique ou arraste imagens</div>
-                                </label>
-                                <input type="file" accept="image/*" name="image[]" id="upload-file-usuario" multiple/>
-                                <input type="text" name="imagens" id="imagensUsuario" hidden/>
-                            </div>  
-                        </div>
+                        @if (!$dados->meusDados->galeria->count() > 0)
+                            <div id="galeriaImagens" class="galeria flex-w">
+                                <div class="area-upload">
+                                    <label for="upload-file-usuario" class="label-upload">
+                                        <i class="fas fa-camera"></i>
+                                        <div class="texto">Clique ou arraste imagens</div>
+                                    </label>
+                                    <input type="file" accept="image/*" name="image[]" id="upload-file-usuario" multiple/>
+                                    <input type="text" name="imagens" id="imagensUsuario" hidden/>
+                                </div>  
+                            </div>
+                        @endif
                         <div id="galeriaImagenss" class="flex">
                             @if (isset($dados->meusDados->galeria))
                                 @foreach ($dados->meusDados->galeria as $i => $imgusuario)
                                     <div style="position: static;">
-                                        <a href="javascript:void(0)" class="fas fa-trash-alt flex-je iconeTrash" onclick="excluirImg(this)" data-id="{{$imgusuario->controle}}"></a>
+                                        {{-- <a href="javascript:void(0)" class="fas fa-trash-alt flex-je iconeTrash" onclick="excluirImg(this)" data-id="{{$imgusuario->controle}}"></a> --}}
                                         <img src="{{asset('storage/' . $dados->meusDados->galeria[$i]->descricaoimg)}}" alt="IMG" class="body-imgprodutos">
                                     </div>
                                 @endforeach

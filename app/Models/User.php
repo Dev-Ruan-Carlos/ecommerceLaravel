@@ -57,5 +57,9 @@ class User extends Authenticatable
 
     public function carrinho() {
         return $this->hasOne('App\Models\Carrinho', 'codusuario', 'id');
-    }  
+    } 
+    
+    public function img(){
+        return $this->hasOne('App\Models\ImagemUsuario', 'codusuario', 'id');
+    }
 }
