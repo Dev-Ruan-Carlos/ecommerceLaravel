@@ -21,6 +21,7 @@ class CarrinhoController extends Controller
     public function accessInfo(){
         $carrinho       = Carrinho::where('session', session()->getId())->first();
         $carrinhoItem   = CarrinhoItem::get();
+        // dd($carrinhoItem);
         return view('carrinho', compact('carrinho', 'carrinhoItem'));
     }
 
@@ -109,7 +110,9 @@ class CarrinhoController extends Controller
         $carrinho                   = Auth()->user()->carrinho;
         $resumo = $carrinho->itens()->select(  DB::raw('sum(quantidade) as quantidade'), 
                                         DB::raw('sum(precovenda) as precovenda'), 
+                                        DB::raw('sum(precopromocao*quantidade) as precopromocaototal'),
                                         DB::raw('sum(precovenda*quantidade) as precovendatotal'))->first();
+                                        // dd($resumo);
         return response()->json([
             'resumo' => $resumo
         ]);

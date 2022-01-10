@@ -6,67 +6,78 @@
     <a href="" class=" volta-carrinho"></a>
     <div class="flex-c">
         @php
+            $itens = 0;
             $quantidadeTotal = 0; 
             $valorTotal = 0; 
         @endphp
-        @foreach ($carrinho->itens as $item)
-            @php
-                $quantidadeTotal += $item->quantidade;
+        @if ($carrinho->itens->count() <= 0)
+            <h1></h1>
+        @else
+            @foreach ($carrinho->itens as $item)
+                @php
+                    $quantidadeTotal += $item->quantidade;
 
-                if ($item->precopromocao > 0) {
-                    $valorTotal += $item->precopromocao*$item->quantidade;
-                }else {
-                    $valorTotal += $item->precovenda*$item->quantidade;
-                }
-            @endphp
-            <div class="campo-maior flex-jc p-1">
-                <article style="display: flex; width: 100%;">
-                    <img src="{{asset('storage/banners/bannerrelogio9.jpg')}}" alt="LOGO" class="imgproduto-carrinho">
-                    <div class="flex-se flex-c flex-jb ml-3" style="width: 40%;">
-                        <span class="nome-produto">{{"Produto: " . $item->produto}}</span>
-                        <span class="venda-item">{{"Preço venda R$ " . number_format($item->precovenda, 2, ',', '.' )}}</span>
-                        <span class="promocao-item">{{"Promoção R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span>
-                        @if($item->precopromocao > 0 )
-                            <span class="total-item">{{"Valor subtotal R$ " . number_format($item->precopromocao*$item->quantidade, 2, ',', '.' )}}</span>
-                        @else
-                            <span class="total-item">{{"R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
-                        @endif
-                    </div>
-                    <div class="flex-c flex-jc">
-                        <div class="flex-jb box-quantidade">
-                            @if($item->produtos->quantidade <= $carrinhoItem )
-                                <a href="javascript:void(0)" class="flex">
-                                    <button type="button" onclick="incrementarItem(this)" data-id="{{$item->controle}}" class="mais">+</button>
-                                </a>
-                            @else 
-                                <a href="javascript:void(0)" class="flex">
-                                    <button type="button" onclick="incrementarItem(this)" data-id="{{$item->controle}}" class="mais" disabled>+</button>
-                                </a>
+                    if ($item->precopromocao > 0) {
+                        $valorTotal += $item->precopromocao*$item->quantidade;
+                    }else {
+                        $valorTotal += $item->precovenda*$item->quantidade;
+                    }
+                @endphp
+                <div class="campo-maior flex-jc p-1">
+                    <article style="display: flex; width: 100%;">
+                        <img src="{{asset('storage/banners/bannerrelogio9.jpg')}}" alt="LOGO" class="imgproduto-carrinho">
+                        <div class="flex-se flex-c flex-jb ml-3" style="width: 40%;">
+                            <span class="nome-produto">{{"Produto: " . $item->produto}}</span>
+                            <span class="venda-item">{{"Preço venda R$ " . number_format($item->precovenda, 2, ',', '.' )}}</span>
+                            <span class="promocao-item">{{"Promoção R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span>
+                            @if($item->precopromocao > 0 )
+                                <span class="total-item">{{"Valor subtotal R$ " . number_format($item->precopromocao*$item->quantidade, 2, ',', '.' )}}</span>
+                            @else
+                                <span class="total-item">{{"Valor subtotal R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
                             @endif
-                            <span class="quantidade-produto flex-ac">{{$item->quantidade}}</span>
-                            <a href="javascript:void(0)" class="flex">
-                                <button type="button" onclick="delimitarItem(this)" data-id="{{$item->controle}}" class="menos">-</button>
-                            </a>
                         </div>
-                        <span class="quantidade-produto mt-1">{{"Disponível: " . number_format($item->produtos->quantidade, 4, ',', '.' )}}</span>
-                    </div>
-                </article>
-                <a href="javascript:void(0)" onclick="deletarItem(this)" data-id="{{$item->controle}}" class="deletar">Deletar</a>
-            </div>
-        @endforeach
+                        <div class="flex-c flex-jc">
+                            <div class="flex-jb box-quantidade">
+                                @if($item->produtos->quantidade <= $carrinhoItem )
+                                    <a href="javascript:void(0)" class="flex">
+                                        <button type="button" onclick="incrementarItem(this)" data-id="{{$item->controle}}" class="mais">+</button>
+                                    </a>
+                                @else 
+                                    <a href="javascript:void(0)" class="flex">
+                                        <button type="button" onclick="incrementarItem(this)" data-id="{{$item->controle}}" class="mais" disabled>+</button>
+                                    </a>
+                                @endif
+                                <span class="quantidade-produto flex-ac">{{$item->quantidade}}</span>
+                                <a href="javascript:void(0)" class="flex">
+                                    <button type="button" onclick="delimitarItem(this)" data-id="{{$item->controle}}" class="menos">-</button>
+                                </a>
+                            </div>
+                            <span class="quantidade-produto mt-1">{{"Disponível: " . number_format($item->produtos->quantidade, 4, ',', '.' )}}</span>
+                        </div>
+                    </article>
+                    <a href="javascript:void(0)" onclick="deletarItem(this)" data-id="{{$item->controle}}" class="deletar">Deletar</a>
+                </div>
+            @endforeach
+        @endif
     </div>
     <div class="info-carrinho">
+        {{-- {{dd($item)}} --}}
         <div class="flex-c w-100 flex-jb">
             <div class=>
                 <h4 style="display: flex; justify-content: center;">Resumo de pedido</h4>
                 <div class="flex-jb">
                     <span class="mt-2 flex">{{ "Quantidade total comprada: " }}</span>
-                    <span class="quantidadeTotal mt-2 ml-05">1</span>
+                    {{-- {{dd('$item')}} --}}
+                        <span class="quantidadeTotal mt-2 ml-05">{{$itens}}</span>
                 </div>
                 <br>
                 <div class="flex-jb">
                     <span>{{ "Valor total: " }}</span>
-                    <span class="flex valorTotal ml-05">0,00</span>
+                    @if (!$carrinho->itens)
+                        <span class="flex valorTotal ml-05">{{"R$ " . number_format($valorTotal*$quantidadeTotal, 2, ',', '.' )}}</span>
+                    @else 
+                        <span class="flex valorTotal ml-05">{{"R$ " . number_format($valorTotal*$quantidadeTotal, 2, ',', '.' )}}</span>
+                    @endif
                 </div>
             </div>
             <div class="flex-c w-100">
@@ -79,6 +90,7 @@
             </div>
         </div>
     </div>
+
     <script>
 
         function incrementarItem(el){
@@ -120,8 +132,12 @@
                 url: "{{route('carregarDados')}}",
                 type: "GET",
             }).done(response =>{
+                if (response.resumo.precopromocaototal && response.resumo.precopromocaototal > 0 || response.resumo.precopromocaototal == true) {
+                    document.querySelector('.valorTotal').innerHTML         = formatar(response.resumo.precopromocaototal); 
+                }else{
+                    document.querySelector('.valorTotal').innerHTML         = formatar(response.resumo.precovendatotal); 
+                }
                 document.querySelector('.quantidadeTotal').innerHTML    = response.resumo.quantidade;
-                document.querySelector('.valorTotal').innerHTML         = formatar(response.resumo.precovendatotal); 
             })
         }
     </script>
