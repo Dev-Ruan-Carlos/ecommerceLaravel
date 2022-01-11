@@ -23,40 +23,49 @@
                         $valorTotal += $item->precovenda*$item->quantidade;
                     }
                 @endphp
-                <div class="campo-maior flex-jc p-1">
-                    <article style="display: flex; width: 100%;">
-                        <img src="{{asset('storage/banners/bannerrelogio9.jpg')}}" alt="LOGO" class="imgproduto-carrinho">
-                        <div class="flex-se flex-c flex-jb ml-3" style="width: 40%;">
-                            <span class="nome-produto">{{"Produto: " . $item->produto}}</span>
-                            <span class="venda-item">{{"Preço venda R$ " . number_format($item->precovenda, 2, ',', '.' )}}</span>
-                            <span class="promocao-item">{{"Promoção R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span>
-                            @if($item->precopromocao > 0 )
-                                <span class="total-item">{{"Valor subtotal R$ " . number_format($item->precopromocao*$item->quantidade, 2, ',', '.' )}}</span>
-                            @else
-                                <span class="total-item">{{"Valor subtotal R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
-                            @endif
+                @if ($carrinhoItem[0]->galeria)
+                    @foreach ($carrinhoItem as $carrinho)
+                        <div class="campo-maior flex-jc p-1">
+                            <article style="display: flex; width: 100%;">
+                                    @if ($carrinho->galeria->count() > 0)
+                                    {{-- {{dd($carrinho->galeria[0])}} --}}
+                                        <img src="{{asset('storage/' . $carrinho->galeria[0]->descricaoimg)}}" alt="LOGO" class="imgproduto">
+                                    @else 
+                                        <img src="{{asset('storage/produtos/semimagem.png')}}" alt="LOGO" class="imgproduto">
+                                    @endif
+                                    <div class="flex-se flex-c flex-jb ml-3" style="width: 40%;">
+                                        <span class="nome-produto">{{"Produto: " . $item->produto}}</span>
+                                        <span class="venda-item">{{"Preço venda R$ " . number_format($item->precovenda, 2, ',', '.' )}}</span>
+                                        <span class="promocao-item">{{"Promoção R$ " . number_format($item->precopromocao, 2, ',', '.' )}}</span>
+                                        @if( $item->precopromocao > 0 )
+                                            <span class="total-item">{{"Valor subtotal R$ " . number_format($item->precopromocao*$item->quantidade, 2, ',', '.' )}}</span>
+                                        @else
+                                            <span class="total-item">{{"Valor subtotal R$ " . number_format($item->precovenda*$item->quantidade, 2, ',', '.' )}}</span>
+                                        @endif
+                                    </div>
+                                    <div class="flex-c flex-jc">
+                                        <div class="flex-jb box-quantidade">
+                                            @if($item->produtos->quantidade <= $carrinhoItem )
+                                                <a href="javascript:void(0)" class="flex">
+                                                    <button type="button" onclick="incrementarItem(this)" data-id="{{$item->controle}}" class="mais">+</button>
+                                                </a>
+                                            @else 
+                                                <a href="javascript:void(0)" class="flex">
+                                                    <button type="button" onclick="incrementarItem(this)" data-id="{{$item->controle}}" class="mais" disabled>+</button>
+                                                </a>
+                                            @endif
+                                            <span class="quantidade-produto flex-ac">{{$item->quantidade}}</span>
+                                            <a href="javascript:void(0)" class="flex">
+                                                <button type="button" onclick="delimitarItem(this)" data-id="{{$item->controle}}" class="menos">-</button>
+                                            </a>
+                                        </div>
+                                        <span class="quantidade-produto mt-1">{{"Disponível: " . number_format($item->produtos->quantidade, 4, ',', '.' )}}</span>
+                                    </div>
+                            </article>
+                            <a href="javascript:void(0)" onclick="deletarItem(this)" data-id="{{$item->controle}}" class="deletar">Deletar</a>
                         </div>
-                        <div class="flex-c flex-jc">
-                            <div class="flex-jb box-quantidade">
-                                @if($item->produtos->quantidade <= $carrinhoItem )
-                                    <a href="javascript:void(0)" class="flex">
-                                        <button type="button" onclick="incrementarItem(this)" data-id="{{$item->controle}}" class="mais">+</button>
-                                    </a>
-                                @else 
-                                    <a href="javascript:void(0)" class="flex">
-                                        <button type="button" onclick="incrementarItem(this)" data-id="{{$item->controle}}" class="mais" disabled>+</button>
-                                    </a>
-                                @endif
-                                <span class="quantidade-produto flex-ac">{{$item->quantidade}}</span>
-                                <a href="javascript:void(0)" class="flex">
-                                    <button type="button" onclick="delimitarItem(this)" data-id="{{$item->controle}}" class="menos">-</button>
-                                </a>
-                            </div>
-                            <span class="quantidade-produto mt-1">{{"Disponível: " . number_format($item->produtos->quantidade, 4, ',', '.' )}}</span>
-                        </div>
-                    </article>
-                    <a href="javascript:void(0)" onclick="deletarItem(this)" data-id="{{$item->controle}}" class="deletar">Deletar</a>
-                </div>
+                    @endforeach
+                @endif
             @endforeach
         @endif
     </div>

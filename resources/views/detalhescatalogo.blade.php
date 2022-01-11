@@ -123,7 +123,7 @@
         </div>
     </div>
     <footer class="footer-ecommerce flex-jc mt-2">
-        <span class="white flex-ac">Developer Ruan Carlos | CNPJ 000.000.000-00 - Politíca de privacidade - Termos de uso</span>
+        <span class="white flex-ac">Developer Ruan Carlos | CNPJ/CPF 000.000.000-00 - Politíca de privacidade - Termos de uso</span>
     </footer>
 </main>
 @endsection 

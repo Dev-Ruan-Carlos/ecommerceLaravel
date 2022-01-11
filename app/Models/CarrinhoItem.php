@@ -15,4 +15,8 @@ class CarrinhoItem extends Model
     public function produtos() {
         return $this->belongsTo('App\Models\Produto', 'codproduto', 'controle');
     }
+
+    public function galeria(){
+        return $this->hasMany('App\Models\ImageProduto', 'codproduto', 'codproduto');
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Carrinho;
 use App\Models\CarrinhoItem;
+use App\Models\ImageProduto;
 use App\Models\Pedido;
 use App\Models\PedidoItem;
 use App\Models\Produto;
@@ -14,15 +15,17 @@ use Illuminate\Support\Facades\DB;
 
 class CarrinhoController extends Controller
 {
-    public function prodCarrinho(){
-    return view('carrinho');
-    }
+    // public function prodCarrinho(){
+    // return view('carrinho');
+    // }
 
     public function accessInfo(){
         $carrinho       = Carrinho::where('session', session()->getId())->first();
         $carrinhoItem   = CarrinhoItem::get();
-        // dd($carrinhoItem);
-        return view('carrinho', compact('carrinho', 'carrinhoItem'));
+        $produto        = $carrinhoItem->pluck('codproduto');
+        // dd($produto);
+        // dd($carrinhoItem[0]->galeria);
+        return view('carrinho', compact('carrinho', 'carrinhoItem', 'produto'));
     }
 
     public function adicionaritem($id){

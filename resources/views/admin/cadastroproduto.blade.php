@@ -101,7 +101,7 @@
                     <div class="body-card-imgprodutos p-2">
                         <div class="flex-jb flex-ac" style="width: 100%;">
                             <span class="subtitulo-card">Mídias</span>
-                            <a href="javascript:void(0)" class="botao-secundario" onclick="excluirAllImg(this)">Excluir imagem</a>
+                            <a href="javascript:void(0)" class="botao-secundario" onclick="excluirImg(this)">Excluir imagem</a>
                         </div>
                         <div style="width: 100%; height: 100%;" class="flex-as flex-w mt-05">
                             <div id="galeriaImagens" class="galeria flex-w">
@@ -118,7 +118,7 @@
                                 @if (isset($allProdutos))
                                     @foreach ($allProdutos->galeria as $i => $imgproduto)
                                         <div style="position: static;">
-                                            <a href="javascript:void(0)" class="fas fa-trash-alt flex-je iconeTrash" onclick="excluirImg(this)" data-id="{{$imgproduto->controle}}"></a>
+                                            {{-- <a href="javascript:void(0)" class="fas fa-trash-alt flex-je iconeTrash" onclick="excluirImg(this)" data-id="{{$imgproduto->controle}}"></a> --}}
                                             <img src="{{asset('storage/' . $allProdutos->galeria[$i]->descricaoimg)}}" alt="IMG" class="body-imgprodutos">
                                         </div>
                                     @endforeach
