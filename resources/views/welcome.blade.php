@@ -20,7 +20,7 @@
         </div>
         <h1 class="mt-2 flex-jc">Produtos em ofertas</h1>
         <section class="slide-group">
-            <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
+            <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100 mb-1">
                 @foreach ($produto as $p)
                     <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
                         @if ($p->galeria->count() > 0)
@@ -48,7 +48,7 @@
             <div class="swiper-pagination mt-1"></div>
         </section>
         <section class="slide-group">
-            <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
+            <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100 mb-1">
                 @foreach ($produto as $p)
                     <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
                         @if ($p->galeria->count() > 0)
@@ -85,7 +85,7 @@
             </div>
             <h1 class="mt-2 flex-jc">Produtos em promoção</h1>
             <section class="slide-group">
-                <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
+                <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100 mb-1">
                     @foreach ($produto as $p)
                         <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
                             @if ($p->galeria->count() > 0)
@@ -113,7 +113,7 @@
                 <div class="swiper-pagination mt-1"></div>
             </section>
             <section class="slide-group">
-                <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
+                <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100 mb-1">
                     @foreach ($produto as $p)
                         <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
                             @if ($p->galeria->count() > 0)
