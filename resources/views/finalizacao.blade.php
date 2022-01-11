@@ -97,13 +97,13 @@
                     <div class="flex-jb mt-1">
                         @if($pedido->status == "Pendente")
                             <div>
-                                <a href="{{route('admin.pedido')}}" class="footer-finalizacao">Voltar</a>
+                                <a href="{{route('admin.pedido')}}" class="botao">Voltar</a>
                             </div>    
                             <div>
-                                <a href="{{route('cancelarPedido', $pedido->controle)}}" class="footer-finalizacao">Cancelar pedido</a>
+                                <a href="{{route('cancelarPedido', $pedido->controle)}}" class="botao">Cancelar pedido</a>
                             </div>
                             <div>
-                                <a href="{{route('formaPagamento', $pedido->controle)}}" class="footer-pagamento">Forma de pagamento</a>
+                                <a href="{{route('formaPagamento', $pedido->controle)}}" class="botao">Forma de pagamento</a>
                             </div>
                         @else   
                             <div>

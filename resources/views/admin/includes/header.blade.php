@@ -5,9 +5,11 @@
     <nav>
         <ul>
             <li><a href="{{route('admin.meusdados')}}" @if(request()->routeIs('admin.meusdados*')) class="li-active" @endif><i class="fas fa-id-badge"></i><span>Meus dados</span></a></li>
-            <li><a href="{{route('admin.gerencial')}}" @if(request()->routeIs('admin.gerencial')) class="li-active" @endif><i class="fas fa-chart-pie"></i><span>Gerencial</span></a></li>
-            <li><a href="{{route('admin.catalogo')}}" @if(request()->routeIs('admin.catalogo*')) class="li-active" @endif><i class="fas fa-box"></i><span>Catálogo</span></a></li>
-            <li><a href="{{route('admin.cliente')}}" @if(request()->routeIs('admin.cliente*')) class="li-active" @endif><i class="fa fa-user" ></i><span>Clientes</span></a></li>
+            @if (Auth()->user()->nivel_acesso != "3")
+                <li><a href="{{route('admin.gerencial')}}" @if(request()->routeIs('admin.gerencial')) class="li-active" @endif><i class="fas fa-chart-pie"></i><span>Gerencial</span></a></li>
+                <li><a href="{{route('admin.catalogo')}}" @if(request()->routeIs('admin.catalogo*')) class="li-active" @endif><i class="fas fa-box"></i><span>Catálogo</span></a></li>
+                <li><a href="{{route('admin.cliente')}}" @if(request()->routeIs('admin.cliente*')) class="li-active" @endif><i class="fa fa-user" ></i><span>Clientes</span></a></li>
+                @endif
             <li><a href="{{route('admin.pedido')}}" @if(request()->routeIs('admin.pedido*')) class="li-active" @endif><i class="fas fa-shopping-cart"></i><span>Pedidos</span></a></li>
         </ul>
     </nav>
@@ -26,7 +28,7 @@
                     </div>
                 @else 
                     <div class="header-conta-img">
-                        <img src="{{asset('storage/produtos/semimagem2.png')}}" alt="LOGO" class="imgproduto">
+                        <img src="{{asset('storage/produtos/semimagem2.jpg')}}" alt="LOGO" class="imgproduto">
                     </div>
                 @endif
             <div class="toggleUser">
@@ -38,7 +40,7 @@
                             </div>
                         @else 
                             <div class="togglerUserImg">
-                                <img src="{{asset('storage/produtos/semimagem2.png')}}" alt="LOGO" class="imgproduto">
+                                <img src="{{asset('storage/produtos/semimagem2.jpg')}}" alt="LOGO" class="imgproduto">
                             </div>
                         @endif
                     </div>

@@ -29,6 +29,8 @@ class InicioController extends Controller
 
     public function detalhesProdutos(Request $request){
         $user = Auth::user();
+        $produto = Produto::get();
+        $image = ImageProduto::get();
         $produtos = null;
         if($request->get('buscar')){
             $busca = $request->get('buscar');
@@ -38,6 +40,6 @@ class InicioController extends Controller
         }else{
             $produtos = Produto::get();    
         }
-        return view('detalhescatalogo', compact('produtos', 'user'));
+        return view('detalhescatalogo', compact('produtos', 'user', 'image'));
     }
 }

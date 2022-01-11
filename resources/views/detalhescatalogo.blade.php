@@ -22,9 +22,13 @@
         <section class="slide-group">
             <div class="@if($produtos->count() < 7) flex-jc @endif swiper-wrapper w-100">
                 @foreach ($produtos as $p)
-                    <div class="card-produto swiper-slide flex-c flex-jc slide-inicio" style="margin-right: 10px;">
+                    <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
+                        @if ($p->galeria->count() > 0)
+                            <img src="{{asset('storage/' . $p->galeria[0]->descricaoimg)}}" alt="LOGO" class="imgproduto">
+                        @else 
+                            <img src="{{asset('storage/produtos/semimagem.png')}}" alt="LOGO" class="imgproduto">
+                        @endif
                         <div>
-                            <img src="{{asset('storage/banners/fileira1.jpg')}}" alt="LOGO" class="imgproduto">
                         </div>
                         <div class="mt-05 p-1">
                             <p class="">{{"Produto: " . $p->produto}}</p>
@@ -41,13 +45,18 @@
                     </div>
                 @endforeach
             </div>
+            <div class="swiper-pagination"></div>
         </section>
         <section class="slide-group">
             <div class="@if($produtos->count() < 7) flex-jc @endif swiper-wrapper w-100">
                 @foreach ($produtos as $p)
-                    <div class="card-produto swiper-slide flex-c flex-jc slide-inicio" style="margin-right: 10px;">
+                    <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
+                        @if ($p->galeria->count() > 0)
+                            <img src="{{asset('storage/' . $p->galeria[0]->descricaoimg)}}" alt="LOGO" class="imgproduto">
+                        @else 
+                            <img src="{{asset('storage/produtos/semimagem.png')}}" alt="LOGO" class="imgproduto">
+                        @endif
                         <div>
-                            <img src="{{asset('storage/banners/fileira2.jpg')}}" alt="LOGO" class="imgproduto">
                         </div>
                         <div class="mt-05 p-1">
                             <p class="">{{"Produto: " . $p->produto}}</p>
@@ -64,6 +73,7 @@
                     </div>
                 @endforeach
             </div>
+            <div class="swiper-pagination"></div>
         </section>
         <div>
             <div class="swiper-container swiper-container-fade swiper-banner">
@@ -77,9 +87,13 @@
             <section class="slide-group">
                 <div class="@if($produtos->count() < 7) flex-jc @endif swiper-wrapper w-100">
                     @foreach ($produtos as $p)
-                        <div class="card-produto swiper-slide flex-c flex-jc slide-inicio" style="margin-right: 10px;">
+                        <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
+                            @if ($p->galeria->count() > 0)
+                                <img src="{{asset('storage/' . $p->galeria[0]->descricaoimg)}}" alt="LOGO" class="imgproduto">
+                            @else 
+                                <img src="{{asset('storage/produtos/semimagem.png')}}" alt="LOGO" class="imgproduto">
+                            @endif
                             <div>
-                                <img src="{{asset('storage/banners/fileira3.jpg')}}" alt="LOGO" class="imgproduto">
                             </div>
                             <div class="mt-05 p-1">
                                 <p class="">{{"Produto: " . $p->produto}}</p>
@@ -96,13 +110,18 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="swiper-pagination"></div>
             </section>
             <section class="slide-group">
                 <div class="@if($produtos->count() < 7) flex-jc @endif swiper-wrapper w-100">
                     @foreach ($produtos as $p)
-                        <div class="card-produto swiper-slide flex-c flex-jc slide-inicio" style="margin-right: 10px;">
+                        <div class="card-produto swiper-slide flex-c flex-jc slide-inicio">
+                            @if ($p->galeria->count() > 0)
+                                <img src="{{asset('storage/' . $p->galeria[0]->descricaoimg)}}" alt="LOGO" class="imgproduto">
+                            @else 
+                                <img src="{{asset('storage/produtos/semimagem.png')}}" alt="LOGO" class="imgproduto">
+                            @endif
                             <div>
-                                <img src="{{asset('storage/banners/fileira4.jpg')}}" alt="LOGO" class="imgproduto">
                             </div>
                             <div class="mt-05 p-1">
                                 <p class="">{{"Produto: " . $p->produto}}</p>
@@ -119,6 +138,7 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="swiper-pagination"></div>
             </section>
         </div>
     </div>
@@ -126,4 +146,57 @@
         <span class="white flex-ac">Developer Ruan Carlos | CNPJ/CPF 000.000.000-00 - Politíca de privacidade - Termos de uso</span>
     </footer>
 </main>
+<script>
+    var
+        swiper = null;
+
+    window.addEventListener('load', () => {
+        swiper = new Swiper('.swiper-container', {
+            spaceBetween: 0,
+            centeredSlides: true,
+            effect: 'fade',
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            }
+        });   
+        slideGroup = new Swiper('.slide-group', {
+            spaceBetween: 10,
+                    centeredSlidesBounds: true,
+                    autoplay: {
+                        delay: 6000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.slide-group-next',
+                        prevEl: '.slide-group-prev',
+                    },
+                    autoplay: false,
+                    breakpoints: {
+                        0: {
+                            slidesPerView: 'auto',
+                        },
+                        500: {
+                            slidesPerView: 'auto',
+                        },
+                        750: {
+                            slidesPerView: 'auto',
+                        },
+                        1030: {
+                            slidesPerView: 'auto',
+                        },
+                        1240: {
+                            centeredSlides: false,
+                            slidesPerView: 'auto',
+                        },
+                    }
+        });   
+    })
+
+</script>
 @endsection 

@@ -22,9 +22,10 @@ class CarrinhoController extends Controller
     public function accessInfo(){
         $carrinho       = Carrinho::where('session', session()->getId())->first();
         $carrinhoItem   = CarrinhoItem::get();
-        $produto        = $carrinhoItem->pluck('codproduto');
+        $produto        = ImageProduto::get();
+        // dd($carrinhoItem);
         // dd($produto);
-        // dd($carrinhoItem[0]->galeria);
+        // dd($carrinhoItem);
         return view('carrinho', compact('carrinho', 'carrinhoItem', 'produto'));
     }
 

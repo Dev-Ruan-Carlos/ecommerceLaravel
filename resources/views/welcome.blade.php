@@ -45,6 +45,7 @@
                     </div>
                 @endforeach
             </div>
+            <div class="swiper-pagination mt-1"></div>
         </section>
         <section class="slide-group">
             <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
@@ -72,6 +73,7 @@
                     </div>
                 @endforeach
             </div>
+            <div class="swiper-pagination mt-1"></div>
         </section>
         <div>
             <div class="swiper-container swiper-container-fade swiper-banner">
@@ -108,6 +110,7 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="swiper-pagination mt-1"></div>
             </section>
             <section class="slide-group">
                 <div class="@if($produto->count() < 7) flex-jc @endif swiper-wrapper w-100">
@@ -135,11 +138,15 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="swiper-pagination mt-1"></div>
             </section>
         </div>
     </div>
+    <div>
+
+    </div>
     <footer class="footer-ecommerce flex-jc mt-2">
-        <span class="white flex-ac">Developer Ruan Carlos | CNPJ/CPF 000.000.000-00 - Politíca de privacidade - Termos de uso</span>
+        <span class="white flex-ac">Developer Ruan Carlos | CNPJ 000.000.000-00 - Politíca de privacidade - Termos de uso</span>
     </footer>
 </main>
 <script>
